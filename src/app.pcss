@@ -1,0 +1,14 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-[100vh] grid grid-rows-[auto_1fr_auto];
+  }
+
+  a {
+    @apply text-blue-700 underline
+  }
+}

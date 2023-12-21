@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { getTabOverview } from '../../../../../../api/courses/_functions/get/getOverview';
-
 	export let data;
-
-	console.log(data);
 </script>
 
-<h4>{data.tabOverview.name}</h4>
-{#if data.tabOverview.type === 'code'}
-	{data.tabContent.startingCode}
-{:else if data.tabOverview.type === 'component'}
-	<svelte:component this={data.tabContent} />
-{/if}
+<div class="flex flex-col p-6">
+	<h5 class="text-lg font-medium">{data.tabOverview.name}</h5>
+	{#if data.tabOverview.type === 'code'}
+		<code class="bg-black p-4 text-sm text-white">
+			{data.tabContent.startingCode}
+		</code>
+	{:else if data.tabOverview.type === 'component'}
+		<svelte:component this={data.tabContent} />
+	{/if}
+</div>

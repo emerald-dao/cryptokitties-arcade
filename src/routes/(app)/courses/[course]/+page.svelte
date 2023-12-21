@@ -1,1 +1,1 @@
-<div>pagina vacia</div>
+<div>Todo: course page</div>

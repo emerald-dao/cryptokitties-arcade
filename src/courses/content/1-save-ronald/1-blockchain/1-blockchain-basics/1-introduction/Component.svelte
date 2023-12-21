@@ -1,7 +1,1 @@
-<div>Hello World!</div>
-
-<style>
-	div {
-		background-color: red;
-	}
-</style>
+<div class="bg-red-100">Hello World!</div>

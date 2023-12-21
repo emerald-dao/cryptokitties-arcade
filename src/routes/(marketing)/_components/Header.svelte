@@ -1,1 +1,1 @@
-<div>This is the marketing header</div>
+<div class="border-b">This is the marketing header</div>

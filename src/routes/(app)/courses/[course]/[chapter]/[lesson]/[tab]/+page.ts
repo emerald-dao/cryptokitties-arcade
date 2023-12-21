@@ -17,8 +17,6 @@ export const load = async ({ params, fetch }) => {
 			tabOverview.type
 		);
 
-		console.log('tabContent', tabContent);
-
 		return {
 			tabOverview,
 			tabContent

@@ -1,1 +1,1 @@
-<div>This is the courses header</div>
+<div class="border-b">This is the courses header</div>
