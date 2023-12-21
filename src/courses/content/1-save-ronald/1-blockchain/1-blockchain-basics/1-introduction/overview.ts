@@ -2,5 +2,5 @@ import type { LessonTabOverview } from '$courses/types/lesson-tab-overview.inter
 
 export const overview: LessonTabOverview = {
 	name: 'select color',
-	type: 'config'
+	type: 'component'
 };

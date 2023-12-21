@@ -3,5 +3,6 @@ export const transformOverviewRouteToSlug = (route: string) => {
 		.replace('/overview.ts', '')
 		.replaceAll('../', '')
 		.replace('courses/content/', '')
+		.replace('/tabs', '')
 		.replace('/src/', '');
 };

@@ -5,9 +5,6 @@ import { getChaptersOverviewsFromCourse } from '../_functions/get/getChaptersOve
 export const GET = async ({ params }) => {
 	try {
 		const courseOverview = await getCourseOverview(params.course);
-
-		console.log(courseOverview);
-
 		const chaptersOverviews = await getChaptersOverviewsFromCourse(params.course);
 
 		return json({ ...courseOverview, chapters: chaptersOverviews });

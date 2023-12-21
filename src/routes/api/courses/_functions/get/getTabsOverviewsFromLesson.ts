@@ -10,7 +10,7 @@ export const getTabsOverviewsFromLesson = async (
 	lessonSlug: string
 ): Promise<LessonTabOverviewWithSlug[]> => {
 	const lessonsTabsOverviewsRecords = import.meta.glob(
-		'/src/courses/content/*/*/*/tabs/*/overview.ts'
+		'/src/courses/content/*/*/*/*/overview.ts'
 	) as Record<string, () => Promise<{ overview: LessonTabOverview }>>;
 	const iterableRecords = Object.entries(lessonsTabsOverviewsRecords);
 

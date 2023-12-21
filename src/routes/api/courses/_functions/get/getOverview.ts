@@ -1,6 +1,7 @@
 import type { ChapterOverviewWithSlug } from '$courses/types/chapter-overview.interface';
 import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
+import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 
 export const getCourseOverview = async (courseSlug: string): Promise<CourseOverviewWithSlug> => {
 	const { overview } = await import(`../../../../../courses/content/${courseSlug}/overview.ts`);
@@ -37,5 +38,21 @@ export const getLessonOverview = async (
 	return {
 		...overview,
 		slug: `${courseSlug}/${chapterSlug}/${lessonSlug}`
+	};
+};
+
+export const getTabOverview = async (
+	courseSlug: string,
+	chapterSlug: string,
+	lessonSlug: string,
+	tabSlug: string
+): Promise<LessonTabOverviewWithSlug> => {
+	const { overview } = await import(
+		`../../../../../courses/content/${courseSlug}/${chapterSlug}/${lessonSlug}/${tabSlug}/overview.ts`
+	);
+
+	return {
+		...overview,
+		slug: `${courseSlug}/${chapterSlug}/${lessonSlug}/${tabSlug}`
 	};
 };
