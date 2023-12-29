@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
-	import { Button } from '$lib/components/ui/button';
+	import LessonsList from './_components/LessonsList.svelte';
+	import CompactSidebarButton from './_components/_atoms/CompactSidebarButton.svelte';
 
 	export let data;
 
-	let isSidebarOpen = true;
+	let isSidebarOpen: boolean;
 	let lessonNumberInUrl: number | null;
 
 	$: if ($page.params.lesson) {
@@ -30,40 +30,8 @@
 		<h3 class={`bg-black px-3 py-2 text-center text-white  ${isSidebarOpen ? '' : 'hidden'}`}>
 			{data.chapter.title.toUpperCase()}
 		</h3>
-		{#each data.chapter.lessons as lesson, i}
-			<ul>
-				<li class={`${isSidebarOpen ? 'border' : 'border-y'} border-black`}>
-					<a class={`${isSidebarOpen ? 'flex flex-row' : ''}`} href={`/courses/${lesson.slug}`}>
-						<div
-							class:bg-black={lessonNumberInUrl === i + 1}
-							class:text-white={lessonNumberInUrl === i + 1}
-							class={`flex items-center justify-center border-black px-2 py-1 ${
-								isSidebarOpen ? 'border-r' : ''
-							}`}
-						>
-							<p>{`${data.chapter.slug.match(/\/(\d+)-/)?.[1] || ''}.${i + 1}`}</p>
-						</div>
-						{#if isSidebarOpen}
-							<div class="px-3 py-1">
-								<p>{`${lesson.name.toUpperCase()}`}</p>
-							</div>
-						{/if}
-					</a>
-				</li>
-			</ul>
-		{/each}
-
-		<Button
-			variant="ghost"
-			class={`absolute top-1/2 ${isSidebarOpen ? 'right-0' : '-right-6'} p-0 hover:bg-transparent`}
-			on:click={() => (isSidebarOpen = !isSidebarOpen)}
-		>
-			{#if isSidebarOpen}
-				<ChevronLeft />
-			{:else}
-				<ChevronRight />
-			{/if}
-		</Button>
+		<LessonsList bind:isSidebarOpen bind:lessonNumberInUrl chapter={data.chapter} />
+		<CompactSidebarButton bind:isSidebarOpen />
 	</div>
 	<slot />
 </div>
