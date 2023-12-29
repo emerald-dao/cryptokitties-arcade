@@ -27,9 +27,6 @@
 			isSidebarOpen ? `px-6` : ``
 		}`}
 	>
-		<h3 class={`bg-black px-3 py-2 text-center text-white  ${isSidebarOpen ? '' : 'hidden'}`}>
-			{data.chapter.title.toUpperCase()}
-		</h3>
 		<LessonsList bind:isSidebarOpen bind:lessonNumberInUrl chapter={data.chapter} />
 		<CompactSidebarButton bind:isSidebarOpen />
 	</div>

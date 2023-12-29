@@ -1,6 +1,5 @@
 import type { ChapterOverview } from '$courses/types/chapter-overview.interface';
 
 export const overview: ChapterOverview = {
-	name: 'Flow blockchain',
-	title: 'Flow Blockchain Basics'
+	name: 'Flow blockchain'
 };
