@@ -11,7 +11,7 @@
 <div class="grid grid-cols-3 gap-2 border-r-4 border-l-2 border-t-2 border-b-4 border-black">
     <div class="col-span-1 bg-{course.color}-300 w-[15ch]">
         <BlackBackgroundParagraph text={level}/>
-       <img src="/Cat.png" alt="course cat" class=""/>
+       <img src="/Cat.png" alt="course cat"/>
     </div>
     <div class="col-span-2 flex-col gap-6 px-1 pt-4">
         <h1 class="font-vt323 text-lg">{course.name.toUpperCase()}</h1>
