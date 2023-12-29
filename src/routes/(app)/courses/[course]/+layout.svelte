@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Header from '../../_components/Header.svelte';
+	import Header from '../../_components/Header/Header.svelte';
 
 	export let data;
 </script>
 
-<Header />
+<Header course={data.course} courses={data.courses}/>
 <section class="flex flex-col bg-slate-50">
 	<div class="flex flex-col gap-5 border-b bg-slate-200 p-6">
 		<div>
