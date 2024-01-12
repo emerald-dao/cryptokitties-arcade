@@ -1,9 +1,10 @@
 <script lang="ts">
 	export let data;
+
 </script>
 
 <div class="grid flex-1 grid-cols-[550px_1fr]">
-	<article class="p-6">
+	<article class="all-prose p-6">
 		<svelte:component this={data.lessonContent} />
 	</article>
 	<div class="border-l bg-slate-100">
