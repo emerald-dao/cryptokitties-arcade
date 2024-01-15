@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
 	export let isSidebarOpen: boolean = true;
 </script>
 
-<Button
-	variant="ghost"
-	class={`absolute top-1/2 ${isSidebarOpen ? 'right-0' : '-right-6'} p-0 hover:bg-transparent`}
+<button
+	class:right-0={isSidebarOpen}
+	class:-right-6={!isSidebarOpen}
+	class="absolute top-1/2 p-0"
 	on:click={() => (isSidebarOpen = !isSidebarOpen)}
 >
 	{#if isSidebarOpen}
@@ -15,4 +15,4 @@
 	{:else}
 		<ChevronRight />
 	{/if}
-</Button>
+</button>
