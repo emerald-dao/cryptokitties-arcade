@@ -7,5 +7,7 @@
 </script>
 
 {#each chapter.lessons as lesson, i}
-	<LessonListElement bind:isSidebarOpen {lesson} {chapter} {i} />
+	<ul>
+		<LessonListElement bind:isSidebarOpen {lesson} {chapter} {i} />
+	</ul>
 {/each}
