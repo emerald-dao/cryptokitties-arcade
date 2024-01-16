@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { NAV_ITEMS } from '../../config';
+	import { NAV_ITEMS } from '../config/navItem';
 </script>
 
 <div class="font-vt323 flex gap-x-8 text-sm">

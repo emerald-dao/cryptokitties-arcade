@@ -1,5 +1,5 @@
 <script lang="ts">
-	import NavBar from './components/atoms/NavBar.svelte';
+	import NavBar from './components/NavBar.svelte';
 	import FlowCats from '$lib/components/atoms/FlowCats.svelte';
 	import { FlowConnect } from '@emerald-dao/component-library';
 </script>
