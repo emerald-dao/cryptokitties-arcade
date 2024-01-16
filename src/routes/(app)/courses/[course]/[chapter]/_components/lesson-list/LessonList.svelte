@@ -6,8 +6,8 @@
 	export let isSidebarOpen: boolean;
 </script>
 
-{#each chapter.lessons as lesson, i}
-	<ul>
+<ul class="flex flex-col gap-2">
+	{#each chapter.lessons as lesson, i}
 		<LessonListElement bind:isSidebarOpen {lesson} {chapter} {i} />
-	</ul>
-{/each}
+	{/each}
+</ul>

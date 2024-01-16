@@ -8,22 +8,22 @@
 	export let i: number;
 	export let isSidebarOpen: boolean;
 
-	$: activeLessonSlug = $page.params.lesson;
+	$: isLessonActive = $page.params.lesson === lesson.slug.split('/').pop();
 </script>
 
 <li class:border={isSidebarOpen} class:border-y={!isSidebarOpen} class="border-black">
 	<a class:flex={isSidebarOpen} class:flex-row={isSidebarOpen} href={`/courses/${lesson.slug}`}>
 		<div
-			class:bg-black={activeLessonSlug === lesson.slug.split('/').pop()}
-			class:text-white={activeLessonSlug === lesson.slug.split('/').pop()}
+			class:bg-black={isLessonActive}
+			class:text-white={isLessonActive}
 			class:border-r={isSidebarOpen}
 			class="flex items-center justify-center border-black px-2 py-1"
 		>
 			<p>{`${chapter.slug.match(/\/(\d+)-/)?.[1] || ''}.${i + 1}`}</p>
 		</div>
 		{#if isSidebarOpen}
-			<div class="px-3 py-1">
-				<p>{`${lesson.name.toUpperCase()}`}</p>
+			<div class="px-3 py-1 uppercase">
+				<p>{lesson.name}</p>
 			</div>
 		{/if}
 	</a>
