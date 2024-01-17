@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<div class="grid flex-1 grid-cols-[550px_1fr]">
+<div class="grid flex-1 grid-cols-[1fr_550px]">
 	<article class="p-6">
 		<svelte:component this={data.lessonContent} />
 	</article>
