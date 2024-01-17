@@ -9,6 +9,8 @@
 	export let isSidebarOpen: boolean;
 
 	$: isLessonActive = $page.params.lesson === lesson.slug.split('/').pop();
+
+	$: chapterNumber = chapter.slug.match(/\/(\d+)-/)?.[1] || '';
 </script>
 
 <li class:border={isSidebarOpen} class:border-y={!isSidebarOpen} class="border-black">
@@ -19,7 +21,7 @@
 			class:border-r={isSidebarOpen}
 			class="flex items-center justify-center border-black px-2 py-1"
 		>
-			<p>{`${chapter.slug.match(/\/(\d+)-/)?.[1] || ''}.${i + 1}`}</p>
+			<p>{`${chapterNumber}.${i + 1}`}</p>
 		</div>
 		{#if isSidebarOpen}
 			<div class="px-3 py-1 uppercase">
