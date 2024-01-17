@@ -8,12 +8,12 @@
 </script>
 
 <div class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black">
-	<div class="col-span-1 bg-{course.color}-300 w-[15ch]">
-		<CourseCardLabel text={level} />
+	<div class="bg-{course.color}-300 max-w-[15ch]">
+		<CourseCardLabel>{level}</CourseCardLabel>
 		<img src="/Cat.png" alt="course cat" />
 	</div>
-	<div class="col-span-2 flex-col gap-6 px-1 pt-4">
+	<div class="gap-6 px-1 pt-4">
 		<h1 class="font-vt323 text-lg uppercase">{course.name}</h1>
-		<CourseCardLabel text={course.subject} />
+		<CourseCardLabel>{course.subject}</CourseCardLabel>
 	</div>
 </div>
