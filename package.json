@@ -36,7 +36,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@emerald-dao/component-library": "^6.6.0",
 		"bits-ui": "^0.11.8",
 		"clsx": "^2.0.0",
 		"lucide-svelte": "^0.300.0",
