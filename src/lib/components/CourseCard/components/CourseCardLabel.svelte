@@ -1,3 +1,3 @@
-<p class="font-vt323 w-fit bg-black p-1 uppercase text-white">
+<p class="w-fit bg-black p-1 font-pixel uppercase text-white">
 	<slot />
 </p>

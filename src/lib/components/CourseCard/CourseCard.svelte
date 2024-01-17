@@ -4,7 +4,11 @@
 
 	export let course: CourseOverviewWithSlug;
 
-	let level = 'LEVEL ' + course.slug.slice(0, 1);
+	let getLevel = (slug: string): string => {
+		return slug.split('-')[0];
+	};
+
+	let level = `LEVEL ${getLevel(course.slug)}`;
 </script>
 
 <div class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black">
@@ -13,7 +17,7 @@
 		<img src="/Cat.png" alt="course cat" />
 	</div>
 	<div class="gap-6 px-1 pt-4">
-		<h1 class="font-vt323 text-lg uppercase">{course.name}</h1>
+		<h2 class="font-pixel text-lg uppercase">{course.name}</h2>
 		<CourseCardLabel>{course.subject}</CourseCardLabel>
 	</div>
 </div>

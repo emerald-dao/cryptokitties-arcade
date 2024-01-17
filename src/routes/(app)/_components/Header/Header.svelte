@@ -3,25 +3,25 @@
 		CourseOverviewWithChapters,
 		CourseOverviewWithSlug
 	} from '$courses/types/course-overview.interface';
-	import FlowCats from '$lib/components/atoms/FlowCats.svelte';
+	import FlowCatsLogo from '$lib/components/atoms/FlowCatsLogo.svelte';
 	import CourseDropDownMenu from './components/CourseDropDownMenu/CourseDropDownMenu.svelte';
 
-	export let course: CourseOverviewWithChapters;
-	export let courses: CourseOverviewWithSlug[];
+	export let activeCourse: CourseOverviewWithChapters;
+	export let allCourses: CourseOverviewWithSlug[];
 
-	let level = 'LEVEL ' + course.slug.slice(0, 1);
+	let getLevel = (slug: string): string => {
+		return slug.split('-')[0];
+	};
+
+	let level = `LEVEL ${getLevel(activeCourse.slug)}`;
 </script>
 
 <div class="h-45 flex w-full items-center justify-between border-b border-black px-20">
 	<div class="flex items-center gap-6">
-		<CourseDropDownMenu {level} {courses} />
-		<h1 class="font-pixel uppercase">{course.name}</h1>
+		<CourseDropDownMenu {level} courses={allCourses} />
+		<h1 class="font-pixel uppercase">{activeCourse.name}</h1>
 	</div>
-	<div class="justify-start">
-		<FlowCats />
-	</div>
-	<div class="flex items-center gap-4">
-		<!--TODO: This is de username?-->
-		<p class="font-vt323 text-sm">jacob.find</p>
-	</div>
+	<FlowCatsLogo />
+	<!--TODO: This is de username?-->
+	<p class="font-pixel text-sm">jacob.find</p>
 </div>
