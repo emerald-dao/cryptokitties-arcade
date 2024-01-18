@@ -5,7 +5,12 @@ const typography = require('@tailwindcss/typography');
 const config = {
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-	safelist: ['dark'],
+	safelist: [
+		{
+			pattern: /bg-green-[^/]/
+		},
+		'dark'
+	],
 	theme: {
 		container: {
 			center: true,
