@@ -4,7 +4,7 @@
 	export let value: number;
 </script>
 
-<div class="flex items-center gap-1 font-pixel">
+<div class="font-pixel flex items-center gap-1">
 	<p>{value}%</p>
-	<Progress {value} max={100} class="w-[15ch] rounded-none" />
+	<Progress {value} max={100} class="min-w-[15ch] rounded-none" />
 </div>
