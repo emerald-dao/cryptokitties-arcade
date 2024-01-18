@@ -9,7 +9,9 @@
 </script>
 
 <div
-	class="{isChapterActive ? 'bg-black text-white' : ''} flex h-8 items-center border-x border-black"
+	class="{isChapterActive
+		? 'bg-black text-white'
+		: ''} flex items-center border-x border-black py-1"
 >
 	<a href="/courses/{chapter.slug}" class="px-3 font-pixel uppercase">
 		{chapterNumber}. {chapter.name}
