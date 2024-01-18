@@ -1,4 +1,5 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
+const typography = require('@tailwindcss/typography');
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -63,7 +64,8 @@ const config = {
 				sans: [...fontFamily.sans]
 			}
 		}
-	}
+	},
+	plugins: [typography]
 };
 
 export default config;
