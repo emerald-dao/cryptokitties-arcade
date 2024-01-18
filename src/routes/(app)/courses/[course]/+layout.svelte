@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from '../../_components/Header.svelte';
-	import SubHeader from '../../_components/SubHeader/SubHeader.svelte';
+	import SubHeader from '../../_components/subHeader/SubHeader.svelte';
 
 	export let data;
 </script>
