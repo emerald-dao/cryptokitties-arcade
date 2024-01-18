@@ -8,12 +8,15 @@
 	$: isChapterActive = $page.params.chapter === chapter.slug.split('/').pop();
 </script>
 
-<div
-	class="{isChapterActive
-		? 'bg-black text-white'
-		: ''} flex items-center border-x border-black py-1"
->
-	<a href="/courses/{chapter.slug}" class="px-3 font-pixel uppercase">
+<div class:is-active={isChapterActive} class="flex items-center border-x border-black py-1">
+	<a href="/courses/{chapter.slug}" class="font-pixel px-3 uppercase">
 		{chapterNumber}. {chapter.name}
 	</a>
 </div>
+
+<style>
+	.is-active {
+		background-color: black;
+		color: white;
+	}
+</style>
