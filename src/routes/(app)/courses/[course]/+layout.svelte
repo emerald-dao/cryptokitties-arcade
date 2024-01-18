@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from '../../_components/Header/Header.svelte';
+	import Header from '../../_components/header/Header.svelte';
 
 	export let data;
 </script>

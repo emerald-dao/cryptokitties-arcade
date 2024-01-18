@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
-	import CourseCard from '$lib/components/CourseCard/CourseCard.svelte';
+	import CourseCard from '$lib/components/courseCard/CourseCard.svelte';
 
 	export let level: string;
 	export let courses: CourseOverviewWithSlug[];
