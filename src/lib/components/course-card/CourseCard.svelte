@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 	import CourseCardLabel from './components/CourseCardLabel.svelte';
-	import { getLevel } from '$lib/utils/getLevel';
+	import { getCourseLevel } from '$lib/utils/getCourseLevel';
 
 	export let course: CourseOverviewWithSlug;
 
-	let level = `LEVEL ${getLevel(course.slug)}`;
+	let level = `LEVEL ${getCourseLevel(course.slug)}`;
 </script>
 
 <div class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black">
