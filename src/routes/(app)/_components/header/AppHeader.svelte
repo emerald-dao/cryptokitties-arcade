@@ -4,14 +4,11 @@
 		CourseOverviewWithSlug
 	} from '$courses/types/course-overview.interface';
 	import FlowCatsLogo from '$lib/components/atoms/FlowCatsLogo.svelte';
-	import CourseDropDownMenu from './components/CourseDropDownMenu/CourseDropDownMenu.svelte';
+	import CourseDropDownMenu from './components/CourseDropDownMenu.svelte';
+	import { getLevel } from '$lib/utils/getLevel';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
-
-	let getLevel = (slug: string): string => {
-		return slug.split('-')[0];
-	};
 
 	let level = `LEVEL ${getLevel(activeCourse.slug)}`;
 </script>

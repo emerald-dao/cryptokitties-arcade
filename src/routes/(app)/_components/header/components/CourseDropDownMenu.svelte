@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
-	import CourseCard from '$lib/components/courseCard/CourseCard.svelte';
+	import CourseCard from '$lib/components/course-card/CourseCard.svelte';
 
 	export let level: string;
 	export let courses: CourseOverviewWithSlug[];
@@ -13,7 +13,7 @@
 		<Button
 			builders={[builder]}
 			variant="outline"
-			class="h-full rounded-none border border-black font-pixel text-base {builder['data-state'] ==
+			class="font-pixel h-full rounded-none border border-black text-base {builder['data-state'] ==
 			'open'
 				? 'bg-[#2A0202] text-white'
 				: 'bg-white text-black'}"

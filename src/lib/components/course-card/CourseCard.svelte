@@ -1,12 +1,9 @@
 <script lang="ts">
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 	import CourseCardLabel from './components/CourseCardLabel.svelte';
+	import { getLevel } from '$lib/utils/getLevel';
 
 	export let course: CourseOverviewWithSlug;
-
-	let getLevel = (slug: string): string => {
-		return slug.split('-')[0];
-	};
 
 	let level = `LEVEL ${getLevel(course.slug)}`;
 </script>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Header from './_components/Header/Header.svelte';
+	import MarketingHeader from './_components/header/MarketingHeader.svelte';
 	import Footer from './_components/Footer.svelte';
 </script>
 
-<Header />
+<MarketingHeader />
 <slot />
 <Footer />

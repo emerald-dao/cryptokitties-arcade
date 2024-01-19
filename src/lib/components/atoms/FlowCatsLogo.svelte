@@ -1,1 +1,1 @@
-<h1 class="font-pixel">😺 FLOW CATS</h1>
+<span class="font-pixel">😺 FLOW CATS</span>
