@@ -1,19 +1,22 @@
 <script lang="ts">
+	import CheckAnswerButton from './_components/atoms/CheckAnswerButton.svelte';
+	import HelpButton from './_components/atoms/HelpButton.svelte';
+	import LessonArticle from './_components/lesson-article/LessonArticle.svelte';
+	import LessonTabs from './_components/lesson-tabs/LessonTabs.svelte';
+
 	export let data;
 </script>
 
 <div class="grid flex-1 grid-cols-[550px_1fr]">
-	<article class="p-6">
-		<svelte:component this={data.lessonContent} />
-	</article>
-	<div class="border-l bg-slate-100">
-		<div class="flex flex-row items-start">
-			{#each data.lessonOverview.tabs as tab}
-				<a class="border border-slate-400 bg-slate-300 p-3" href={`/courses/${tab.slug}`}
-					>{tab.name}</a
-				>
-			{/each}
+	<LessonArticle lessonContent={data.lessonContent} />
+	<div class={`border-l bg-${data.course.color}-200 flex flex-col justify-between`}>
+		<div>
+			<LessonTabs lessonOverview={data.lessonOverview} />
+			<slot />
 		</div>
-		<slot />
+		<div class="grid grid-cols-2">
+			<HelpButton color={data.course.color} />
+			<CheckAnswerButton color={data.course.color} />
+		</div>
 	</div>
 </div>

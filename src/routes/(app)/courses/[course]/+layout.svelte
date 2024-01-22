@@ -5,7 +5,7 @@
 </script>
 
 <AppHeader activeCourse={data.course} allCourses={data.courses} />
-<section class="flex flex-col bg-slate-50">
+<section class="flex h-screen flex-col bg-slate-50">
 	<div class="flex flex-col gap-5 border-b bg-slate-200 p-6">
 		<div>
 			<h1 class="text-2xl">{data.course.name}</h1>
