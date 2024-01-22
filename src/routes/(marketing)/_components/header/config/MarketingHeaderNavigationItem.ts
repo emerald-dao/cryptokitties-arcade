@@ -1,16 +1,8 @@
-import type { marketingHeaderNavigationType } from '../types/MarketingHeaderNavigationType';
+import type { Navigation } from '../types/navigation.type';
 
-export const NAV_ITEMS: marketingHeaderNavigationType[] = [
+export const NAV_ITEMS: Navigation[] = [
 	{
 		href: '/',
 		name: 'HOME'
-	},
-	{
-		href: '/dao-generator',
-		name: 'DAO GENERATOR'
-	},
-	{
-		href: '/dashboard',
-		name: 'DASHBOARD'
 	}
 ];
