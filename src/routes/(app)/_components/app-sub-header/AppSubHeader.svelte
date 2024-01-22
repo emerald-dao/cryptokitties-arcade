@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
 	import CourseChapterLabel from './atoms/CourseChapterLabel.svelte';
-	import ProgressBar from './atoms/ProgressBar.svelte';
+	import ChapterProgressBar from './atoms/ChapterProgressBar.svelte';
 
 	export let course: CourseOverviewWithChapters;
 </script>
@@ -13,5 +13,5 @@
 		{/each}
 	</div>
 	<!--TODO: progressbar value-->
-	<ProgressBar value={90} />
+	<ChapterProgressBar value={90} />
 </div>

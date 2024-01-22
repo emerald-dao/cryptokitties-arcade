@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Header from '../../_components/Header.svelte';
-	import SubHeader from '../../_components/subHeader/SubHeader.svelte';
+	import AppSubHeader from '../../_components/app-sub-header/AppSubHeader.svelte';
 
 	export let data;
 </script>
 
 <Header />
-<SubHeader course={data.course} />
+<AppSubHeader course={data.course} />
 <section class="flex flex-col bg-slate-50">
 	<div class="flex flex-col gap-5 border-b bg-slate-200 p-6">
 		<div>
