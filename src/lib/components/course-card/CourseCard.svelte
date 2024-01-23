@@ -7,11 +7,10 @@
 	export let course: CourseOverviewWithSlug;
 
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
-	let backgroundColor = COURSES_COLORS[course.color].background;
 </script>
 
 <div class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black">
-	<div class="{backgroundColor}  max-w-[15ch]">
+	<div class="{COURSES_COLORS[course.color].background}  max-w-[15ch]">
 		<CourseCardLabel>{level}</CourseCardLabel>
 		<img src="/Cat.png" alt="course cat" />
 	</div>

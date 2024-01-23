@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { COURSES_COLORS } from '$courses/constants/colors';
 	import CheckAnswerButton from './_components/atoms/CheckAnswerButton.svelte';
 	import HelpButton from './_components/atoms/HelpButton.svelte';
 	import LessonArticle from './_components/lesson-article/LessonArticle.svelte';
@@ -9,7 +10,9 @@
 
 <div class="grid flex-1 grid-cols-[550px_1fr]">
 	<LessonArticle lessonContent={data.lessonContent} />
-	<div class={`border-l bg-${data.course.color}-200 flex flex-col justify-between`}>
+	<div
+		class="border-l {COURSES_COLORS[data.course.color].background} flex flex-col justify-between"
+	>
 		<div>
 			<LessonTabs lessonOverview={data.lessonOverview} />
 			<slot />

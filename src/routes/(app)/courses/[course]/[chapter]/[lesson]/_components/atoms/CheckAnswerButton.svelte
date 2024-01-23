@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { COURSES_COLORS } from '$courses/constants/colors';
 	import { Button } from '$lib/components/ui/button';
 
-	export let color: string;
+	export let color: keyof typeof COURSES_COLORS;
 </script>
 
-<Button variant="secondary" class={`bg-${color}-300 rounded-none`}>CHECK ANSWER</Button>
+<Button variant="secondary" class="{COURSES_COLORS[color].checkAnswer} rounded-none"
+	>CHECK ANSWER</Button
+>
