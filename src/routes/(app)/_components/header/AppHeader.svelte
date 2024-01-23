@@ -13,7 +13,7 @@
 	let level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
 </script>
 
-<div class="h-45 flex w-full items-center justify-between border-b border-black px-20">
+<div class="h-45 flex w-full items-center justify-between border-b border-black px-10">
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
 		<h1 class="font-pixel uppercase">{activeCourse.name}</h1>
