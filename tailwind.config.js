@@ -60,7 +60,7 @@ const config = {
 			}
 		}
 	},
-	plugins: [typography]
+	plugins: [typography, require('tailwind-scrollbar-hide')]
 };
 
 export default config;

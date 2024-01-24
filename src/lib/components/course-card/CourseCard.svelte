@@ -5,17 +5,27 @@
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
 	export let course: CourseOverviewWithSlug;
+	export let completeCard: boolean = false;
 
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
 </script>
 
-<div class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black">
-	<div class="{COURSES_COLORS[course.color].background}  max-w-[15ch]">
-		<CourseCardLabel>{level}</CourseCardLabel>
-		<img src="/Cat.png" alt="course cat" />
+<a href="/courses/{course.slug}">
+	<div
+		class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black bg-white"
+	>
+		<div class="{COURSES_COLORS[course.color].background} px-[3%] pt-[3%]">
+			<CourseCardLabel>{level}</CourseCardLabel>
+			<img src="/Cat.png" alt="course cat" />
+		</div>
+		<div class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
+			<h2 class:text-5xl={completeCard} class:text-xl={!completeCard} class="font-pixel uppercase">
+				{course.name}
+			</h2>
+			<CourseCardLabel {completeCard}>{course.subject}</CourseCardLabel>
+			{#if completeCard}
+				<h3 class="font-pixel text-xl">{course.subject}</h3>
+			{/if}
+		</div>
 	</div>
-	<div class="gap-6 px-1 pt-4">
-		<h2 class="font-pixel text-lg uppercase">{course.name}</h2>
-		<CourseCardLabel>{course.subject}</CourseCardLabel>
-	</div>
-</div>
+</a>

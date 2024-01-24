@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AppSubHeader from '../../_components/app-sub-header/AppSubHeader.svelte';
-	import AppHeader from '../../_components/header/AppHeader.svelte';
+	import AppHeader from '../../_components/app-header/AppHeader.svelte';
 
 	export let data;
 </script>
