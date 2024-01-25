@@ -13,7 +13,7 @@
 	<div
 		class="border-l {COURSES_COLORS[data.course.color].background} flex flex-col justify-between"
 	>
-		<div>
+		<div class="flex h-full flex-col">
 			<LessonTabs lessonOverview={data.lessonOverview} />
 			<slot />
 		</div>
