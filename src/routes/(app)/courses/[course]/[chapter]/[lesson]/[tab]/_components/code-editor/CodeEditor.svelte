@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
-	export let code: { startingCode: string; solutionCode: string };
+	export let code: string;
 
 	let editor: Monaco.editor.IStandaloneCodeEditor;
 	let monaco: typeof Monaco;
@@ -17,7 +17,7 @@
 				theme: 'vs-dark'
 			});
 
-			const model = monaco.editor.createModel(code.startingCode, 'javascript');
+			const model = monaco.editor.createModel(code, 'javascript');
 			editor.setModel(model);
 		}
 	}
@@ -30,9 +30,9 @@
 		if (editor) {
 			const model = editor.getModel();
 			if (model) {
-				model.setValue(code.startingCode);
+				model.setValue(code);
 			} else {
-				const newModel = monaco.editor.createModel(code.startingCode, 'javascript');
+				const newModel = monaco.editor.createModel(code, 'javascript');
 				editor.setModel(newModel);
 			}
 		}

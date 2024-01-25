@@ -1,7 +1,7 @@
 <script lang="ts">
-	import TabsContent from './_components/tabs-content/TabsContent.svelte';
+	import TabContent from './_components/tab-content/TabContent.svelte';
 
 	export let data;
 </script>
 
-<TabsContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
+<TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
