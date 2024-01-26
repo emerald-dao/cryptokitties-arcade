@@ -1,5 +1,6 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
 const typography = require('@tailwindcss/typography');
+const hideScrollBar = require('tailwind-scrollbar-hide');
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -60,7 +61,7 @@ const config = {
 			}
 		}
 	},
-	plugins: [typography, require('tailwind-scrollbar-hide')]
+	plugins: [typography, hideScrollBar]
 };
 
 export default config;

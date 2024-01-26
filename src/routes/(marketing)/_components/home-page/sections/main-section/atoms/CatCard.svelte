@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
-	export let color: 'green' | 'pink' | 'purple' | 'yellow';
+	export let color: keyof typeof COURSES_COLORS;
 	export let image: string;
 </script>
 

@@ -5,7 +5,7 @@
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
 	export let course: CourseOverviewWithSlug;
-	export let completeCard: boolean = false;
+	export let isCourseCompleted = false;
 
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
 </script>
@@ -19,11 +19,15 @@
 			<img src="/Cat.png" alt="course cat" />
 		</div>
 		<div class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
-			<h2 class:text-5xl={completeCard} class:text-xl={!completeCard} class="font-pixel uppercase">
+			<h2
+				class:text-5xl={isCourseCompleted}
+				class:text-xl={!isCourseCompleted}
+				class="font-pixel uppercase"
+			>
 				{course.name}
 			</h2>
-			<CourseCardLabel {completeCard}>{course.subject}</CourseCardLabel>
-			{#if completeCard}
+			<CourseCardLabel {isCourseCompleted}>{course.subject}</CourseCardLabel>
+			{#if isCourseCompleted}
 				<h3 class="font-pixel text-xl">{course.subject}</h3>
 			{/if}
 		</div>
