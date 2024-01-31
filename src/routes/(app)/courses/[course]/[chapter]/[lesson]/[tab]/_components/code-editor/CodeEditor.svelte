@@ -7,7 +7,7 @@
 	export let defaultCode: string;
 	export let tabOverview: LessonTabOverviewWithSlug;
 
-	const codeStore = persistentWritable<string>(tabOverview.slug, defaultCode);
+	let codeStore = persistentWritable<string>(tabOverview.slug, defaultCode);
 
 	let code: string;
 
@@ -40,6 +40,21 @@
 	onMount(() => {
 		initializeMonaco();
 	});
+
+	$: if (tabOverview.slug) {
+		if (editor) {
+			codeStore = persistentWritable(tabOverview.slug, defaultCode);
+			let code: string = '';
+			const unsubscribe = codeStore.subscribe((value) => {
+				code = value;
+			});
+
+			const model = monaco.editor.createModel(code, 'javascript');
+			editor.setModel(model);
+
+			onDestroy(() => unsubscribe());
+		}
+	}
 
 	onDestroy(() => {
 		unsubscribe();
