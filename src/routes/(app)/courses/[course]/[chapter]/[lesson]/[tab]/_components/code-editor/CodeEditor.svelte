@@ -1,8 +1,19 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 	import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
+	import persistentWritable from '$lib/stores/custom/persistentWritable';
+	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 
-	export let code: string;
+	export let defaultCode: string;
+	export let tabOverview: LessonTabOverviewWithSlug;
+
+	const codeStore = persistentWritable<string>(tabOverview.slug, defaultCode);
+
+	let code: string;
+
+	const unsubscribe = codeStore.subscribe((value) => {
+		code = value;
+	});
 
 	let editor: Monaco.editor.IStandaloneCodeEditor;
 	let monaco: typeof Monaco;
@@ -19,6 +30,10 @@
 
 			const model = monaco.editor.createModel(code, 'javascript');
 			editor.setModel(model);
+
+			editor.onDidChangeModelContent(() => {
+				codeStore.set(editor.getValue());
+			});
 		}
 	}
 
@@ -26,19 +41,8 @@
 		initializeMonaco();
 	});
 
-	$: {
-		if (editor) {
-			const model = editor.getModel();
-			if (model) {
-				model.setValue(code);
-			} else {
-				const newModel = monaco.editor.createModel(code, 'javascript');
-				editor.setModel(newModel);
-			}
-		}
-	}
-
 	onDestroy(() => {
+		unsubscribe();
 		monaco?.editor.getModels().forEach((model) => model.dispose());
 		editor?.dispose();
 	});

@@ -10,7 +10,7 @@
 <div class="flex h-full flex-col p-6">
 	<h5 class="text-lg font-medium">{tabOverview.name}</h5>
 	{#if tabContent.type === 'code'}
-		<CodeEditor code={tabContent.content.startingCode} />
+		<CodeEditor {tabOverview} defaultCode={tabContent.content.startingCode} />
 	{:else if tabContent.type === 'component'}
 		<svelte:component this={tabContent.content} />
 	{/if}
