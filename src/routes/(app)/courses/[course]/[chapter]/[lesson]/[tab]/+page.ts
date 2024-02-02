@@ -1,6 +1,7 @@
 import type { LessonTabType } from '$courses/constants/lessonTabTypes.js';
 import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface.js';
 import { error } from '@sveltejs/kit';
+import type { TabContent, TabContentWithType } from './_types/tab-content.type.js';
 
 export const load = async ({ params, fetch }) => {
 	try {
@@ -19,7 +20,10 @@ export const load = async ({ params, fetch }) => {
 
 		return {
 			tabOverview,
-			tabContent
+			tabContent: {
+				type: tabOverview.type,
+				content: tabContent
+			} as TabContentWithType
 		};
 	} catch (e) {
 		throw error(404, 'Not found');
@@ -32,13 +36,7 @@ const getTabContent = async (
 	lessonSlug: string,
 	tabSlug: string,
 	type: LessonTabType
-): Promise<
-	| ConstructorOfATypedSvelteComponent
-	| {
-			startingCode: string;
-			solutionCode: string;
-	  }
-> => {
+): Promise<TabContent> => {
 	switch (type) {
 		case 'component':
 			return (
