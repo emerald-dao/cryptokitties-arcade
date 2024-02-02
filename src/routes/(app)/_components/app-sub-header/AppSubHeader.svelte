@@ -8,8 +8,8 @@
 
 	$: selectedLessonNumber = parseInt($page.params.lesson?.split('-')[0]) || 0;
 	$: chapter = course.chapters.find((c) => c.slug == course.slug + '/' + $page.params.chapter);
-	$: amount = chapter?.lessons?.length || 0;
-	$: progress = Math.min((selectedLessonNumber * 100) / amount, 100) || 0;
+	$: amountOfLessons = chapter?.lessons?.length || 0;
+	$: chapterProgress = Math.min((selectedLessonNumber * 100) / amountOfLessons, 100) || 0;
 </script>
 
 <div class="flex items-center justify-between gap-x-3.5 border-y border-black px-10">
@@ -18,5 +18,5 @@
 			<CourseChapterLabel {chapter} chapterNumber={i + 1} />
 		{/each}
 	</div>
-	<ChapterProgressBar value={progress} />
+	<ChapterProgressBar value={chapterProgress} />
 </div>

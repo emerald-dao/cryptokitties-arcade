@@ -7,6 +7,6 @@
 
 <section class="flex flex-col gap-10 bg-pink-200 px-36 py-24">
 	{#each allCourses as course}
-		<CourseCard {course} isCourseCompleted={true} />
+		<CourseCard {course} isCompleteCourseCard={true} />
 	{/each}
 </section>
