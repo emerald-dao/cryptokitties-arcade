@@ -27,8 +27,7 @@
 			});
 			const normalizedSolutionCode = normalizeCode(tabContent.content.solutionCode);
 			const normalizedUserCode = normalizeCode(userCode);
-			console.log(normalizedSolutionCode);
-			console.log(normalizedUserCode);
+
 			correctAnswer = normalizedUserCode === normalizedSolutionCode;
 		}
 	}
