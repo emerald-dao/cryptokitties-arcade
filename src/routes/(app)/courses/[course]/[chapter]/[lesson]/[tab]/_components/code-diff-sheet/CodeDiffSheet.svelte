@@ -13,18 +13,18 @@
 	export let tabOverview: LessonTabOverviewWithSlug;
 
 	let userCode: string;
-	let codeStore = persistentWritable<string>(tabOverview.slug, '');
 	let monaco: typeof Monaco;
 	let monacoDiffEditor: Monaco.editor.IStandaloneDiffEditor;
 	let editorContainer: HTMLElement;
 
-	codeStore.subscribe((value) => {
-		userCode = value;
-	});
-
 	async function handleHint() {
 		monaco = (await import('../code-editor/monaco')).default;
 		if (editorContainer && monaco) {
+			let codeStore = persistentWritable<string>(tabOverview.slug, '');
+			codeStore.subscribe((value) => {
+				userCode = value;
+			});
+
 			monacoDiffEditor = monaco.editor.createDiffEditor(editorContainer, {
 				readOnly: true,
 				renderSideBySide: false,
