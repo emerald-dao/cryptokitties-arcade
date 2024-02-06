@@ -11,7 +11,7 @@
 		<CheckAnswerButton
 			color={data.course.color}
 			tabOverview={data.tabOverview}
-			tabContent={data.tabContent}
+			solutionCode={data.tabContent.content.solutionCode}
 			activeCourse={data.course}
 			activeChapter={data.chapter}
 		/>
