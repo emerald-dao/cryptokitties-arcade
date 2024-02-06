@@ -8,6 +8,7 @@
 	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
+	import WrongAnswer from './atoms/WrongAnswer.svelte';
 
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
@@ -51,6 +52,8 @@
 	<Popover.Content class="w-26">
 		{#if correctAnswer}
 			<CorrectAnswer {activeCourse} {activeChapter} />
+		{:else}
+			<WrongAnswer />
 		{/if}
 	</Popover.Content>
 </Popover.Root>
