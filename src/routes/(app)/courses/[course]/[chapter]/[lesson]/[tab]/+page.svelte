@@ -1,7 +1,7 @@
 <script lang="ts">
-	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
 	import TabContent from './_components/tab-content/TabContent.svelte';
 	import HelpButton from './_components/help/HelpButton.svelte';
+	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
 
 	export let data;
 </script>
@@ -14,6 +14,13 @@
 			tabContent={data.tabContent}
 			tabOverview={data.tabOverview}
 		/>
-		<CheckAnswerButton color={data.course.color} />
+		<CheckAnswerButton
+			color={data.course.color}
+			tabOverview={data.tabOverview}
+			startingCode={data.tabContent.content.startingCode}
+			solutionCode={data.tabContent.content.solutionCode}
+			activeCourse={data.course}
+			activeChapter={data.chapter}
+		/>
 	</div>
 {/if}
