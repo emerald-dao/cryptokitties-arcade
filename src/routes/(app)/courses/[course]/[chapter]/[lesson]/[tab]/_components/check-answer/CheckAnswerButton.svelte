@@ -4,12 +4,12 @@
 	import * as Popover from '$lib/components/ui/popover';
 	import { Button } from '$lib/components/ui/button';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
-	import type { TabContentWithType } from '../../_types/tab-content.type';
 	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 
 	export let color: keyof typeof COURSES_COLORS;
+	export let startingCode: string;
 	export let solutionCode: string;
 	export let tabOverview: LessonTabOverviewWithSlug;
 	export let activeCourse: CourseOverviewWithChapters;
@@ -20,7 +20,7 @@
 	let correctAnswer: boolean;
 
 	function handleCheckAnswer() {
-		let codeStore = persistentWritable<string>(tabOverview.slug, '');
+		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
 		codeStore.subscribe((value) => {
 			userCode = value;
 		});
