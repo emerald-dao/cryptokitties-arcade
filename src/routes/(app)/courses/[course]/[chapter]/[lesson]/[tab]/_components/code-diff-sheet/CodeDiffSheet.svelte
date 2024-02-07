@@ -17,7 +17,7 @@
 	let monacoDiffEditor: Monaco.editor.IStandaloneDiffEditor;
 	let editorContainer: HTMLElement;
 
-	async function handleHint() {
+	async function handleAskForHelp() {
 		monaco = (await import('../code-editor/monaco')).default;
 		if (editorContainer && monaco) {
 			let codeStore = persistentWritable<string>(tabOverview.slug, '');
@@ -29,7 +29,9 @@
 				readOnly: true,
 				renderSideBySide: false,
 				originalEditable: false,
-				ignoreTrimWhitespace: true
+				ignoreTrimWhitespace: true,
+				scrollBeyondLastLine: false,
+				theme: 'vs-dark'
 			});
 
 			if (tabContent.type == 'code') {
@@ -52,7 +54,7 @@
 			variant="secondary"
 			builders={[builder]}
 			class="{COURSES_COLORS[color].askForHelp} rounded-none"
-			on:click={handleHint}>ASK FOR HELP</Button
+			on:click={handleAskForHelp}>ASK FOR HELP</Button
 		>
 	</Sheet.Trigger>
 	<Sheet.Content side="right">
@@ -63,7 +65,7 @@
 		<div bind:this={editorContainer} class="h-96"></div>
 		<Sheet.Footer class="pt-6">
 			<Sheet.Close asChild let:builder>
-				<Button builders={[builder]} type="submit" class="font-pixel rounded-none bg-black "
+				<Button builders={[builder]} type="submit" class="rounded-none bg-black font-pixel "
 					>Close</Button
 				>
 			</Sheet.Close>
