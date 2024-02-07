@@ -1,7 +1,7 @@
 <script lang="ts">
-	import CheckAnswerButton from '../_components/atoms/CheckAnswerButton.svelte';
+	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
 	import TabContent from './_components/tab-content/TabContent.svelte';
-	import CodeDiffSheet from './_components/code-diff-sheet/CodeDiffSheet.svelte';
+	import HelpButton from './_components/help/HelpButton.svelte';
 
 	export let data;
 </script>
@@ -9,7 +9,7 @@
 <TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
 {#if data.tabContent.type == 'code'}
 	<div class="grid grid-cols-2">
-		<CodeDiffSheet
+		<HelpButton
 			color={data.course.color}
 			tabContent={data.tabContent}
 			tabOverview={data.tabOverview}
