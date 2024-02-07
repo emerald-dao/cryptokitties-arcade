@@ -19,8 +19,8 @@
 
 	async function handleAskForHelp() {
 		monaco = (await import('../../code-editor/monaco')).default;
-		if (editorContainer && monaco) {
-			let codeStore = persistentWritable<string>(tabOverview.slug, '');
+		if (editorContainer && monaco && tabContent.type === 'code') {
+			let codeStore = persistentWritable<string>(tabOverview.slug, tabContent.content.startingCode);
 			codeStore.subscribe((value) => {
 				userCode = value;
 			});
@@ -34,12 +34,10 @@
 				theme: 'vs-dark'
 			});
 
-			if (tabContent.type == 'code') {
-				monacoDiffEditor.setModel({
-					original: monaco.editor.createModel(userCode, 'cadence'),
-					modified: monaco.editor.createModel(tabContent.content.solutionCode, 'cadence')
-				});
-			}
+			monacoDiffEditor.setModel({
+				original: monaco.editor.createModel(userCode, 'cadence'),
+				modified: monaco.editor.createModel(tabContent.content.solutionCode, 'cadence')
+			});
 		}
 	}
 
