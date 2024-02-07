@@ -16,7 +16,6 @@
 	export let activeChapter: ChapterOverviewWithLessons;
 
 	let userCode: string;
-
 	let correctAnswer: boolean;
 
 	function handleCheckAnswer() {
