@@ -2,7 +2,7 @@
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Button } from '$lib/components/ui/button';
 	import { COURSES_COLORS } from '$courses/constants/colors';
-	import type { TabContentWithType } from '../../_types/tab-content.type';
+	import type { TabContentWithType } from '../../../_types/tab-content.type';
 	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
 	import { onDestroy } from 'svelte';
@@ -18,7 +18,7 @@
 	let editorContainer: HTMLElement;
 
 	async function handleAskForHelp() {
-		monaco = (await import('../code-editor/monaco')).default;
+		monaco = (await import('../../code-editor/monaco')).default;
 		if (editorContainer && monaco) {
 			let codeStore = persistentWritable<string>(tabOverview.slug, '');
 			codeStore.subscribe((value) => {
