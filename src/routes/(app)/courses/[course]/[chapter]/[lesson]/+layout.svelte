@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { COURSES_COLORS } from '$courses/constants/colors';
-	import CheckAnswerButton from './_components/atoms/CheckAnswerButton.svelte';
-	import HelpButton from './_components/atoms/HelpButton.svelte';
 	import LessonArticle from './_components/lesson-article/LessonArticle.svelte';
 	import LessonTabs from './_components/lesson-tabs/LessonTabs.svelte';
 
@@ -16,10 +14,6 @@
 		<div class="flex h-full flex-col">
 			<LessonTabs lessonOverview={data.lessonOverview} />
 			<slot />
-		</div>
-		<div class="grid grid-cols-2">
-			<HelpButton color={data.course.color} />
-			<CheckAnswerButton color={data.course.color} />
 		</div>
 	</div>
 </div>
