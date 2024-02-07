@@ -10,6 +10,7 @@
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
 
 	export let color: keyof typeof COURSES_COLORS;
+	export let startingCode: string;
 	export let solutionCode: string;
 	export let tabOverview: LessonTabOverviewWithSlug;
 	export let activeCourse: CourseOverviewWithChapters;
@@ -19,7 +20,7 @@
 	let correctAnswer: boolean;
 
 	function handleCheckAnswer() {
-		let codeStore = persistentWritable<string>(tabOverview.slug, '');
+		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
 		codeStore.subscribe((value) => {
 			userCode = value;
 		});

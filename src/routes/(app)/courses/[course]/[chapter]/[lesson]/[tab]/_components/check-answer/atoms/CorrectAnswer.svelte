@@ -14,9 +14,9 @@
 
 	function handleButtonClick() {
 		if (activeLesson < activeChapter.lessons.length) {
-			newRoute = '/courses/' + activeChapter.lessons[activeLesson].slug;
+			newRoute = `/courses/${activeChapter.lessons[activeLesson].slug}`;
 		} else if (activeChapterNumber < activeCourse.chapters.length) {
-			newRoute = '/courses/' + activeCourse.chapters[activeChapterNumber].slug;
+			newRoute = `/courses/${activeCourse.chapters[activeChapterNumber].slug}`;
 		} else {
 			newRoute = '/';
 		}
