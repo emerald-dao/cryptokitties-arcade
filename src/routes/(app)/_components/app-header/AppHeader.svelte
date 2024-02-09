@@ -19,7 +19,7 @@
 <div class="flex w-full items-center justify-between border-b border-black px-10 font-pixel">
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
-		<h1 class=" uppercase">{activeCourse.name}</h1>
+		<h1 class="uppercase">{activeCourse.name}</h1>
 	</div>
 	<FlowCatsLogo />
 	<FlowConnect {logIn} {unauthenticate} user={$user} />
