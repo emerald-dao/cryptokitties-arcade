@@ -4,6 +4,6 @@
 
 <div class="flex gap-x-8 text-sm">
 	{#each NAV_ITEMS as nav_item}
-		<a href={nav_item.href}> {nav_item.name}</a>
+		<a href={nav_item.href}>{nav_item.name}</a>
 	{/each}
 </div>

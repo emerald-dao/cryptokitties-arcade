@@ -2,7 +2,7 @@
 	import MarketingHeaderNavigation from './components/MarketingHeaderNavigation.svelte';
 	import FlowCatsLogo from '$lib/components/atoms/FlowCatsLogo.svelte';
 	import FlowConnect from './components/FlowConnect.svelte';
-	import { logIn, unauthenticate } from '$lib/flow/actions';
+	import { logIn, unauthenticate } from '../../../../flow/actions';
 	import { user } from '$lib/stores/flow/FlowStore';
 </script>
 

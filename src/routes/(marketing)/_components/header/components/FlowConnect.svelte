@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { User } from '$lib/models/user.interface';
+	import type { User } from '$lib/types/user/user.interface';
 	import { Button } from '$lib/components/ui/button';
 	import { Wallet } from 'lucide-svelte';
 
