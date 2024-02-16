@@ -8,7 +8,7 @@
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
-	import { addUserToLesson } from '$lib/features/users/functions/postUserLessonFinished';
+	import { addUserLessonFinished } from '$lib/features/lessons/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
@@ -34,8 +34,7 @@
 
 		correctAnswer = normalizedUserCode === normalizedSolutionCode;
 		if (correctAnswer && $user.addr) {
-			console.log('entre papa');
-			addUserToLesson($user as CurrentUserObject, activeLesson.slug);
+			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
 		}
 	}
 

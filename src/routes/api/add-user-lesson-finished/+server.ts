@@ -4,6 +4,7 @@ import { verifyAccountOwnership } from '../../../flow/utils.js';
 export async function POST({ request }) {
 	const data = await request.json();
 
+	// Make sure a valid user was passed in
 	const verifyAccount = await verifyAccountOwnership(data.user);
 	if (!verifyAccount) {
 		return new Response(JSON.stringify({ error: 'Error verifying user' }), { status: 401 });
@@ -15,8 +16,8 @@ export async function POST({ request }) {
 	});
 
 	if (error) {
-		return new Response(JSON.stringify({ error: 'Error inserting user to lesson' }), { status: 401 });
+		return new Response(JSON.stringify({ error: 'Error inserting user lesson finished' }), { status: 401 });
 	} else {
-		return new Response(JSON.stringify({ success: 'User to lesson added' }), { status: 201 });
+		return new Response(JSON.stringify({ success: 'User lesson finished added' }), { status: 201 });
 	}
 }

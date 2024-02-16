@@ -11,6 +11,7 @@
 	import FlowConnect from '$lib/components/atoms/FlowConnect.svelte';
 	import type { CurrentUserObject } from '@onflow/fcl';
 	import { addUser } from '$lib/features/users/functions/postUser';
+	import { checkUser } from '$lib/features/users/functions/checkUser';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
@@ -19,7 +20,7 @@
 
 	const connect = async () => {
 		logIn().then(async () => {
-			const userExists = await fetch(`/api/get-user/${$user.addr}/`).then((res) => res.json());
+			const userExists = await checkUser($user.addr);
 
 			if (userExists.length > 0) {
 				console.log('User exists');

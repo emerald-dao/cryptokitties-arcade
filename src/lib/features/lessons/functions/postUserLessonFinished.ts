@@ -1,11 +1,11 @@
 import type { CurrentUserObject } from '@onflow/fcl';
 
-export const addUserToLesson = async (user: CurrentUserObject, lessonSlug: string) => {
-	const res = await fetch('/api/user-lesson-finished', {
+export const addUserLessonFinished = async (user: CurrentUserObject, lessonSlug: string) => {
+	const res = await fetch('/api/add-user-lesson-finished', {
 		method: 'POST',
 		body: JSON.stringify({
-			user: user,
-            lessonSlug: lessonSlug
+			user,
+            lessonSlug
 		}),
 		headers: {
 			'content-type': 'application/json'

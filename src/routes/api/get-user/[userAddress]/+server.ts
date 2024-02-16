@@ -10,7 +10,7 @@ export async function GET({ params }) {
 			.eq('address', userAddress)
 
 	if (error) {
-		throw err(400, "Couldn't fetch group");
+		throw err(400, "Couldn't fetch user");
 	}
 
 	return new Response(JSON.stringify(data));
