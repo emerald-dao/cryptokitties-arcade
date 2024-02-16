@@ -1,10 +1,10 @@
 import type { CurrentUserObject } from '@onflow/fcl';
 
 export const addUser = async (user: CurrentUserObject) => {
-	const res = await fetch('/api/user', {
+	const res = await fetch('/api/add-user', {
 		method: 'POST',
 		body: JSON.stringify({
-			user: user
+			user
 		}),
 		headers: {
 			'content-type': 'application/json'
