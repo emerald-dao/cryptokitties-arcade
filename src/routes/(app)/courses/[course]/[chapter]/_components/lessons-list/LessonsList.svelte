@@ -1,5 +1,8 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
+	import { userCompletedLesson } from '$lib/features/users/functions/checkLessonCompletion';
+	import { user } from '$lib/stores/flow/FlowStore';
+	import { onMount } from 'svelte';
 	import LessonListElement from './LessonListElement.svelte';
 
 	export let chapter: ChapterOverviewWithLessons;
