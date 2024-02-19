@@ -8,6 +8,10 @@
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
+	import { addUserLessonFinished } from '$lib/features/lessons/functions/postUserLessonFinished';
+	import { user } from '$lib/stores/flow/FlowStore';
+	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
+	import type { CurrentUserObject } from '@onflow/fcl';
 
 	export let color: keyof typeof COURSES_COLORS;
 	export let startingCode: string;
@@ -15,11 +19,12 @@
 	export let tabOverview: LessonTabOverviewWithSlug;
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
+	export let activeLesson: LessonOverviewWithSlug;
 
 	let userCode: string;
 	let correctAnswer: boolean;
 
-	function handleCheckAnswer() {
+	async function handleCheckAnswer() {
 		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
 		codeStore.subscribe((value) => {
 			userCode = value;
@@ -28,6 +33,9 @@
 		const normalizedUserCode = normalizeCode(userCode);
 
 		correctAnswer = normalizedUserCode === normalizedSolutionCode;
+		if (correctAnswer && $user.addr) {
+			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
+		}
 	}
 
 	function normalizeCode(code: string) {

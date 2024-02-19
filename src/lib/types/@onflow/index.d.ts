@@ -51,4 +51,14 @@ declare module '@onflow/fcl' {
 	export function unauthenticate(): void;
 
 	export function config(): ConfigInstance;
+
+	export const AppUtils: {
+		/** https://docs.onflow.org/fcl/reference/api/#apputilsverifyusersignatures */
+		verifyUserSignatures: (
+			message: string,
+			compositeSignatures: CompositeSignature[],
+			opts?: { fclCryptoContract?: string }
+		) => boolean;
+	};
 }
+

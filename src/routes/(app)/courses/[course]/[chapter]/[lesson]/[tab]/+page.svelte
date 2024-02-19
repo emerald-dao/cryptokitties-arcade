@@ -21,6 +21,7 @@
 			solutionCode={data.tabContent.content.solutionCode}
 			activeCourse={data.course}
 			activeChapter={data.chapter}
+			activeLesson={data.lessonOverview}
 		/>
 	</div>
 {/if}

@@ -9,11 +9,26 @@
 	import { logIn, unauthenticate } from '../../../../flow/actions';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import FlowConnect from '$lib/components/atoms/FlowConnect.svelte';
+	import type { CurrentUserObject } from '@onflow/fcl';
+	import { addUser } from '$lib/features/users/functions/postUser';
+	import { checkUser } from '$lib/features/users/functions/checkUser';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
 
 	let level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
+
+	const connect = async () => {
+		logIn().then(async () => {
+			const userExists = await checkUser($user.addr);
+
+			if (userExists.length > 0) {
+				console.log('User exists');
+			} else {
+				addUser($user as CurrentUserObject);
+			}
+		});
+	};
 </script>
 
 <div class="flex w-full items-center justify-between border-b border-black px-10 font-pixel">
@@ -22,5 +37,5 @@
 		<h1 class="uppercase">{activeCourse.name}</h1>
 	</div>
 	<FlowCatsLogo />
-	<FlowConnect {logIn} {unauthenticate} user={$user} />
+	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
 </div>
