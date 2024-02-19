@@ -1,30 +1,16 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
-	import { userCompletedLesson } from '$lib/features/users/functions/checkLessonCompletion';
-	import { user } from '$lib/stores/flow/FlowStore';
-	import { onDestroy, onMount } from 'svelte';
 
 	export let lesson: LessonOverviewWithSlug;
 	export let chapter: ChapterOverviewWithLessons;
 	export let i: number;
 	export let isSidebarOpen: boolean;
-
-	let completedLesson = false;
+	export let completedLesson: boolean;
 
 	$: isLessonActive = $page.params.lesson === lesson.slug.split('/').pop();
-
 	$: chapterNumber = chapter.slug.match(/\/(\d+)-/)?.[1] || '';
-
-	let checkIfLessonIsCompleted = async () => {
-		completedLesson = await userCompletedLesson($user.addr, lesson.slug);
-	};
-
-	onMount(async () => {
-		await checkIfLessonIsCompleted();
-	});
 </script>
 
 <li class:border={isSidebarOpen} class:border-y={!isSidebarOpen} class="border-black">
