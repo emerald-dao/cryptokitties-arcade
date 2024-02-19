@@ -20,13 +20,13 @@ export async function POST({ request }) {
         return new Response(JSON.stringify({ error: 'Error querying database' }), { status: 500 });
     }
 
-    if (existingRecords.length == 0) {
-        const { error: insertError } = await serviceSupabase.from('users_lessons_finished').insert({
+    if (existingRecords.length === 0) {
+        const { error } = await serviceSupabase.from('users_lessons_finished').insert({
             user_address: data.user.addr,
             lesson_slug: data.lessonSlug
         });
 
-        if (insertError) {
+        if (error) {
             return new Response(JSON.stringify({ error: 'Error inserting user lesson finished' }), { status: 401 });
         } else {
             return new Response(JSON.stringify({ success: 'User lesson finished added' }), { status: 201 });
