@@ -6,7 +6,7 @@ export const GET = async () => {
 	try {
 		const coursesOverviews = await getCoursesOverviews();
 		const amountOfLessons = await getAmountOfLessons();
-		return json({coursesOverviews, amountOfLessons});
+		return json({ coursesOverviews, amountOfLessons });
 	} catch (e) {
 		return new Response(JSON.stringify(error), { status: 500 });
 	}

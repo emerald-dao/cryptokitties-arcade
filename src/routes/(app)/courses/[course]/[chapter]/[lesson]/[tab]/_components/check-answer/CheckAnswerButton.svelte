@@ -20,7 +20,8 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let activeLesson: LessonOverviewWithSlug;
-	export let amountOfLessons: number;
+	export let courseAmountOfLessons: number;
+	export let totalAmountOfLessons: number;
 
 	let userCode: string;
 	let correctAnswer: boolean;
@@ -56,7 +57,12 @@
 	</Popover.Trigger>
 	<Popover.Content>
 		{#if correctAnswer}
-			<CorrectAnswer {activeCourse} {activeChapter} {amountOfLessons} />
+			<CorrectAnswer
+				{activeCourse}
+				{activeChapter}
+				{courseAmountOfLessons}
+				{totalAmountOfLessons}
+			/>
 		{:else}
 			<WrongAnswer />
 		{/if}

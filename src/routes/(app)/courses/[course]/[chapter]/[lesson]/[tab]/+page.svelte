@@ -22,7 +22,8 @@
 			activeCourse={data.course}
 			activeChapter={data.chapter}
 			activeLesson={data.lessonOverview}
-			amountOfLessons={data.amountOfLessons}
+			courseAmountOfLessons={data.courseAmountOfLessons}
+			totalAmountOfLessons={data.amountOfLessons}
 		/>
 	</div>
 {/if}
