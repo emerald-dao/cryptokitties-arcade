@@ -1,4 +1,4 @@
-export const userCompletedCourse = async (
+export const userCompletedAllCourseLessons = async (
 	userAddress: string | null | undefined,
 	courseSlug: string,
 	amountOfLessons: number
@@ -12,11 +12,11 @@ export const userCompletedCourse = async (
 
 	const response = await res.json();
 
-	const finishedLessons = response.filter((res: { lesson_slug: string }) =>
+	const finishedCourseLessons = response.filter((res: { lesson_slug: string }) =>
 		res.lesson_slug.includes(courseSlug)
 	);
 
-	if (amountOfLessons == finishedLessons.length) {
+	if (amountOfLessons === finishedCourseLessons.length) {
 		return true;
 	}
 	return false;

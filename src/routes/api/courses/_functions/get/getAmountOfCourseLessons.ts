@@ -8,7 +8,7 @@ export const getAmountOfCourseLessons = async (courseSlug: string): Promise<numb
 
 	const thisCourseRecords = iterableRecords.filter(([path]) => path.split('/')[4] === courseSlug);
 
-	const amountOfLessons = thisCourseRecords.length;
+	const amountOfCourseLessons = thisCourseRecords.length;
 
-	return amountOfLessons;
+	return amountOfCourseLessons;
 };

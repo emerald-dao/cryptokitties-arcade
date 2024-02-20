@@ -11,7 +11,7 @@ export const userCompletedAllCourses = async (
 
 	const response = await res.json();
 
-	if (amountOfLessons == response.length) {
+	if (amountOfLessons === response.length) {
 		return true;
 	}
 	return false;

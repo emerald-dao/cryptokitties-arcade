@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
-	import { userCompletedCourse } from '$lib/features/users/functions/checkUserCompletedAllCourseLessons';
 	import { page } from '$app/stores';
 	import { Button } from '$lib/components/ui/button';
 	import { goto } from '$app/navigation';
 	import { user } from '$lib/stores/flow/FlowStore';
-	import { addLessonSlug } from '$lib/stores/user-finished-lessons/userFinishedLessons';
+	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import { userCompletedAllCourseLessons } from '$lib/features/users/functions/checkUserCompletedAllCourseLessons';
 	import { userCompletedAllCourses } from '$lib/features/users/functions/checkUserCompletedAllCourses';
 
 	export let activeCourse: CourseOverviewWithChapters;
@@ -18,15 +18,15 @@
 	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.course.split('-')[0]);
 
-	addLessonSlug(activeChapter.lessons[activeLesson - 1].slug);
+	addLessonFinishedSlug(activeChapter.lessons[activeLesson - 1].slug);
 
 	async function handleButtonClick() {
-		let userFinishedCourse = await userCompletedCourse(
+		let userFinishedAllCourses = await userCompletedAllCourses($user.addr, totalAmountOfLessons);
+		let userFinishedCourse = await userCompletedAllCourseLessons(
 			$user.addr,
 			$page.params.course,
 			courseAmountOfLessons
 		);
-		let userFinishedAllCourses = await userCompletedAllCourses($user.addr, totalAmountOfLessons);
 
 		if (userFinishedAllCourses) {
 			newRoute = '/completed-all-courses';
