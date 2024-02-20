@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
-	import { onDestroy } from 'svelte';
 	import LessonListElement from './LessonListElement.svelte';
 
 	export let chapter: ChapterOverviewWithLessons;
@@ -13,7 +12,7 @@
 		const unsubscribe = userFinishedLessons.subscribe((value) => {
 			completedLessons[i] = value.includes(chapter.lessons[i].slug);
 		});
-		onDestroy(() => unsubscribe());
+		unsubscribe();
 	}
 </script>
 

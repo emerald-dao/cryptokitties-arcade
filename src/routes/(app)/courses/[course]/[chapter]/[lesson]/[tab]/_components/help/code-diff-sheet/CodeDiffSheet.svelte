@@ -21,7 +21,8 @@
 		monaco = (await import('../../code-editor/monaco')).default;
 		if (editorContainer && monaco && tabContent.type === 'code') {
 			let codeStore = persistentWritable<string>(tabOverview.slug, tabContent.content.startingCode);
-			codeStore.subscribe((value) => {
+
+			const unsubscribe = codeStore.subscribe((value) => {
 				userCode = value;
 			});
 
@@ -38,6 +39,8 @@
 				original: monaco.editor.createModel(userCode, 'cadence'),
 				modified: monaco.editor.createModel(tabContent.content.solutionCode, 'cadence')
 			});
+
+			unsubscribe();
 		}
 	}
 

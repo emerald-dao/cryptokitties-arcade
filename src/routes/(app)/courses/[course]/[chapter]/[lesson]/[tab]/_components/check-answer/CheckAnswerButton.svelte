@@ -28,16 +28,21 @@
 
 	async function handleCheckAnswer() {
 		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
-		codeStore.subscribe((value) => {
+
+		const unsubscribe = codeStore.subscribe((value) => {
 			userCode = value;
 		});
+
 		const normalizedSolutionCode = normalizeCode(solutionCode);
 		const normalizedUserCode = normalizeCode(userCode);
 
 		correctAnswer = normalizedUserCode === normalizedSolutionCode;
+
 		if (correctAnswer && $user.addr) {
 			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
 		}
+
+		unsubscribe();
 	}
 
 	function normalizeCode(code: string) {

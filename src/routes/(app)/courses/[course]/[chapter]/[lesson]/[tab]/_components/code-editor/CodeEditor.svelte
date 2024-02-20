@@ -9,12 +9,6 @@
 
 	let codeStore = persistentWritable<string>(tabOverview.slug, defaultCode);
 
-	let code: string;
-
-	const unsubscribe = codeStore.subscribe((value) => {
-		code = value;
-	});
-
 	let editor: Monaco.editor.IStandaloneCodeEditor;
 	let monaco: typeof Monaco;
 	let editorContainer: HTMLElement;
@@ -28,7 +22,7 @@
 				theme: 'vs-dark'
 			});
 
-			const model = monaco.editor.createModel(code, 'javascript');
+			const model = monaco.editor.createModel($codeStore, 'javascript');
 			editor.setModel(model);
 
 			editor.onDidChangeModelContent(() => {
@@ -52,12 +46,11 @@
 			const model = monaco.editor.createModel(code, 'javascript');
 			editor.setModel(model);
 
-			onDestroy(() => unsubscribe());
+			unsubscribe();
 		}
 	}
 
 	onDestroy(() => {
-		unsubscribe();
 		monaco?.editor.getModels().forEach((model) => model.dispose());
 		editor?.dispose();
 	});
