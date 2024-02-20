@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
-	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessons';
+	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { onDestroy } from 'svelte';
 	import LessonListElement from './LessonListElement.svelte';
 
