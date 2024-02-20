@@ -8,7 +8,7 @@
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
-	import { addUserLessonFinished } from '$lib/features/lessons/functions/postUserLessonFinished';
+	import { addUserLessonFinished } from '$lib/features/users/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
