@@ -6,12 +6,13 @@ import type {
 	ChapterOverviewWithLessons,
 	ChapterOverviewWithSlug
 } from '$courses/types/chapter-overview.interface';
+import { getAmountOfCourseLessons } from '../_functions/get/getAmountOfCourseLessons';
 
 export const GET = async ({ params }) => {
 	try {
 		const courseOverview = await getCourseOverview(params.course);
 		const chaptersOverviews = await getChaptersOverviewsFromCourse(params.course);
-
+		const courseAmountOfLessons = await getAmountOfCourseLessons(params.course);
 		const chaptersWithLessons = (await Promise.all(
 			chaptersOverviews.map(async (chapterOverview: ChapterOverviewWithSlug) => {
 				let chapterOverviewSlug = chapterOverview.slug.split('/')[1];
@@ -27,7 +28,10 @@ export const GET = async ({ params }) => {
 			})
 		)) as ChapterOverviewWithLessons[];
 
-		return json({ ...courseOverview, chapters: chaptersWithLessons });
+		return json({
+			course: { ...courseOverview, chapters: chaptersWithLessons },
+			courseAmountOfLessons
+		});
 	} catch (e) {
 		return new Response(JSON.stringify(error), { status: 500 });
 	}

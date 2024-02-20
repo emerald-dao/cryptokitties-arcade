@@ -2,9 +2,13 @@ import type { CourseOverviewWithSlug } from '$courses/types/course-overview.inte
 
 export async function load({ fetch }) {
 	const res = await fetch('/api/courses');
-	const courses: CourseOverviewWithSlug[] = await res.json();
+	const {
+		coursesOverviews,
+		amountOfLessons
+	}: { coursesOverviews: CourseOverviewWithSlug[]; amountOfLessons: number } = await res.json();
 
 	return {
-		courses
+		courses: coursesOverviews,
+		amountOfLessons
 	};
 }

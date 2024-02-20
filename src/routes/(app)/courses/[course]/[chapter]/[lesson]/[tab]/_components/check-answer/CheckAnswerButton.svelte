@@ -8,7 +8,7 @@
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
-	import { addUserLessonFinished } from '$lib/features/lessons/functions/postUserLessonFinished';
+	import { addUserLessonFinished } from '$lib/features/users/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
@@ -20,6 +20,8 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let activeLesson: LessonOverviewWithSlug;
+	export let courseAmountOfLessons: number;
+	export let totalAmountOfLessons: number;
 
 	let userCode: string;
 	let correctAnswer: boolean;
@@ -55,7 +57,12 @@
 	</Popover.Trigger>
 	<Popover.Content>
 		{#if correctAnswer}
-			<CorrectAnswer {activeCourse} {activeChapter} />
+			<CorrectAnswer
+				{activeCourse}
+				{activeChapter}
+				{courseAmountOfLessons}
+				{totalAmountOfLessons}
+			/>
 		{:else}
 			<WrongAnswer />
 		{/if}
