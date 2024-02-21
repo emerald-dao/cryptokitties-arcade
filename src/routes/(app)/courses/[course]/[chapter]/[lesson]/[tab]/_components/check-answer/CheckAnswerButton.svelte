@@ -56,7 +56,7 @@
 		<Button
 			builders={[builder]}
 			variant="secondary"
-			class="{COURSES_COLORS[color].checkAnswer} rounded-none"
+			class={`${COURSES_COLORS[color].checkAnswer}`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>

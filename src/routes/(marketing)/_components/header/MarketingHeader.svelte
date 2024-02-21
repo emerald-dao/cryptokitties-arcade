@@ -26,7 +26,7 @@
 	};
 </script>
 
-<div class="flex items-center justify-between border-b border-black px-36 py-4 font-pixel">
+<div class="flex items-center justify-between border-b px-36 py-4">
 	<FlowCatsLogo />
 	<MarketingHeaderNavigation />
 	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />

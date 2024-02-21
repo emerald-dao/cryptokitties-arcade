@@ -17,12 +17,12 @@
 {#if user?.addr}
 	<div class="flex flex-col">
 		{user.addr}
-		<Button class="h-fit rounded-none bg-black py-0" on:click={logOut}>Disconnect</Button>
+		<Button class="h-fit py-0" on:click={logOut}>Disconnect</Button>
 	</div>
 {:else}
 	<div class="flex items-center gap-3">
 		<h4>Connect to track progress</h4>
-		<Button class="rounded-none bg-black px-4 py-2" on:click={logIn}>
+		<Button class="px-4 py-2" on:click={logIn}>
 			Connect
 			<Wallet />
 		</Button>

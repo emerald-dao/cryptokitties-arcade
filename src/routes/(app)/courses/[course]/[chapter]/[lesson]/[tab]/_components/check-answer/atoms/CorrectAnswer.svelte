@@ -45,12 +45,12 @@
 </script>
 
 <div class="flex flex-row items-center justify-between gap-4 px-4 py-6">
-	<div>
-		<p class="font-pixel text-lg">Excellent!</p>
-		<p class="font-pixel text-lg">Keep going!</p>
+	<div class="text-lg">
+		<p>Excellent!</p>
+		<p>Keep going!</p>
 	</div>
 	<img src="/Cat.png" alt="cat" class="w-18 h-12" />
 </div>
 <div class="flex items-center justify-center">
-	<Button class="rounded-none" on:click={handleButtonClick}>Continue</Button>
+	<Button on:click={handleButtonClick}>Continue</Button>
 </div>

@@ -6,7 +6,7 @@
 	class:text-2xl={isCompleteCourseCard}
 	class:px-6={isCompleteCourseCard}
 	class:px-2={!isCompleteCourseCard}
-	class="font-pixel w-fit bg-black py-2 uppercase text-white"
+	class="w-fit bg-primary py-2 uppercase text-primary-foreground"
 >
 	<slot />
 </p>
