@@ -12,27 +12,26 @@
 </script>
 
 <Card.Root class="w-full">
-	<a href="/courses/{course.slug}">
-		<div
-			class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2 border-black bg-white"
-		>
-			<Card.Header class="{COURSES_COLORS[course.color].background} px-[3%] pb-0 pt-[3%]">
-				<CourseCardLabel>{level}</CourseCardLabel>
-				<img src="/Cat.png" alt="course cat" />
-			</Card.Header>
-			<Card.Content class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
-				<h2
-					class:text-5xl={isCompleteCourseCard}
-					class:text-xl={!isCompleteCourseCard}
-					class="font-pixel uppercase"
-				>
-					{course.name}
-				</h2>
-				<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
-				{#if isCompleteCourseCard}
-					<h3 class="font-pixel text-xl">{course.subject}</h3>
-				{/if}
-			</Card.Content>
-		</div>
+	<a
+		class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2"
+		href="/courses/{course.slug}"
+	>
+		<Card.Header class="{COURSES_COLORS[course.color].background} px-[3%] pb-0 pt-[3%]">
+			<CourseCardLabel>{level}</CourseCardLabel>
+			<img src="/Cat.png" alt="course cat" />
+		</Card.Header>
+		<Card.Content class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
+			<h2
+				class:text-5xl={isCompleteCourseCard}
+				class:text-xl={!isCompleteCourseCard}
+				class="uppercase"
+			>
+				{course.name}
+			</h2>
+			<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
+			{#if isCompleteCourseCard}
+				<h3 class="text-xl">{course.subject}</h3>
+			{/if}
+		</Card.Content>
 	</a>
 </Card.Root>

@@ -7,6 +7,6 @@
 
 <AppHeader activeCourse={data.course} allCourses={data.courses} />
 <AppSubHeader course={data.course} />
-<section class="flex h-screen flex-col bg-slate-50">
+<section class="flex h-screen flex-col">
 	<slot />
 </section>

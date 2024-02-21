@@ -14,13 +14,13 @@
 	$: chapterNumber = chapter.slug.match(/\/(\d+)-/)?.[1] || '';
 </script>
 
-<li class:border={isSidebarOpen} class:border-y={!isSidebarOpen} class="border-black">
+<li class:border={isSidebarOpen} class:border-y={!isSidebarOpen}>
 	<a class:flex={isSidebarOpen} class:flex-row={isSidebarOpen} href={`/courses/${lesson.slug}`}>
 		<div
-			class:bg-black={isLessonActive}
-			class:text-white={isLessonActive}
+			class:bg-primary={isLessonActive}
+			class:text-primary-foreground={isLessonActive}
 			class:border-r={isSidebarOpen}
-			class="flex items-center justify-center border-black px-2 py-1"
+			class="flex items-center justify-center px-2 py-1"
 		>
 			<p>{`${chapterNumber}.${i + 1}`}</p>
 		</div>

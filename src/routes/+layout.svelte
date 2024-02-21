@@ -1,7 +1,8 @@
 <script>
 	import '../app.pcss';
 	import '../prism.css';
-	
 </script>
 
-<slot />
+<div class="font-pixel">
+	<slot />
+</div>

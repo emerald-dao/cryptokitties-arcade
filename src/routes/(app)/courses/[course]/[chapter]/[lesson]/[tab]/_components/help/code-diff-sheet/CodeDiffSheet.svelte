@@ -54,21 +54,19 @@
 		<Button
 			variant="secondary"
 			builders={[builder]}
-			class="{COURSES_COLORS[color].askForHelp} rounded-none"
+			class={COURSES_COLORS[color].askForHelp}
 			on:click={handleAskForHelp}>ASK FOR HELP</Button
 		>
 	</Sheet.Trigger>
-	<Sheet.Content side="right">
+	<Sheet.Content side="right" class="font-pixel">
 		<Sheet.Header class="flex flex-row items-center justify-between">
-			<Sheet.Title class="font-pixel">Help!</Sheet.Title>
+			<Sheet.Title>Help!</Sheet.Title>
 			<img src="/Cat.png" alt="cat" class="w-18 h-12 pr-4" />
 		</Sheet.Header>
 		<div bind:this={editorContainer} class="h-96"></div>
 		<Sheet.Footer class="pt-6">
 			<Sheet.Close asChild let:builder>
-				<Button builders={[builder]} type="submit" class="rounded-none bg-black font-pixel "
-					>Close</Button
-				>
+				<Button builders={[builder]} type="submit">Close</Button>
 			</Sheet.Close>
 		</Sheet.Footer>
 	</Sheet.Content>
