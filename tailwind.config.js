@@ -17,6 +17,7 @@ const config = {
 		},
 		extend: {
 			fontSize: {
+				xs: '0.8rem',
 				sm: '1rem',
 				base: '1.1rem',
 				lg: '1.25rem',
@@ -65,10 +66,10 @@ const config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				pixel: ['VT323', 'monospace']
 			}
-		},
-		fontFamily: {
-			pixel: ['VT323', 'monospace']
 		}
 	},
 	plugins: [typography, hideScrollBar]
