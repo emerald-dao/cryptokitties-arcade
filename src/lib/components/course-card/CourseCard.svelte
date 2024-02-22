@@ -11,27 +11,37 @@
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
 </script>
 
-<Card.Root class="w-full">
+<Card.Root>
 	<a
-		class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2"
+		class:min-w-96={!isCompleteCourseCard}
+		class="block border-b-4 border-l-2 border-r-4 border-t-2"
 		href="/courses/{course.slug}"
 	>
-		<Card.Header class="{COURSES_COLORS[course.color].background} px-[3%] pb-0 pt-[3%]">
-			<CourseCardLabel>{level}</CourseCardLabel>
-			<img src="/Cat.png" alt="course cat" />
-		</Card.Header>
-		<Card.Content class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
-			<h2
-				class:text-5xl={isCompleteCourseCard}
-				class:text-xl={!isCompleteCourseCard}
-				class="uppercase"
-			>
-				{course.name}
-			</h2>
-			<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
-			{#if isCompleteCourseCard}
-				<h3 class="text-xl">{course.subject}</h3>
-			{/if}
-		</Card.Content>
+		<div
+			class="grid grid-cols-3 gap-2"
+			class:min-h-64={isCompleteCourseCard}
+			class:min-h-36={!isCompleteCourseCard}
+		>
+			<Card.Header class="{COURSES_COLORS[course.color].background} relative px-[5%] pt-[3%]">
+				<CourseCardLabel>{level}</CourseCardLabel>
+				<div class="absolute inset-x-2 bottom-0 flex min-h-max items-center justify-center">
+					<img src="/Cat.png" alt="course cat" />
+				</div>
+			</Card.Header>
+			<Card.Content class="col-span-2 flex flex-col gap-[5%] px-[5%]">
+				<h2
+					class:pt-3={!isCompleteCourseCard}
+					class:text-5xl={isCompleteCourseCard}
+					class:text-2xl={!isCompleteCourseCard}
+					class="uppercase"
+				>
+					{course.name}
+				</h2>
+				<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
+				{#if isCompleteCourseCard}
+					<h3 class="text-xl">{course.subject}</h3>
+				{/if}
+			</Card.Content>
+		</div>
 	</a>
 </Card.Root>
