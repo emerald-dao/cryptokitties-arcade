@@ -32,7 +32,7 @@
 				<h2
 					class:pt-3={!isCompleteCourseCard}
 					class:text-5xl={isCompleteCourseCard}
-					class:text-2xl={!isCompleteCourseCard}
+					class:text-lg={!isCompleteCourseCard}
 					class="uppercase"
 				>
 					{course.name}

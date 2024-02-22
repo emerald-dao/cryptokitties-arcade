@@ -34,7 +34,7 @@
 <div class="flex w-full items-center justify-between border-b px-10">
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
-		<h1 class="uppercase">{activeCourse.name}</h1>
+		<h1 class="text-xl uppercase">{activeCourse.name}</h1>
 	</div>
 	<FlowCatsLogo />
 	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
