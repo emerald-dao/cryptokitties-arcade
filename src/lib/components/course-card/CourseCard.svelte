@@ -23,7 +23,7 @@
 		<Card.Content class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
 			<h2
 				class:text-5xl={isCompleteCourseCard}
-				class:text-xl={!isCompleteCourseCard}
+				class:text-lg={!isCompleteCourseCard}
 				class="uppercase"
 			>
 				{course.name}
