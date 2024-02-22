@@ -15,14 +15,14 @@
 </script>
 
 {#if user?.addr}
-	<div class="flex flex-col">
+	<div class="flex flex-row items-center justify-center gap-3">
 		{user.addr}
-		<Button class="h-fit py-0" on:click={logOut}>Disconnect</Button>
+		<Button on:click={logOut}>Disconnect</Button>
 	</div>
 {:else}
 	<div class="flex items-center gap-3">
-		<h4>Connect to track progress</h4>
-		<Button class="px-4 py-2" on:click={logIn}>
+		<h4 class="text-sm">Connect to track progress</h4>
+		<Button on:click={logIn}>
 			Connect
 			<Wallet />
 		</Button>
