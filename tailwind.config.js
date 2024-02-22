@@ -16,6 +16,17 @@ const config = {
 			}
 		},
 		extend: {
+			fontSize: {
+				xs: '0.8rem',
+				sm: '1rem',
+				base: '1.1rem',
+				lg: '1.25rem',
+				xl: '1.563rem',
+				'2xl': '1.953rem',
+				'3xl': '2.441rem',
+				'4xl': '3.052rem',
+				'5xl': '3.452rem'
+			},
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',

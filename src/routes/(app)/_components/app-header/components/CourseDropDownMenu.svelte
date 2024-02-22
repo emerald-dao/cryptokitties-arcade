@@ -22,7 +22,7 @@
 	<DropdownMenu.Content
 		class="max-w-[550px] border-b-4 border-l-2 border-r-4 border-t-2 font-pixel"
 	>
-		<DropdownMenu.Label class="text-lg">COURSES</DropdownMenu.Label>
+		<DropdownMenu.Label class="text-lg font-normal">COURSES</DropdownMenu.Label>
 		<DropdownMenu.Group class="max-h-96 gap-4 overflow-auto px-4 scrollbar-hide">
 			{#each courses as course}
 				<DropdownMenu.Item>
