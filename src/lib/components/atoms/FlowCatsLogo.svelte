@@ -1,1 +1,1 @@
-<p class="text-xl">😺 FLOW CATS</p>
+<a href="/" class="text-xl">😺 FLOW CATS</a>
