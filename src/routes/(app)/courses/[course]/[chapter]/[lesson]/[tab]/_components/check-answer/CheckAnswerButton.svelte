@@ -61,6 +61,7 @@
 <Popover.Root>
 	<Popover.Trigger asChild let:builder
 		><Button
+			builders={[builder]}
 			variant="secondary"
 			class={`${COURSES_COLORS[color].checkAnswer}`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
