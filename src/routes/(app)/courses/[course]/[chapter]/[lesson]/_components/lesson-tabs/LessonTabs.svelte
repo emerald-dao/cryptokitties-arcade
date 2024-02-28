@@ -1,11 +1,15 @@
 <script lang="ts">
-	import type { LessonOverviewWithTabs } from '$courses/types/lesson-overview.interface';
+	import { page } from '$app/stores';
+	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 
-	export let lessonOverview: LessonOverviewWithTabs;
+	export let tab: LessonTabOverviewWithSlug;
+
+	$: isTabActive = $page.params.tab === tab.slug.split('/').pop();
 </script>
 
-<div class="flex flex-row items-start">
-	{#each lessonOverview.tabs as tab}
-		<a class="border bg-background p-3" href={`/courses/${tab.slug}`}>{tab.name}</a>
-	{/each}
-</div>
+<a
+	class:bg-primary={isTabActive}
+	class:text-primary-foreground={isTabActive}
+	class="min-w-fit bg-background p-3"
+	href={`/courses/${tab.slug}`}>{tab.name}</a
+>
