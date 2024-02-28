@@ -17,9 +17,20 @@
 	async function initializeMonaco() {
 		monaco = (await import('./monaco')).default;
 		if (editorContainer && monaco) {
+			monaco.editor.defineTheme('my-dark', {
+				base: 'vs-dark',
+				inherit: true,
+				rules: [],
+				colors: {
+					'editor.background': '#171717',
+					'editor.lineHighlightBorder': '#171717',
+					'editor.lineHighlightBackground': '#2b2a2a'
+				}
+			});
+
 			editor = monaco.editor.create(editorContainer, {
 				scrollBeyondLastLine: false,
-				theme: 'vs-dark',
+				theme: 'my-dark',
 				minimap: {
 					enabled: false
 				}
