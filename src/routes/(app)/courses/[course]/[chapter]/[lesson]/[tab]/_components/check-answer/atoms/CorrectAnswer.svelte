@@ -8,10 +8,11 @@
 	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { userCompletedAllCourseLessons } from '$lib/features/users/functions/checkUserCompletedAllCourseLessons';
 	import { userCompletedAllCourses } from '$lib/features/users/functions/checkUserCompletedAllCourses';
+	import { getContext } from 'svelte';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
-	export let courseAmountOfLessons: number;
+	export let courseAmountOfLessons: number = getContext('courseAmountOfLessons');
 	export let totalAmountOfLessons: number;
 
 	let newRoute = '';

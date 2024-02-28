@@ -3,22 +3,18 @@
 	import CourseChapterLabel from './atoms/CourseChapterLabel.svelte';
 	import ChapterProgressBar from './atoms/ChapterProgressBar.svelte';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
-	import { onDestroy } from 'svelte';
+	import { getContext, onDestroy } from 'svelte';
 
 	export let course: CourseOverviewWithChapters;
 	export let userCourseFinishedLessons: string[] = [];
 	let chapterProgress: number;
-	let courseAmountOfLessons = 0;
-
-	for (let i = 0; i < course.chapters.length; i++) {
-		courseAmountOfLessons += course.chapters[i].lessons.length;
-	}
+	let courseAmountOfLessons: number = getContext('courseAmountOfLessons');
 
 	const unsubscribe = userFinishedLessons.subscribe((value) => {
 		userCourseFinishedLessons = value.filter((lesson) => lesson.includes(course.slug));
 	});
 
-	$: chapterProgress = (userCourseFinishedLessons.length / courseAmountOfLessons) * 100;
+	$: chapterProgress = Math.round((userCourseFinishedLessons.length / courseAmountOfLessons) * 100);
 
 	onDestroy(() => unsubscribe);
 </script>
