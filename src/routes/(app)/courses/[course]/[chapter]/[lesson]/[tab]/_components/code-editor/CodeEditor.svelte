@@ -3,6 +3,7 @@
 	import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
 	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
+	import { resizeEvent } from '$lib/stores/resize-event/resizeEventStore';
 
 	export let defaultCode: string;
 	export let tabOverview: LessonTabOverviewWithSlug;
@@ -17,9 +18,11 @@
 		monaco = (await import('./monaco')).default;
 		if (editorContainer && monaco) {
 			editor = monaco.editor.create(editorContainer, {
-				automaticLayout: true,
 				scrollBeyondLastLine: false,
-				theme: 'vs-dark'
+				theme: 'vs-dark',
+				minimap: {
+					enabled: false
+				}
 			});
 
 			const model = monaco.editor.createModel($codeStore, 'javascript');
@@ -50,10 +53,33 @@
 		}
 	}
 
+	$: if ($resizeEvent) {
+		editor.layout({ width: 0, height: 0 });
+		window.requestAnimationFrame(() => {
+			if (editorContainer.parentElement) {
+				const rect = editorContainer.parentElement.getBoundingClientRect();
+				editor.layout({ width: rect.width, height: rect.height });
+			}
+		});
+	}
+
 	onDestroy(() => {
 		monaco?.editor.getModels().forEach((model) => model.dispose());
 		editor?.dispose();
 	});
 </script>
 
-<div class="flex-1" bind:this={editorContainer} />
+<div class="flex-grow">
+	<div bind:this={editorContainer} class="h-full w-full" />
+</div>
+<svelte:window
+	on:resize={() => {
+		editor.layout({ width: 0, height: 0 });
+		window.requestAnimationFrame(() => {
+			if (editorContainer.parentElement) {
+				const rect = editorContainer.parentElement.getBoundingClientRect();
+				editor.layout({ width: rect.width, height: rect.height });
+			}
+		});
+	}}
+/>
