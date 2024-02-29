@@ -7,7 +7,6 @@
 
 	export let course: CourseOverviewWithChapters;
 	export let userCourseFinishedLessons: string[] = [];
-	let chapterProgress: number;
 	let courseAmountOfLessons: number = getContext('courseAmountOfLessons');
 
 	const unsubscribe = userFinishedLessons.subscribe((value) => {
