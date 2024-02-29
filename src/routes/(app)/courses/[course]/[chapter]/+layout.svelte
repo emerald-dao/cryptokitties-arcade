@@ -4,7 +4,9 @@
 	export let data;
 </script>
 
-<div class="grid flex-1 grid-cols-[auto_1fr]">
+<div class="grid h-full grid-cols-[auto_1fr]">
 	<ChapterSidebar chapter={data.chapter} />
-	<slot />
+	<div class="overflow-hidden">
+		<slot />
+	</div>
 </div>

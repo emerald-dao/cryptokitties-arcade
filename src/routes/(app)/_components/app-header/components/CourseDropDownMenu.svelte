@@ -20,6 +20,7 @@
 		</Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content
+		sideOffset={0}
 		class="max-w-[550px] border-b-4 border-l-2 border-r-4 border-t-2 font-pixel"
 	>
 		<DropdownMenu.Label class="text-lg font-normal">COURSES</DropdownMenu.Label>

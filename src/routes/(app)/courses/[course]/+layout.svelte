@@ -18,8 +18,10 @@
 	}
 </script>
 
-<AppHeader activeCourse={data.course} allCourses={data.courses} />
-<AppSubHeader course={data.course} />
-<section class="flex h-screen flex-col">
-	<slot />
-</section>
+<div class="flex h-screen flex-col">
+	<AppHeader activeCourse={data.course} allCourses={data.courses} />
+	<AppSubHeader course={data.course} />
+	<section class="flex-1 overflow-hidden">
+		<slot />
+	</section>
+</div>
