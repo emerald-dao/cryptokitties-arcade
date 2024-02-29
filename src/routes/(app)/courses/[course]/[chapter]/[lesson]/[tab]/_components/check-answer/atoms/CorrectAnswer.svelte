@@ -17,11 +17,15 @@
 	let courseAmountOfLessons = getContext('courseAmountOfLessons');
 	let newRoute = '';
 	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
-	let activeChapterNumber = parseInt($page.params.course.split('-')[0]);
+	let activeChapterNumber = parseInt($page.params.chapter.split('-')[0]);
 	let userFinishedAllCourses: boolean;
 	let userFinishedCourse: boolean;
 
-	addLessonFinishedSlug(activeChapter.lessons[activeLesson - 1].slug);
+	let lessonToAdd = activeChapter.lessons[activeLesson - 1].slug;
+
+	if (!$userFinishedLessons.includes(lessonToAdd)) {
+		addLessonFinishedSlug(lessonToAdd);
+	}
 
 	userFinishedAllCourses = $userFinishedLessons.length === totalAmountOfLessons;
 	userFinishedCourse =
@@ -34,7 +38,7 @@
 		} else if (activeChapterNumber < activeCourse.chapters.length) {
 			newRoute = `/courses/${activeCourse.chapters[activeChapterNumber].slug}`;
 		} else {
-			newRoute = '/';
+			newRoute = `/courses/${activeChapter.lessons[activeLesson - 1].slug}`;
 		}
 
 		goto(newRoute);
