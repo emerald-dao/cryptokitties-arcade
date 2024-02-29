@@ -21,7 +21,6 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let activeLesson: LessonOverviewWithSlug;
-	export let courseAmountOfLessons: number;
 	export let totalAmountOfLessons: number;
 
 	let userCode: string;
@@ -54,7 +53,7 @@
 
 <Dialog.Root open={correctAnswer}>
 	<Dialog.Content>
-		<CorrectAnswer {activeCourse} {activeChapter} {courseAmountOfLessons} {totalAmountOfLessons} />
+		<CorrectAnswer {activeCourse} {activeChapter} {totalAmountOfLessons} />
 	</Dialog.Content>
 </Dialog.Root>
 
