@@ -9,6 +9,7 @@
 	import FinishedCourse from './FinishedCourse.svelte';
 	import FinishedLesson from './FinishedLesson.svelte';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import FinishedLastLesson from './FinishedLastLesson.svelte';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
@@ -20,7 +21,7 @@
 	let activeChapterNumber = parseInt($page.params.chapter.split('-')[0]);
 	let userFinishedAllCourses: boolean;
 	let userFinishedCourse: boolean;
-
+	let finishedLastLesson: boolean;
 	let lessonToAdd = activeChapter.lessons[activeLesson - 1].slug;
 
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
@@ -31,6 +32,10 @@
 	userFinishedCourse =
 		$userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ===
 		courseAmountOfLessons;
+	finishedLastLesson =
+		!userFinishedCourse &&
+		activeChapterNumber === activeCourse.chapters.length &&
+		activeLesson === activeChapter.lessons.length;
 
 	async function handleButtonClick() {
 		if (activeLesson < activeChapter.lessons.length) {
@@ -49,6 +54,8 @@
 	<FinishedAllCourses />
 {:else if userFinishedCourse}
 	<FinishedCourse />
+{:else if finishedLastLesson}
+	<FinishedLastLesson {activeCourse} />
 {:else}
 	<FinishedLesson on:clickedButton={handleButtonClick} />
 {/if}
