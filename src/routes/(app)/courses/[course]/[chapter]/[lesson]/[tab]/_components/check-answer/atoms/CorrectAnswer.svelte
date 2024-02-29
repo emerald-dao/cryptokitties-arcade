@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import { getContext } from 'svelte';
 	import FinishedAllCourses from './FinishedAllCourses.svelte';
 	import FinishedCourse from './FinishedCourse.svelte';
 	import FinishedLesson from './FinishedLesson.svelte';
@@ -12,8 +13,8 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let totalAmountOfLessons: number;
-	export let courseAmountOfLessons: number;
 
+	let courseAmountOfLessons = getContext('courseAmountOfLessons');
 	let newRoute = '';
 	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.course.split('-')[0]);
@@ -22,9 +23,9 @@
 
 	addLessonFinishedSlug(activeChapter.lessons[activeLesson - 1].slug);
 
-	userFinishedAllCourses = $userFinishedLessons.length == totalAmountOfLessons;
+	userFinishedAllCourses = $userFinishedLessons.length === totalAmountOfLessons;
 	userFinishedCourse =
-		$userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ==
+		$userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ===
 		courseAmountOfLessons;
 
 	async function handleButtonClick() {

@@ -12,6 +12,7 @@
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
+	import * as Dialog from '$lib/components/ui/dialog';
 
 	export let color: keyof typeof COURSES_COLORS;
 	export let startingCode: string;
@@ -20,11 +21,10 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let activeLesson: LessonOverviewWithSlug;
-	export let courseAmountOfLessons: number;
 	export let totalAmountOfLessons: number;
 
 	let userCode: string;
-	let correctAnswer: boolean;
+	let correctAnswer = false;
 
 	async function handleCheckAnswer() {
 		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
@@ -51,25 +51,24 @@
 	}
 </script>
 
+<Dialog.Root open={correctAnswer}>
+	<Dialog.Content>
+		<CorrectAnswer {activeCourse} {activeChapter} {totalAmountOfLessons} />
+	</Dialog.Content>
+</Dialog.Root>
+
 <Popover.Root>
-	<Popover.Trigger asChild let:builder>
-		<Button
+	<Popover.Trigger asChild let:builder
+		><Button
 			builders={[builder]}
 			variant="secondary"
 			class={`${COURSES_COLORS[color].checkAnswer}`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>
-	<Popover.Content>
-		{#if correctAnswer}
-			<CorrectAnswer
-				{activeCourse}
-				{activeChapter}
-				{courseAmountOfLessons}
-				{totalAmountOfLessons}
-			/>
-		{:else}
+	{#if !correctAnswer}
+		<Popover.Content>
 			<WrongAnswer />
-		{/if}
-	</Popover.Content>
+		</Popover.Content>
+	{/if}
 </Popover.Root>

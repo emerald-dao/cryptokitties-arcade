@@ -7,7 +7,7 @@
 </script>
 
 <TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
-{#if data.tabContent.type == 'code'}
+{#if data.tabContent.type === 'code'}
 	<div class="grid grid-cols-2">
 		<HelpButton
 			color={data.course.color}
@@ -22,7 +22,6 @@
 			activeCourse={data.course}
 			activeChapter={data.chapter}
 			activeLesson={data.lessonOverview}
-			courseAmountOfLessons={data.courseAmountOfLessons}
 			totalAmountOfLessons={data.amountOfLessons}
 		/>
 	</div>
