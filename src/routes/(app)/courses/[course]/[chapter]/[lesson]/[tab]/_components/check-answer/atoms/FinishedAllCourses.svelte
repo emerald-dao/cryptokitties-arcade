@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ConfettiRain from './ConfettiRain.svelte';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
-<ConfettiRain />
+<p class="w-full">Congratulations you have finished all courses</p>
 
-<p>todos los cursos</p>
+<Button href="/">Home</Button>
