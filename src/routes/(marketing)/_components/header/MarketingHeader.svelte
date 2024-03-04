@@ -19,6 +19,9 @@
 			} else {
 				addUser($user as CurrentUserObject);
 			}
+
+			let finishedLessons = await getUserCompletedLessons($user.addr);
+			userFinishedLessons.set(finishedLessons);
 		});
 	};
 </script>

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
-	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
+	import type {
+		CourseOverviewWithChapters,
+		CourseOverviewWithSlug
+	} from '$courses/types/course-overview.interface';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
@@ -11,6 +14,7 @@
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import FinishedLastLesson from './FinishedLastLesson.svelte';
 
+	export let allCourses: CourseOverviewWithSlug[];
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let totalAmountOfLessons: number;
@@ -53,7 +57,7 @@
 {#if userFinishedAllCourses}
 	<FinishedAllCourses />
 {:else if userFinishedCourse}
-	<FinishedCourse />
+	<FinishedCourse {activeCourse} {allCourses} />
 {:else if finishedLastLesson}
 	<FinishedLastLesson {activeCourse} />
 {:else}

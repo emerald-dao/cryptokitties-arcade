@@ -25,7 +25,11 @@
 	}
 </script>
 
-<AppHeader activeCourse={data.course} allCourses={data.courses} />
+<AppHeader
+	activeCourse={data.course}
+	allCourses={data.courses}
+	coursesWithAmountOfLessons={data.coursesWithAmountOfLessons}
+/>
 <AppSubHeader course={data.course} />
 <section class="flex h-screen flex-col">
 	<slot />

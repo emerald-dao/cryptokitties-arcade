@@ -5,6 +5,7 @@
 	import CourseCard from '$lib/components/course-card/CourseCard.svelte';
 
 	export let level: string;
+	export let coursesWithAmountOfLessons: { [slug: string]: number };
 	export let courses: CourseOverviewWithSlug[];
 </script>
 
@@ -26,7 +27,7 @@
 		<DropdownMenu.Group class="max-h-96 gap-4 overflow-auto px-4 scrollbar-hide">
 			{#each courses as course}
 				<DropdownMenu.Item>
-					<CourseCard {course} />
+					<CourseCard {course} courseAmountOfLessons={coursesWithAmountOfLessons[course.slug]} />
 				</DropdownMenu.Item>
 			{/each}
 		</DropdownMenu.Group>

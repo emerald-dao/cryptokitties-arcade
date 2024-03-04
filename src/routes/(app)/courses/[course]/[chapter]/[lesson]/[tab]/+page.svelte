@@ -15,6 +15,7 @@
 			tabOverview={data.tabOverview}
 		/>
 		<CheckAnswerButton
+			allCourses={data.courses}
 			color={data.course.color}
 			tabOverview={data.tabOverview}
 			startingCode={data.tabContent.content.startingCode}
