@@ -64,7 +64,7 @@
 		}
 	}
 
-	$: if ($resizeEvent) {
+	function handleResize() {
 		editor.layout({ width: 0, height: 0 });
 		window.requestAnimationFrame(() => {
 			if (editorContainer.parentElement) {
@@ -72,6 +72,10 @@
 				editor.layout({ width: rect.width, height: rect.height });
 			}
 		});
+	}
+
+	$: if ($resizeEvent) {
+		handleResize();
 	}
 
 	onDestroy(() => {
@@ -83,14 +87,4 @@
 <div class="flex-grow">
 	<div bind:this={editorContainer} class="h-full w-full" />
 </div>
-<svelte:window
-	on:resize={() => {
-		editor.layout({ width: 0, height: 0 });
-		window.requestAnimationFrame(() => {
-			if (editorContainer.parentElement) {
-				const rect = editorContainer.parentElement.getBoundingClientRect();
-				editor.layout({ width: rect.width, height: rect.height });
-			}
-		});
-	}}
-/>
+<svelte:window on:resize={handleResize} />
