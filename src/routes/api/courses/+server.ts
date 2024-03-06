@@ -6,15 +6,16 @@ import { getCourseAmountOfLessons } from './_functions/get/getCourseAmountOfLess
 export const GET = async () => {
 	try {
 		const coursesOverviews = await getCoursesOverviews();
-		const coursesAmountOfLessons: { [slug: string]: number } = {}; // Definimos directamente el tipo del diccionario
+		const coursesAmountOfLessons: { [slug: string]: number } = {};
+		const totalAmountOfLessons = await getAmountOfLessons();
 
 		for (let i = 0; i < coursesOverviews.length; i++) {
 			const course = coursesOverviews[i];
 			const amount = await getCourseAmountOfLessons(course.slug);
-			coursesAmountOfLessons[course.slug] = amount; // Almacenar slug y cantidad de lecciones en el objeto
+			coursesAmountOfLessons[course.slug] = amount;
 		}
-		const amountOfLessons = await getAmountOfLessons();
-		return json({ coursesOverviews, amountOfLessons, coursesAmountOfLessons });
+
+		return json({ coursesOverviews, totalAmountOfLessons, coursesAmountOfLessons });
 	} catch (e) {
 		return new Response(JSON.stringify(error), { status: 500 });
 	}

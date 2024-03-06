@@ -7,8 +7,6 @@
 	import { checkUser } from '$lib/features/users/functions/checkUser';
 	import { addUser } from '$lib/features/users/functions/postUser';
 	import type { CurrentUserObject } from '@onflow/fcl';
-	import { getUserCompletedLessons } from '$lib/features/users/functions/getUserCompletedLessons';
-	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 
 	const connect = async () => {
 		logIn().then(async () => {
@@ -19,9 +17,6 @@
 			} else {
 				addUser($user as CurrentUserObject);
 			}
-
-			let finishedLessons = await getUserCompletedLessons($user.addr);
-			userFinishedLessons.set(finishedLessons);
 		});
 	};
 </script>

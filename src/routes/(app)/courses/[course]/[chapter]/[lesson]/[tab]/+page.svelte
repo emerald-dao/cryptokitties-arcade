@@ -23,7 +23,7 @@
 			activeCourse={data.course}
 			activeChapter={data.chapter}
 			activeLesson={data.lessonOverview}
-			totalAmountOfLessons={data.amountOfLessons}
+			totalAmountOfLessons={data.totalAmountOfLessons}
 		/>
 	</div>
 {/if}
