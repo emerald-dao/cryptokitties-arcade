@@ -1,4 +1,3 @@
-import { fontFamily } from 'tailwindcss/defaultTheme';
 const typography = require('@tailwindcss/typography');
 const hideScrollBar = require('tailwind-scrollbar-hide');
 
@@ -61,7 +60,7 @@ const config = {
 					DEFAULT: 'hsl(var(--card) / <alpha-value>)',
 					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
 				},
-				coursesSection: 'hsl(var(--coursesSectionBg) / <alpha-value>)'
+				'courses-section': 'hsl(var(--courses-section-bg)) / <alpha-value>)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
