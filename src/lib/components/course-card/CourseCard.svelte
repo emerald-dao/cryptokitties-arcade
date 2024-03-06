@@ -16,9 +16,21 @@
 		class="grid grid-cols-3 gap-2 border-b-4 border-l-2 border-r-4 border-t-2"
 		href="/courses/{course.slug}"
 	>
-		<Card.Header class="{COURSES_COLORS[course.color].background} px-[3%] pb-0 pt-[3%]">
-			<CourseCardLabel>{level}</CourseCardLabel>
-			<img src="/Cat.png" alt="course cat" />
+		<Card.Header
+			class="{COURSES_COLORS[course.color]
+				.background} relative flex flex-col items-center px-[3%] pb-0 pt-[3%]"
+		>
+			<div class="absolute left-1 top-1">
+				<CourseCardLabel>{level}</CourseCardLabel>
+			</div>
+
+			<img
+				src="/{course.image}.png"
+				alt="course cat"
+				class:max-w-64={isCompleteCourseCard}
+				class:max-w-32={!isCompleteCourseCard}
+				class="bottom-0 px-2 pt-6"
+			/>
 		</Card.Header>
 		<Card.Content class="col-span-2 flex flex-col items-start gap-[5%] px-[5%] pt-[5%]">
 			<h2

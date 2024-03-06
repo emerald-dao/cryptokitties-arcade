@@ -6,7 +6,8 @@
 </script>
 
 <div
-	class="{COURSES_COLORS[color].background} flex min-h-full items-center justify-center border-2"
+	class="{COURSES_COLORS[color]
+		.background} flex min-h-full items-center justify-center border-2 p-4"
 >
 	<img src="/{image}.png" alt="" class="w-full" />
 </div>
