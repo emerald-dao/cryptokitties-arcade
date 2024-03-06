@@ -18,10 +18,9 @@
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
-	export let coursesWithAmountOfLessons: { [slug: string]: number };
 
 	let level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
-	let courseAmountOfLessons = getContext('courseAmountOfLessons');
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
 	const connect = async () => {
 		logIn().then(async () => {
@@ -36,12 +35,12 @@
 	};
 	$: userFinishedCourse =
 		$userFinishedLessons.filter((lesson) => lesson.includes(activeCourse.slug))?.length ===
-		courseAmountOfLessons;
+		coursesAmountOfLessons[activeCourse.slug];
 </script>
 
 <div class="flex w-full items-center justify-between border-b px-10">
 	<div class="flex items-center gap-6">
-		<CourseDropDownMenu {level} courses={allCourses} {coursesWithAmountOfLessons} />
+		<CourseDropDownMenu {level} courses={allCourses} />
 		{#if userFinishedCourse}
 			<h1 class="flex items-center gap-2 uppercase">
 				{activeCourse.name}

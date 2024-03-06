@@ -5,16 +5,16 @@ export async function load({ fetch }) {
 	const {
 		coursesOverviews,
 		amountOfLessons,
-		coursesWithAmountOfLessons
+		coursesAmountOfLessons
 	}: {
 		coursesOverviews: CourseOverviewWithSlug[];
 		amountOfLessons: number;
-		coursesWithAmountOfLessons: { [slug: string]: number };
+		coursesAmountOfLessons: { [slug: string]: number };
 	} = await res.json();
 
 	return {
 		courses: coursesOverviews,
 		amountOfLessons,
-		coursesWithAmountOfLessons
+		coursesAmountOfLessons
 	};
 }

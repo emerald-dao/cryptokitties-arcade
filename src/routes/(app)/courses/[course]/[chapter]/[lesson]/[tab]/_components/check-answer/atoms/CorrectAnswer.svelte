@@ -19,7 +19,7 @@
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let totalAmountOfLessons: number;
 
-	let courseAmountOfLessons = getContext('courseAmountOfLessons');
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 	let newRoute = '';
 	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.chapter.split('-')[0]);
@@ -31,11 +31,12 @@
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
 		addLessonFinishedSlug(lessonToAdd);
 	}
-
 	userFinishedAllCourses = $userFinishedLessons.length === totalAmountOfLessons;
+
 	userFinishedCourse =
 		$userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ===
-		courseAmountOfLessons;
+		coursesAmountOfLessons[activeCourse.slug];
+
 	finishedLastLesson =
 		!userFinishedCourse &&
 		activeChapterNumber === activeCourse.chapters.length &&

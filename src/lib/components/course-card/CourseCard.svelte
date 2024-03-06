@@ -6,17 +6,17 @@
 	import * as Card from '$lib/components/ui/card';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { Check } from 'lucide-svelte';
+	import { getContext } from 'svelte';
 
 	export let course: CourseOverviewWithSlug;
 	export let isCompleteCourseCard = false;
-	export let courseAmountOfLessons: number;
 
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
 
 	$: userFinishedCourse =
 		$userFinishedLessons.filter((lesson) => lesson.includes(course.slug))?.length ===
-		courseAmountOfLessons;
-	console.log(courseAmountOfLessons);
+		coursesAmountOfLessons[course.slug];
 </script>
 
 <Card.Root class="relative w-full">

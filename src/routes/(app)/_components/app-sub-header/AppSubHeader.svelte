@@ -7,13 +7,15 @@
 
 	export let course: CourseOverviewWithChapters;
 	export let userCourseFinishedLessons: string[] = [];
-	let courseAmountOfLessons: number = getContext('courseAmountOfLessons');
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
 	const unsubscribe = userFinishedLessons.subscribe((value) => {
 		userCourseFinishedLessons = value.filter((lesson) => lesson.includes(course.slug));
 	});
 
-	$: chapterProgress = Math.round((userCourseFinishedLessons.length / courseAmountOfLessons) * 100);
+	$: chapterProgress = Math.round(
+		(userCourseFinishedLessons.length / coursesAmountOfLessons[course.slug]) * 100
+	);
 
 	onDestroy(() => unsubscribe);
 </script>

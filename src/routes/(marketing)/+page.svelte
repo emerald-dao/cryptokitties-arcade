@@ -6,7 +6,4 @@
 </script>
 
 <HeroSection />
-<CoursesSection
-	allCourses={data.courses}
-	coursesWithAmountOfLessons={data.coursesWithAmountOfLessons}
-/>
+<CoursesSection allCourses={data.courses} />
