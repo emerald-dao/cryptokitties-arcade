@@ -46,6 +46,7 @@
 		--border: 0 0% 60%;
 		--input: 0 0% 14.9%;
 		--ring: 0 0% 83.1%;
+		--courses-section-bg: 0 100% 95%;
 	}
 
 	.all-prose {
@@ -57,7 +58,16 @@
 	* {
 		@apply border-border;
 	}
+
 	body {
 		@apply bg-background text-foreground;
+	}
+
+	.section {
+		@apply max-w-container mx-auto;
+	}
+
+	.max-w-container {
+		@apply w-[90%] max-w-[75rem];
 	}
 }

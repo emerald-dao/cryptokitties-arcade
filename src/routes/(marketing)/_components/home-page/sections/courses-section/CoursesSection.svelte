@@ -5,8 +5,10 @@
 	export let allCourses: CourseOverviewWithSlug[];
 </script>
 
-<section class="flex flex-col gap-10 bg-courses-section px-36 py-24">
-	{#each allCourses as course}
-		<CourseCard {course} isCompleteCourseCard={true} />
-	{/each}
+<section class="bg-courses-section py-24">
+	<div class="section flex flex-col gap-10">
+		{#each allCourses as course}
+			<CourseCard {course} isCompleteCourseCard={true} />
+		{/each}
+	</div>
 </section>

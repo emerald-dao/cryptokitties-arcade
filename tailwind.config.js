@@ -60,7 +60,7 @@ const config = {
 					DEFAULT: 'hsl(var(--card) / <alpha-value>)',
 					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
 				},
-				'courses-section': 'hsl(var(--courses-section-bg)) / <alpha-value>)'
+				'courses-section': 'hsl(var(--courses-section-bg) / <alpha-value>)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
