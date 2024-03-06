@@ -3,5 +3,5 @@
 		<p>Wrong answer!</p>
 		<p>Keep trying!</p>
 	</div>
-	<img src="/Cat.png" alt="cat" class="w-18 h-12" />
+	<img src="/magician-cat.png" alt="cat" class="w-18 h-12" />
 </div>
