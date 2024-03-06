@@ -8,12 +8,13 @@
 	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { userCompletedAllCourseLessons } from '$lib/features/users/functions/checkUserCompletedAllCourseLessons';
 	import { userCompletedAllCourses } from '$lib/features/users/functions/checkUserCompletedAllCourses';
+	import { getContext } from 'svelte';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
-	export let courseAmountOfLessons: number;
 	export let totalAmountOfLessons: number;
 
+	let courseAmountOfLessons: number = getContext('courseAmountOfLessons');
 	let newRoute = '';
 	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.course.split('-')[0]);
