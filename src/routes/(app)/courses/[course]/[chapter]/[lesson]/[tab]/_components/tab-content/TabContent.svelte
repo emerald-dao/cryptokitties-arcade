@@ -8,7 +8,9 @@
 </script>
 
 <div class="flex h-full flex-col p-6">
-	<h5 class="text-lg font-medium">{tabOverview.name}</h5>
+	<h5 class:text-primary-foreground={tabContent.type === 'code'} class="text-lg font-medium">
+		{tabOverview.name}
+	</h5>
 	{#if tabContent.type === 'code'}
 		<CodeEditor {tabOverview} defaultCode={tabContent.content.startingCode} />
 	{:else if tabContent.type === 'component'}

@@ -13,16 +13,17 @@
 		<Button
 			builders={[builder]}
 			variant="outline"
-			class="border border-border text-base {builder['data-state'] === 'open'
+			class="border-y-0 text-xl {builder['data-state'] === 'open'
 				? 'bg-foreground text-primary-foreground hover:bg-accent-foreground hover:text-primary-foreground'
 				: 'bg-background text-primary hover:bg-inherit'}"
 			>{level}
 		</Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content
+		sideOffset={0}
 		class="max-w-[550px] border-b-4 border-l-2 border-r-4 border-t-2 font-pixel"
 	>
-		<DropdownMenu.Label class="text-lg">COURSES</DropdownMenu.Label>
+		<DropdownMenu.Label class="text-lg font-normal">COURSES</DropdownMenu.Label>
 		<DropdownMenu.Group class="max-h-96 gap-4 overflow-auto px-4 scrollbar-hide">
 			{#each courses as course}
 				<DropdownMenu.Item>

@@ -12,8 +12,6 @@
 	import type { CurrentUserObject } from '@onflow/fcl';
 	import { addUser } from '$lib/features/users/functions/postUser';
 	import { checkUser } from '$lib/features/users/functions/checkUser';
-	import { getUserCompletedLessons } from '$lib/features/users/functions/getUserCompletedLessons';
-	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
@@ -36,7 +34,7 @@
 <div class="flex w-full items-center justify-between border-b px-10">
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
-		<h1 class="uppercase">{activeCourse.name}</h1>
+		<h1 class="text-xl uppercase">{activeCourse.name}</h1>
 	</div>
 	<FlowCatsLogo />
 	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
