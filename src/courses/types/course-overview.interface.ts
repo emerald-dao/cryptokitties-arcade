@@ -6,6 +6,7 @@ export interface CourseOverview {
 	excerpt: string;
 	subject: string;
 	color: CourseColor;
+	image: string;
 }
 
 export interface CourseOverviewWithSlug extends CourseOverview {

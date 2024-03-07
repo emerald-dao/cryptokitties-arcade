@@ -1,8 +1,12 @@
 <script lang="ts">
+	import { setContext } from 'svelte';
 	import '../app.pcss';
 	import '../prism.css';
+	export let data;
 
 	let innerWidth: number;
+
+	setContext('coursesAmountOfLessons', data.coursesAmountOfLessons);
 </script>
 
 <svelte:window bind:innerWidth />

@@ -3,7 +3,10 @@
 	import * as Popover from '$lib/components/ui/popover';
 	import { Button } from '$lib/components/ui/button';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
-	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
+	import type {
+		CourseOverviewWithChapters,
+		CourseOverviewWithSlug
+	} from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
@@ -14,6 +17,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { CodeTabContent } from '../../_types/tab-content.type';
 
+	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
@@ -61,7 +65,7 @@
 
 <Dialog.Root open={correctAnswer}>
 	<Dialog.Content>
-		<CorrectAnswer {activeCourse} {activeChapter} {totalAmountOfLessons} />
+		<CorrectAnswer {allCourses} {activeCourse} {activeChapter} {totalAmountOfLessons} />
 	</Dialog.Content>
 </Dialog.Root>
 
@@ -76,7 +80,7 @@
 	</Popover.Trigger>
 	{#if !correctAnswer}
 		<Popover.Content>
-			<WrongAnswer />
+			<WrongAnswer courseImage={activeCourse.image} />
 		</Popover.Content>
 	{/if}
 </Popover.Root>

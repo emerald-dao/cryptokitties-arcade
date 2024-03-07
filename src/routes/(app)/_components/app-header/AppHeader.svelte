@@ -12,11 +12,15 @@
 	import type { CurrentUserObject } from '@onflow/fcl';
 	import { addUser } from '$lib/features/users/functions/postUser';
 	import { checkUser } from '$lib/features/users/functions/checkUser';
+	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import { getContext } from 'svelte';
+	import { Check } from 'lucide-svelte';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
 
 	let level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
 	const connect = async () => {
 		logIn().then(async () => {
@@ -29,12 +33,22 @@
 			}
 		});
 	};
+	$: userFinishedCourse =
+		$userFinishedLessons.filter((lesson) => lesson.includes(activeCourse.slug))?.length ===
+		coursesAmountOfLessons[activeCourse.slug];
 </script>
 
 <div class="flex w-full items-center justify-between border-b px-10">
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
-		<h1 class="text-xl uppercase">{activeCourse.name}</h1>
+		{#if userFinishedCourse}
+			<h1 class="flex items-center gap-2 text-xl uppercase">
+				{activeCourse.name}
+				<Check class="h-4 w-4 bg-green-600 text-green-200" />
+			</h1>
+		{:else}
+			<h1 class="text-xl uppercase">{activeCourse.name}</h1>
+		{/if}
 	</div>
 	<FlowCatsLogo />
 	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />

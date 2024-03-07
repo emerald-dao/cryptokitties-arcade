@@ -28,11 +28,12 @@
 				tabOverview={data.tabOverview}
 			/>
 			<CheckAnswerButton
+				allCourses={data.courses}
 				color={data.course.color}
 				activeCourse={data.course}
 				activeChapter={data.chapter}
 				activeLesson={data.lessonOverview}
-				totalAmountOfLessons={data.amountOfLessons}
+				totalAmountOfLessons={data.totalAmountOfLessons}
 				codeTabsContent={data.codeTabsContent}
 			/>
 		</div>
