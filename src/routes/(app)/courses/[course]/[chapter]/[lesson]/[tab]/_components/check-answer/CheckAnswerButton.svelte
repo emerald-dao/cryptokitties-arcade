@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { COURSES_COLORS } from '$courses/constants/colors';
-	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 	import * as Popover from '$lib/components/ui/popover';
 	import { Button } from '$lib/components/ui/button';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
@@ -13,40 +12,49 @@
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
 	import { addUserLessonFinished } from '$lib/features/users/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
-	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
+	import type { LessonOverviewWithTabs } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
 	import * as Dialog from '$lib/components/ui/dialog';
+	import type { CodeTabContent } from '../../_types/tab-content.type';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
-	export let startingCode: string;
-	export let solutionCode: string;
-	export let tabOverview: LessonTabOverviewWithSlug;
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapter: ChapterOverviewWithLessons;
-	export let activeLesson: LessonOverviewWithSlug;
+	export let activeLesson: LessonOverviewWithTabs;
 	export let totalAmountOfLessons: number;
+	export let codeTabsContent: CodeTabContent[];
 
 	let userCode: string;
 	let correctAnswer = false;
 
 	async function handleCheckAnswer() {
-		let codeStore = persistentWritable<string>(tabOverview.slug, startingCode);
+		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
 
-		const unsubscribe = codeStore.subscribe((value) => {
-			userCode = value;
-		});
+		for (let i = 0; i < codeTabs.length && i < codeTabsContent.length; i++) {
+			const tab = codeTabs[i];
+			const startingCode = codeTabsContent[i].startingCode;
 
-		const normalizedSolutionCode = normalizeCode(solutionCode);
-		const normalizedUserCode = normalizeCode(userCode);
+			let codeStore = persistentWritable<string>(tab.slug, startingCode);
 
-		correctAnswer = normalizedUserCode === normalizedSolutionCode;
+			const unsubscribe = codeStore.subscribe((value) => {
+				userCode = value;
+			});
 
-		if (correctAnswer && $user.addr) {
+			const normalizedSolutionCode = normalizeCode(codeTabsContent[i].solutionCode);
+			const normalizedUserCode = normalizeCode(userCode);
+
+			if (normalizedUserCode !== normalizedSolutionCode) {
+				unsubscribe();
+				return;
+			}
+			unsubscribe();
+		}
+		correctAnswer = true;
+
+		if ($user.addr) {
 			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
 		}
-
-		unsubscribe();
 	}
 
 	function normalizeCode(code: string) {
