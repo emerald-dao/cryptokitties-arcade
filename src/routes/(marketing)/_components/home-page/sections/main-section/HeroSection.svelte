@@ -7,14 +7,16 @@
 	const images = ['medieval-cat', 'sailor-cat', 'fire-cat'];
 </script>
 
-<section class="grid grid-cols-4 grid-rows-2 gap-10 border-b px-36 py-24">
-	<div class="row-span-2">
-		<CatCard image="vegetation-cat" color="green" />
-	</div>
-	{#each colors as color, i}
-		<CatCard image={images[i]} {color} />
-	{/each}
-	<div class="col-span-3 col-start-2">
-		<FlowCatsCallToAction />
+<section class="border-b py-24">
+	<div class="section grid grid-cols-4 grid-rows-2 gap-10">
+		<div class="row-span-2">
+			<CatCard image="vegetation-cat" color="green" />
+		</div>
+		{#each colors as color, i}
+			<CatCard image={images[i]} {color} />
+		{/each}
+		<div class="col-span-3 col-start-2">
+			<FlowCatsCallToAction />
+		</div>
 	</div>
 </section>

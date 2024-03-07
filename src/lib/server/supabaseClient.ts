@@ -4,6 +4,6 @@ import { PRIVATE_SUPABASE_SERVICE_ROLE } from '$env/static/private';
 import type { Database } from '$lib/supabase/database.types';
 
 export const serviceSupabase = createClient<Database>(
-  PUBLIC_SUPABASE_API_URL,
-  PRIVATE_SUPABASE_SERVICE_ROLE
+	PUBLIC_SUPABASE_API_URL,
+	PRIVATE_SUPABASE_SERVICE_ROLE
 );
