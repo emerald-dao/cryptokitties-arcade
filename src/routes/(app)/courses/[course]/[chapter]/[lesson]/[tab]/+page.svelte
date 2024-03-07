@@ -29,14 +29,11 @@
 			/>
 			<CheckAnswerButton
 				color={data.course.color}
-				tabOverview={data.tabOverview}
-				startingCode={data.tabContent.content.startingCode}
-				solutionCode={data.tabContent.content.solutionCode}
 				activeCourse={data.course}
 				activeChapter={data.chapter}
 				activeLesson={data.lessonOverview}
-				courseAmountOfLessons={data.courseAmountOfLessons}
 				totalAmountOfLessons={data.amountOfLessons}
+				codeTabsContent={data.codeTabsContent}
 			/>
 		</div>
 	{/if}
