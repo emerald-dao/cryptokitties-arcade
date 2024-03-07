@@ -50,7 +50,7 @@
 		<p>Excellent!</p>
 		<p>Keep going!</p>
 	</div>
-	<img src="/Cat.png" alt="cat" class="w-18 h-12" />
+	<img src="/{activeCourse.image}.png" alt="cat" class="w-40" />
 </div>
 <div class="flex items-center justify-center">
 	<Button on:click={handleButtonClick}>Continue</Button>

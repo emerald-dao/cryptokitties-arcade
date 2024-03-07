@@ -5,6 +5,9 @@
 	export let image: string;
 </script>
 
-<div class="{COURSES_COLORS[color].background} flex items-center justify-center border-2">
-	<img src="/{image}.png" alt="" class="py-6" />
+<div
+	class="{COURSES_COLORS[color]
+		.background} flex min-h-full items-center justify-center border-2 p-4"
+>
+	<img src="/{image}.png" alt="" class="w-full" />
 </div>

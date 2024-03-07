@@ -68,7 +68,7 @@
 	</Popover.Trigger>
 	{#if !correctAnswer}
 		<Popover.Content>
-			<WrongAnswer />
+			<WrongAnswer courseImage={activeCourse.image} />
 		</Popover.Content>
 	{/if}
 </Popover.Root>

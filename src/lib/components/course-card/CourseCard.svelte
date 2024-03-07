@@ -22,11 +22,20 @@
 			class:min-h-64={isCompleteCourseCard}
 			class:min-h-36={!isCompleteCourseCard}
 		>
-			<Card.Header class="{COURSES_COLORS[course.color].background} relative px-[5%] pt-[3%]">
-				<CourseCardLabel>{level}</CourseCardLabel>
-				<div class="absolute inset-x-2 bottom-0 flex min-h-max items-center justify-center">
-					<img src="/Cat.png" alt="course cat" />
+			<Card.Header
+				class="{COURSES_COLORS[course.color]
+					.background} relative flex flex-col items-center px-[3%] pb-0 pt-[3%]"
+			>
+				<div class="absolute left-1 top-1">
+					<CourseCardLabel>{level}</CourseCardLabel>
 				</div>
+				<img
+					src="/{course.image}.png"
+					alt="course cat"
+					class:max-w-64={isCompleteCourseCard}
+					class:max-w-32={!isCompleteCourseCard}
+					class="bottom-0 px-2 pt-6"
+				/>
 			</Card.Header>
 			<Card.Content class="col-span-2 flex flex-col gap-[5%] px-[5%]">
 				<h2
