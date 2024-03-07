@@ -14,6 +14,11 @@ const config = {
 				'2xl': '1400px'
 			}
 		},
+		boxShadow: {
+			sm: '4px 4px hsl(var(--primary))',
+			md: '8px 8px hsl(var(--primary))',
+			lg: '12px 12px hsl(var(--primary))'
+		},
 		extend: {
 			fontSize: {
 				xs: '0.8rem',

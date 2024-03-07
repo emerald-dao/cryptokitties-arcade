@@ -21,7 +21,7 @@
 	};
 </script>
 
-<header class="border-b py-4">
+<header class="border-b-2 border-solid border-border py-4">
 	<div class="section flex items-center justify-between">
 		<FlowCatsLogo />
 		<MarketingHeaderNavigation />

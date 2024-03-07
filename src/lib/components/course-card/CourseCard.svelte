@@ -22,7 +22,7 @@
 <Card.Root class="relative w-full">
 	<a
 		class:min-w-96={!isCompleteCourseCard}
-		class="block border-b-4 border-l-2 border-r-4 border-t-2"
+		class="block border-2 border-solid border-border shadow-md"
 		href="/courses/{course.slug}"
 	>
 		<div
