@@ -2,6 +2,8 @@
 	import { createEventDispatcher } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 
+	export let courseImage: string;
+
 	let dispatch = createEventDispatcher();
 
 	function handleButtonClick() {
@@ -14,7 +16,7 @@
 		<p>Excellent!</p>
 		<p>Keep going!</p>
 	</div>
-	<img src="/Cat.png" alt="cat" class="w-18 h-12" />
+	<img src="/{courseImage}.png" alt="cat" class="w-18 h-12" />
 </div>
 <div class="flex items-center justify-center">
 	<Button on:click={handleButtonClick}>Continue</Button>

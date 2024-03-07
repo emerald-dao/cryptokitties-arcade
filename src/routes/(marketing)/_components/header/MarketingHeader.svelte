@@ -21,8 +21,15 @@
 	};
 </script>
 
-<div class="flex items-center justify-between border-b px-36 py-4">
-	<FlowCatsLogo />
-	<MarketingHeaderNavigation />
-	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
-</div>
+<header class="border-b py-4">
+	<div class="section flex items-center justify-between">
+		<FlowCatsLogo />
+		<MarketingHeaderNavigation />
+		<FlowConnect
+			logIn={() => connect()}
+			{unauthenticate}
+			user={$user}
+			showProgressTrackingPrompt={false}
+		/>
+	</div>
+</header>

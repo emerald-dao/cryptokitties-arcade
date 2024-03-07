@@ -42,12 +42,12 @@
 	<div class="flex items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
 		{#if userFinishedCourse}
-			<h1 class="flex items-center gap-2 uppercase">
+			<h1 class="flex items-center gap-2 text-xl uppercase">
 				{activeCourse.name}
 				<Check class="h-4 w-4 bg-green-600 text-green-200" />
 			</h1>
 		{:else}
-			<h1 class="uppercase">{activeCourse.name}</h1>
+			<h1 class="text-xl uppercase">{activeCourse.name}</h1>
 		{/if}
 	</div>
 	<FlowCatsLogo />

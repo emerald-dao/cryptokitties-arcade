@@ -62,5 +62,5 @@
 {:else if finishedLastLesson}
 	<FinishedLastLesson {activeCourse} />
 {:else}
-	<FinishedLesson on:clickedButton={handleButtonClick} />
+	<FinishedLesson courseImage={activeCourse.image} on:clickedButton={handleButtonClick} />
 {/if}
