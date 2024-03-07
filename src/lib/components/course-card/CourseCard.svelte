@@ -4,14 +4,22 @@
 	import { getCourseLevel } from '$lib/utils/getCourseLevel';
 	import { COURSES_COLORS } from '$courses/constants/colors';
 	import * as Card from '$lib/components/ui/card';
+	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import { Check } from 'lucide-svelte';
+	import { getContext } from 'svelte';
 
 	export let course: CourseOverviewWithSlug;
 	export let isCompleteCourseCard = false;
 
+	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 	let level = `LEVEL ${getCourseLevel(course.slug)}`;
+
+	$: userFinishedCourse =
+		$userFinishedLessons.filter((lesson) => lesson.includes(course.slug))?.length ===
+		coursesAmountOfLessons[course.slug];
 </script>
 
-<Card.Root>
+<Card.Root class="relative w-full">
 	<a
 		class:min-w-96={!isCompleteCourseCard}
 		class="block border-b-4 border-l-2 border-r-4 border-t-2"
@@ -49,6 +57,17 @@
 				<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
 				{#if isCompleteCourseCard}
 					<h3 class="text-xl">{course.subject}</h3>
+				{/if}
+				{#if userFinishedCourse}
+					<div
+						class:p-4={isCompleteCourseCard}
+						class:p-2={!isCompleteCourseCard}
+						class="absolute bottom-0 right-0"
+					>
+						<Check
+							class="{isCompleteCourseCard ? 'h-8 w-8' : 'h-4 w-4'} bg-green-600 text-green-200"
+						/>
+					</div>
 				{/if}
 			</Card.Content>
 		</div>
