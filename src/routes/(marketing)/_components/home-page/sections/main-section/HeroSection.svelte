@@ -6,9 +6,9 @@
 	const colors: Array<keyof typeof COURSES_COLORS> = ['pink', 'purple', 'yellow'];
 </script>
 
-<section class="border-b py-24">
+<section class="border-b-2 border-solid border-border py-24">
 	<div class="section grid grid-cols-4 grid-rows-2 gap-10">
-		<div class="row-span-2">
+		<div class="row-span-2 flex">
 			<CatCard image="rainbow-cat" color="green" />
 		</div>
 		{#each colors as color}
