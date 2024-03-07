@@ -4,11 +4,17 @@ export async function load({ fetch }) {
 	const res = await fetch('/api/courses');
 	const {
 		coursesOverviews,
-		amountOfLessons
-	}: { coursesOverviews: CourseOverviewWithSlug[]; amountOfLessons: number } = await res.json();
+		totalAmountOfLessons,
+		coursesAmountOfLessons
+	}: {
+		coursesOverviews: CourseOverviewWithSlug[];
+		totalAmountOfLessons: number;
+		coursesAmountOfLessons: { [slug: string]: number };
+	} = await res.json();
 
 	return {
 		courses: coursesOverviews,
-		amountOfLessons
+		totalAmountOfLessons,
+		coursesAmountOfLessons
 	};
 }

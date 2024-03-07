@@ -1,2 +1,0 @@
-<!-- TODO: PAGE -->
-<p>COURSE FINISHED</p>
