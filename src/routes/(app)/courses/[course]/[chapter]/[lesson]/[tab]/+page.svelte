@@ -14,11 +14,13 @@
 		? COURSES_COLORS[data.course.color].background
 		: ''} justify-between border-l"
 >
-	<div class="flex flex-row flex-wrap items-start">
-		{#each data.lessonOverview.tabs as tab}
-			<LessonTabs {tab} />
-		{/each}
-	</div>
+	{#if data.lessonOverview.tabs.length > 1}
+		<div class="flex flex-row flex-wrap items-start">
+			{#each data.lessonOverview.tabs as tab}
+				<LessonTabs {tab} />
+			{/each}
+		</div>
+	{/if}
 	<TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
 	{#if data.tabContent.type === 'code'}
 		<div class="grid grid-cols-2">
