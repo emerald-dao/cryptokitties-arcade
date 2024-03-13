@@ -32,7 +32,7 @@
 		>
 			<Card.Header
 				class="{COURSES_COLORS[course.color]
-					.background} relative flex flex-col items-center px-[3%] pb-0 pt-[3%]"
+					.background} relative hidden items-center justify-center p-[3%] sm:flex sm:flex-col"
 			>
 				<div class="absolute left-1 top-1">
 					<CourseCardLabel>{level}</CourseCardLabel>
@@ -40,15 +40,20 @@
 				<img
 					src="/{course.image}.png"
 					alt="course cat"
-					class:max-w-64={isCompleteCourseCard}
+					class:max-w-50={isCompleteCourseCard}
+					class:md:max-w-56={isCompleteCourseCard}
+					class:lg:max-w-64={isCompleteCourseCard}
 					class:max-w-32={!isCompleteCourseCard}
-					class="bottom-0 px-2 pt-6"
+					class="px-2"
 				/>
 			</Card.Header>
-			<Card.Content class="col-span-2 flex flex-col gap-[5%] px-[5%]">
+			<Card.Content
+				class="col-span-3 flex flex-col justify-center gap-[5%] px-[5%] sm:col-span-2 sm:justify-normal"
+			>
 				<h2
 					class:pt-3={!isCompleteCourseCard}
-					class:text-5xl={isCompleteCourseCard}
+					class:text-3xl={isCompleteCourseCard}
+					class:sm:text-5xl={isCompleteCourseCard}
 					class:text-lg={!isCompleteCourseCard}
 					class="uppercase"
 				>

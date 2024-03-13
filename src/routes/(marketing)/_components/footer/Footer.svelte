@@ -3,7 +3,7 @@
 </script>
 
 <footer class="group border-t-2 border-solid border-border py-6 text-lg">
-	<div class="section flex flex-row justify-between gap-20">
+	<div class="section flex flex-row justify-between gap-8 lg:gap-20">
 		<p class="group">
 			Built with
 			<Icon
@@ -20,7 +20,7 @@
 			</a>
 		</p>
 
-		<div class="space-x-4">
+		<div class="flex flex-col lg:flex-row lg:space-x-4">
 			<a
 				href="https://academy.ecdao.org/en"
 				target="_blank"
@@ -46,7 +46,7 @@
 				>FLOATs</a
 			>
 		</div>
-		<div class="space-x-4">
+		<div class="flex flex-col lg:flex-row lg:space-x-4">
 			<a
 				href="https://discord.com/invite/emerald-city-906264258189332541"
 				target="_blank"
