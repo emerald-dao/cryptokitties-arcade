@@ -9,7 +9,7 @@
 	export let userCourseFinishedLessons: string[] = [];
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
-	const unsubscribe = userFinishedLessons.subscribe((value) => {
+	$: unsubscribe = userFinishedLessons.subscribe((value) => {
 		userCourseFinishedLessons = value.filter((lesson) => lesson.includes(course.slug));
 	});
 
