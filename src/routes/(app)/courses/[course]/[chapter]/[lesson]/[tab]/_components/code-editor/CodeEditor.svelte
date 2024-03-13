@@ -33,6 +33,11 @@
 				theme: 'my-dark',
 				minimap: {
 					enabled: false
+				},
+				renderValidationDecorations: 'off',
+				scrollbar: {
+					vertical: 'hidden',
+					horizontal: 'hidden'
 				}
 			});
 
