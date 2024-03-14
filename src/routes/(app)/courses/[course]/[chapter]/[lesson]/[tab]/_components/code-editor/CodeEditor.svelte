@@ -29,11 +29,12 @@
 			});
 
 			editor = monaco.editor.create(editorContainer, {
-				scrollBeyondLastLine: false,
 				theme: 'my-dark',
+				scrollBeyondLastLine: false,
 				minimap: {
 					enabled: false
-				}
+				},
+				overviewRulerLanes: 0
 			});
 
 			const model = monaco.editor.createModel($codeStore, 'javascript');
