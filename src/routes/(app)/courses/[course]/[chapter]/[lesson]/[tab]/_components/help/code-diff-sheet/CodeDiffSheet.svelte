@@ -44,8 +44,9 @@
 				scrollBeyondLastLine: false,
 				overviewRulerLanes: 0,
 				renderOverviewRuler: false,
-				lineNumbers: 'off',
-				lineDecorationsWidth: 14
+				showFoldingControls: 'never',
+				lineNumbersMinChars: 4,
+				lineDecorationsWidth: 0
 			});
 
 			monacoDiffEditor.setModel({

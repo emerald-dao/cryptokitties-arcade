@@ -34,7 +34,8 @@
 				minimap: {
 					enabled: false
 				},
-				overviewRulerLanes: 0
+				overviewRulerLanes: 0,
+				lineNumbersMinChars: 0
 			});
 
 			const model = monaco.editor.createModel($codeStore, 'javascript');
