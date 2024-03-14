@@ -35,7 +35,8 @@
 					enabled: false
 				},
 				overviewRulerLanes: 0,
-				lineNumbersMinChars: 0
+				lineNumbersMinChars: 0,
+				renderValidationDecorations: 'off'
 			});
 
 			const model = monaco.editor.createModel($codeStore, 'javascript');

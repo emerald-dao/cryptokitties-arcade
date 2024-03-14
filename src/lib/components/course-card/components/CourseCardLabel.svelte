@@ -3,14 +3,15 @@
 </script>
 
 <p
-	class:text-2xl={isCompleteCourseCard}
+	class:text-xl={isCompleteCourseCard}
+	class:sm:text-2xl={isCompleteCourseCard}
 	class:text-xs={!isCompleteCourseCard}
-	class:px-6={isCompleteCourseCard}
-	class:py-2={isCompleteCourseCard}
-	class:py-1={!isCompleteCourseCard}
+	class:px-4={isCompleteCourseCard}
+	class:sm:px-6={isCompleteCourseCard}
+	class:sm:py-2={isCompleteCourseCard}
 	class:px-2={!isCompleteCourseCard}
 	class:text-base={!isCompleteCourseCard}
-	class="w-fit bg-primary uppercase text-primary-foreground"
+	class="w-fit bg-primary py-1 uppercase text-primary-foreground"
 >
 	<slot />
 </p>

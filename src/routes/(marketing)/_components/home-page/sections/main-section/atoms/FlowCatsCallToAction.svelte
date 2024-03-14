@@ -3,10 +3,13 @@
 	import Icon from '@iconify/svelte';
 </script>
 
-<div class="flex flex-col gap-5">
-	<h1 class="text-7xl">FLOW CATS NEED YOUR HELP!</h1>
-	<h3 class="text-2xl">Learn about the Flow Blockchain while having fun.</h3>
-	<Button href="/courses/1-save-ronald" class="group w-fit px-16 py-8 text-2xl">
+<div class="flex flex-col gap-2 sm:gap-5">
+	<h1 class="text-4xl leading-none sm:text-7xl">FLOW CATS NEED YOUR HELP!</h1>
+	<h3 class="text-xl sm:text-2xl">Learn about the Flow Blockchain while having fun.</h3>
+	<Button
+		href="/courses/1-save-ronald"
+		class="group w-fit px-8 py-2 text-xl sm:px-16 sm:py-8 sm:text-2xl"
+	>
 		<span
 			class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
 		>
