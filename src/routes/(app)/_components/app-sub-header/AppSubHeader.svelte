@@ -17,6 +17,15 @@
 		(userCourseFinishedLessons.length / coursesAmountOfLessons[course.slug]) * 100
 	);
 
+	function sortChaptersBySlug(a: string, b: string) {
+		const chapterNumberA = parseInt(a.split('/').pop()?.split('-')[0] ?? '');
+		const chapterNumberB = parseInt(b.split('/').pop()?.split('-')[0] ?? '');
+
+		return chapterNumberA - chapterNumberB;
+	}
+
+	course.chapters.sort((a, b) => sortChaptersBySlug(a.slug, b.slug));
+
 	onDestroy(() => unsubscribe);
 </script>
 
