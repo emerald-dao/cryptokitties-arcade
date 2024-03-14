@@ -22,7 +22,7 @@
 </script>
 
 <header class="border-b-2 border-solid border-border py-4">
-	<div class="section flex items-center justify-between">
+	<div class="section flex items-center justify-between gap-1">
 		<FlowCatsLogo />
 		<MarketingHeaderNavigation />
 		<FlowConnect
