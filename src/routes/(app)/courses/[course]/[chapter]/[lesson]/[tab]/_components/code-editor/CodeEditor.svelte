@@ -33,7 +33,8 @@
 				theme: 'my-dark',
 				minimap: {
 					enabled: false
-				}
+				},
+				renderValidationDecorations: 'off'
 			});
 
 			const model = monaco.editor.createModel($codeStore, 'javascript');
