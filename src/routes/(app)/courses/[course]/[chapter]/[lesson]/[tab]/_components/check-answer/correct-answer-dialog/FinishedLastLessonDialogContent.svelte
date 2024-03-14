@@ -37,7 +37,7 @@
 		>
 		<ul class="flex flex-col items-start">
 			{#each unfinishedLessons as lesson}
-				<li class="font-pixel text-xl">
+				<li class="font-pixel text-xl underline">
 					<a href="/courses/{lesson.slug}">{lesson.name}</a>
 				</li>
 			{/each}

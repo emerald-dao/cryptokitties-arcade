@@ -26,7 +26,7 @@
 	export let codeTabsContent: CodeTabContent[];
 
 	let userCode: string;
-	let correctAnswer = true;
+	let correctAnswer = false;
 
 	async function handleCheckAnswer() {
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
