@@ -26,13 +26,27 @@
 				userCode = value;
 			});
 
+			monaco.editor.defineTheme('my-dark', {
+				base: 'vs-dark',
+				inherit: true,
+				rules: [],
+				colors: {
+					'editor.background': '#171717',
+					'editor.lineHighlightBorder': '#171717',
+					'editor.lineHighlightBackground': '#2b2a2a'
+				}
+			});
+
 			monacoDiffEditor = monaco.editor.createDiffEditor(editorContainer, {
+				theme: 'my-dark',
 				readOnly: true,
 				renderSideBySide: false,
-				originalEditable: false,
-				ignoreTrimWhitespace: true,
 				scrollBeyondLastLine: false,
-				theme: 'vs-dark'
+				overviewRulerLanes: 0,
+				renderOverviewRuler: false,
+				showFoldingControls: 'never',
+				lineNumbersMinChars: 4,
+				lineDecorationsWidth: 0
 			});
 
 			monacoDiffEditor.setModel({

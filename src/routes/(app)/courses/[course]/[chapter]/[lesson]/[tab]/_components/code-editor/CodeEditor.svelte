@@ -29,11 +29,13 @@
 			});
 
 			editor = monaco.editor.create(editorContainer, {
-				scrollBeyondLastLine: false,
 				theme: 'my-dark',
+				scrollBeyondLastLine: false,
 				minimap: {
 					enabled: false
 				},
+				overviewRulerLanes: 0,
+				lineNumbersMinChars: 0,
 				renderValidationDecorations: 'off'
 			});
 
