@@ -4,8 +4,11 @@
 	import { getUserCompletedLessons } from '$lib/features/users/functions/getUserCompletedLessons';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import Seo from '$lib/components/atoms/Seo.svelte';
 
 	export let data;
+
+	let innerWidth: number;
 
 	async function userCompletedLessons() {
 		return await getUserCompletedLessons($user.addr);
@@ -18,10 +21,27 @@
 	}
 </script>
 
-<div class="flex h-screen flex-col">
-	<AppHeader activeCourse={data.course} allCourses={data.courses} />
-	<AppSubHeader course={data.course} />
-	<section class="flex-1 overflow-hidden">
-		<slot />
+<svelte:window bind:innerWidth />
+
+{#if innerWidth < 1100}
+	<section class="flex min-h-screen flex-1 flex-col items-center justify-center gap-7">
+		<div class="text-2xl uppercase">😺 Flow cats</div>
+		<p class="max-w-[35ch] text-center">
+			For a better user experience please use a device with a larger screen.
+		</p>
 	</section>
-</div>
+{:else}
+	<div class="flex h-screen flex-col">
+		<AppHeader activeCourse={data.course} allCourses={data.courses} />
+		<AppSubHeader course={data.course} />
+		<section class="flex-1 overflow-hidden">
+			<slot />
+		</section>
+	</div>
+{/if}
+
+<Seo
+	title={`${data.course.name} | Crypto Cats`}
+	description={`${data.course.excerpt} | Learn Cadence with our courses while playing!`}
+	type="WebSite"
+/>
