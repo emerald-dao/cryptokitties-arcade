@@ -25,7 +25,7 @@
 </script>
 
 <CorrectAnswerDialogContainer>
-	<CorrectAnswerDialogTitle>You're answer is correct!</CorrectAnswerDialogTitle>
+	<CorrectAnswerDialogTitle>Your answer is correct!</CorrectAnswerDialogTitle>
 	<CorrectAnswerDialogButton href={nextLessonRoute} pulse={true}>
 		Next lesson
 		<Icon icon="pixelarticons:arrow-right" class="ml-2 h-6 w-6" />
