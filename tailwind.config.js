@@ -73,7 +73,8 @@ const config = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				pixel: ['VT323', 'monospace']
+				pixel: ['VT323', 'monospace'],
+				inter: ['inter', 'monospace']
 			}
 		}
 	},
