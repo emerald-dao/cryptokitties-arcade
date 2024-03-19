@@ -26,7 +26,7 @@
 	export let codeTabsContent: CodeTabContent[];
 
 	let userCode: string;
-	let correctAnswer = false;
+	let availableToOpen = 'none';
 
 	async function handleCheckAnswer() {
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
@@ -45,12 +45,13 @@
 			const normalizedUserCode = normalizeCode(userCode);
 
 			if (normalizedUserCode !== normalizedSolutionCode) {
+				availableToOpen = 'popOver';
 				unsubscribe();
 				return;
 			}
 			unsubscribe();
 		}
-		correctAnswer = true;
+		availableToOpen = 'dialog';
 
 		if ($user.addr) {
 			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
@@ -61,9 +62,13 @@
 		const codeWithoutComments = code.replace(/\/\/.*$/gm, '');
 		return codeWithoutComments.replace(/\s/g, '');
 	}
+
+	function handleClose() {
+		availableToOpen = 'none';
+	}
 </script>
 
-<Dialog.Root open={correctAnswer}>
+<Dialog.Root open={availableToOpen === 'dialog'} closeFocus={handleClose}>
 	<Dialog.Content>
 		<CorrectAnswer {allCourses} {activeCourse} {activeChapter} {totalAmountOfLessons} />
 	</Dialog.Content>
@@ -78,7 +83,7 @@
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>
-	{#if !correctAnswer}
+	{#if availableToOpen === 'popOver'}
 		<Popover.Content>
 			<WrongAnswer courseImage={activeCourse.image} />
 		</Popover.Content>
