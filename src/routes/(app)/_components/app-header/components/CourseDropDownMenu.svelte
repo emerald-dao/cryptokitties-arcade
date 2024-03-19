@@ -13,7 +13,7 @@
 		<Button
 			builders={[builder]}
 			variant="outline"
-			class="border-y-0 text-xl {builder['data-state'] === 'open'
+			class="h-14 border-y-0 text-xl {builder['data-state'] === 'open'
 				? 'bg-foreground text-primary-foreground hover:bg-accent-foreground hover:text-primary-foreground'
 				: 'bg-background text-primary hover:bg-inherit'}"
 			>{level}
