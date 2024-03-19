@@ -50,7 +50,29 @@
 	}
 
 	.all-prose {
-		@apply prose prose-lg max-w-none;
+		@apply font-inter prose prose-lg m-4 max-w-none;
+		p {
+			@apply mb-0 text-sm;
+		}
+		code {
+			@apply font-inter m-0 rounded bg-gray-200  px-1 text-sm font-medium text-pink-500;
+		}
+		code.language-js,
+		code.language-html {
+			@apply bg-inherit text-xs;
+		}
+		code::before,
+		code::after {
+			content: none;
+		}
+
+		h1 {
+			@apply mb-4 font-pixel text-4xl uppercase;
+		}
+
+		h2 {
+			@apply mb-2 mt-6 font-pixel text-2xl uppercase;
+		}
 	}
 }
 
@@ -69,5 +91,24 @@
 
 	.max-w-container {
 		@apply w-[90%] max-w-[66rem];
+	}
+
+	::-webkit-scrollbar {
+		@apply w-3;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		@apply border-2 border-solid border-black bg-transparent;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		@apply bg-black transition-all duration-700 ease-in-out;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-gray-500;
 	}
 }

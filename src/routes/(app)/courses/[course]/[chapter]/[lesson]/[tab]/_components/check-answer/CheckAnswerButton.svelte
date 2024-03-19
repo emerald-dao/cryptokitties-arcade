@@ -8,7 +8,6 @@
 		CourseOverviewWithSlug
 	} from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
-	import CorrectAnswer from './atoms/CorrectAnswer.svelte';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
 	import { addUserLessonFinished } from '$lib/features/users/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
@@ -16,6 +15,7 @@
 	import type { CurrentUserObject } from '@onflow/fcl';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { CodeTabContent } from '../../_types/tab-content.type';
+	import CorrectAnswerDialogContent from './correct-answer-dialog/CorrectAnswerDialogContent.svelte';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
@@ -69,8 +69,13 @@
 </script>
 
 <Dialog.Root open={availableToOpen === 'dialog'} closeFocus={handleClose}>
-	<Dialog.Content>
-		<CorrectAnswer {allCourses} {activeCourse} {activeChapter} {totalAmountOfLessons} />
+	<Dialog.Content class="border-4">
+		<CorrectAnswerDialogContent
+			{allCourses}
+			{activeCourse}
+			{activeChapter}
+			{totalAmountOfLessons}
+		/>
 	</Dialog.Content>
 </Dialog.Root>
 

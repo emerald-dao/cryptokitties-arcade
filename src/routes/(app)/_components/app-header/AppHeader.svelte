@@ -19,7 +19,7 @@
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
 
-	let level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
+	$: level = `LEVEL ${getCourseLevel(activeCourse.slug)}`;
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
 	const connect = async () => {
