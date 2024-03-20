@@ -39,7 +39,7 @@
 </script>
 
 <div class="flex w-full items-center justify-between border-b px-10">
-	<div class="flex items-center gap-6">
+	<div class="flex h-full items-center gap-6">
 		<CourseDropDownMenu {level} courses={allCourses} />
 		{#if userFinishedCourse}
 			<h1 class="flex items-center gap-2 text-xl uppercase">

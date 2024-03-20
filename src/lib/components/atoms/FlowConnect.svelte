@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { User } from '$lib/types/user/user.interface';
 	import { Button } from '$lib/components/ui/button';
-	import { Wallet } from 'lucide-svelte';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import Icon from '@iconify/svelte';
 
