@@ -29,11 +29,14 @@
 	onDestroy(() => unsubscribe);
 </script>
 
-<div class="flex items-center justify-between gap-x-3.5 border-b px-10">
-	<div class="flex flex-wrap place-items-center">
-		{#each course.chapters as chapter, i}
-			<CourseChapterLabel {chapter} chapterNumber={i + 1} />
-		{/each}
+<div class="relative">
+	<div class="flex items-center justify-between gap-x-3.5 px-10">
+		<div class="flex flex-wrap place-items-center border-l">
+			{#each course.chapters as chapter, i}
+				<CourseChapterLabel {chapter} chapterNumber={i + 1} />
+			{/each}
+		</div>
+		<ChapterProgressBar value={chapterProgress} />
 	</div>
-	<ChapterProgressBar value={chapterProgress} />
+	<div class="absolute bottom-0 left-0 right-0 h-px bg-black"></div>
 </div>
