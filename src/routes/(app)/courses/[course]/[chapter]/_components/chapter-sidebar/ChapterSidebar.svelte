@@ -8,7 +8,10 @@
 	let isSidebarOpen = true;
 </script>
 
-<div class:px-10={isSidebarOpen} class="relative flex min-w-10 flex-col gap-3 border-r py-6">
+<div
+	class:px-10={isSidebarOpen}
+	class="relative flex min-w-10 flex-col gap-3 border-r py-6 transition-all duration-150 ease-linear"
+>
 	<LessonList bind:isSidebarOpen {chapter} />
 	<ToggleSidebarButton bind:isSidebarOpen />
 </div>

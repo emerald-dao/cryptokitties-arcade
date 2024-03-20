@@ -9,40 +9,42 @@ the data dynamically Netlify needs to statically generate the data.
 There's some SvelteKit `prerender` settings that need configuration
 here's what I set in the `svelte.config.js` file:
 
-```js
-import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+```swift
+pub contract FungibleToken {
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	kit: {
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
-		adapter: adapter(),
-		prerender: {
-			crawl: true,
-			enabled: true,
-			onError: 'continue',
-			entries: ['*']
-		}
-	},
+    pub resource interface Receiver {
 
-	preprocess: [
-		preprocess({
-			postcss: true
-		})
-	]
-};
+        pub balance: Int
 
-export default config;
-```
+        pub fun deposit(from: @{Receiver}) {
+            pre {
+                from.balance > 0:
+                    "Deposit balance needs to be positive!"
+            }
+            post {
+                self.balance == before(self.balance) + before(from.balance):
+                    "Incorrect amount removed"
+            }
+        }
+    }
 
-Also for the pages that use the endpoint I've added the following to
-any page that uses an endpoint:
+    pub resource Vault: Receiver {
 
-```html
-<script context="module">
-	export const prerender = true;
-	// rest of the code for the endpoint
-</script>
+        pub var balance: Int
+
+        init(balance: Int) {
+            self.balance = balance
+        }
+
+        pub fun withdraw(amount: Int): @Vault {
+            self.balance = self.balance - amount
+            return <-create Vault(balance: amount)
+        }
+
+        pub fun deposit(from: @{Receiver}) {
+            self.balance = self.balance + from.balance
+            destroy from
+        }
+    }
+}
 ```
