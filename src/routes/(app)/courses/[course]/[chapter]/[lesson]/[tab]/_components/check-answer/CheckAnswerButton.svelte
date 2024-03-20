@@ -26,7 +26,8 @@
 	export let codeTabsContent: CodeTabContent[];
 
 	let userCode: string;
-	let availableToOpen = 'none';
+	let popOverOpen = false;
+	let dialogOpen = false;
 
 	async function handleCheckAnswer() {
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
@@ -45,13 +46,14 @@
 			const normalizedUserCode = normalizeCode(userCode);
 
 			if (normalizedUserCode !== normalizedSolutionCode) {
-				availableToOpen = 'popOver';
+				console.log('popoverOpen true');
+				popOverOpen = true;
 				unsubscribe();
 				return;
 			}
 			unsubscribe();
 		}
-		availableToOpen = 'dialog';
+		dialogOpen = true;
 
 		if ($user.addr) {
 			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
@@ -62,30 +64,24 @@
 		const codeWithoutComments = code.replace(/\/\/.*$/gm, '');
 		return codeWithoutComments.replace(/\s/g, '');
 	}
-
-	function handleClose() {
-		availableToOpen = 'none';
-	}
 </script>
 
-<Dialog.Root open={availableToOpen === 'dialog'} closeFocus={handleClose}>
+<Dialog.Root bind:open={dialogOpen}>
 	<Dialog.Content>
 		<CorrectAnswer {allCourses} {activeCourse} {activeChapter} {totalAmountOfLessons} />
 	</Dialog.Content>
 </Dialog.Root>
 
-<Popover.Root>
-	<Popover.Trigger asChild let:builder
-		><Button
+<Popover.Root bind:open={popOverOpen}>
+	<Popover.Trigger let:builder class="flex">
+		<Button
 			builders={[builder]}
 			variant="secondary"
-			class={`${COURSES_COLORS[color].checkAnswer}`}
+			class={`${COURSES_COLORS[color].checkAnswer} flex-1`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>
-	{#if availableToOpen === 'popOver'}
-		<Popover.Content>
-			<WrongAnswer courseImage={activeCourse.image} />
-		</Popover.Content>
-	{/if}
+	<Popover.Content sideOffset={10}>
+		<WrongAnswer courseImage={activeCourse.image} />
+	</Popover.Content>
 </Popover.Root>
