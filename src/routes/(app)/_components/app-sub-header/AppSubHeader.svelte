@@ -9,13 +9,22 @@
 	export let userCourseFinishedLessons: string[] = [];
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
-	const unsubscribe = userFinishedLessons.subscribe((value) => {
+	$: unsubscribe = userFinishedLessons.subscribe((value) => {
 		userCourseFinishedLessons = value.filter((lesson) => lesson.includes(course.slug));
 	});
 
 	$: chapterProgress = Math.round(
 		(userCourseFinishedLessons.length / coursesAmountOfLessons[course.slug]) * 100
 	);
+
+	function sortChaptersBySlug(a: string, b: string) {
+		const chapterNumberA = parseInt(a.split('/').pop()?.split('-')[0] ?? '');
+		const chapterNumberB = parseInt(b.split('/').pop()?.split('-')[0] ?? '');
+
+		return chapterNumberA - chapterNumberB;
+	}
+
+	course.chapters.sort((a, b) => sortChaptersBySlug(a.slug, b.slug));
 
 	onDestroy(() => unsubscribe);
 </script>

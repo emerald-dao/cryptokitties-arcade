@@ -5,14 +5,13 @@
 		CourseOverviewWithSlug
 	} from '$courses/types/course-overview.interface';
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
 	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { getContext } from 'svelte';
-	import FinishedAllCourses from './FinishedAllCourses.svelte';
-	import FinishedCourse from './FinishedCourse.svelte';
-	import FinishedLesson from './FinishedLesson.svelte';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
-	import FinishedLastLesson from './FinishedLastLesson.svelte';
+	import FinishedAllCoursesDialogContent from './FinishedAllCoursesDialogContent.svelte';
+	import FinishedCourseDialogContent from './FinishedCourseDialogContent.svelte';
+	import FinishedLessonDialogContent from './FinishedLessonDialogContent.svelte';
+	import FinishedLastLessonDialogContent from './FinishedLastLessonDialogContent.svelte';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let activeCourse: CourseOverviewWithChapters;
@@ -20,17 +19,17 @@
 	export let totalAmountOfLessons: number;
 
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
-	let newRoute = '';
-	let activeLesson = parseInt($page.params.lesson.split('-')[0]);
+	let activeLessonNumber = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.chapter.split('-')[0]);
 	let userFinishedAllCourses: boolean;
 	let userFinishedCourse: boolean;
 	let finishedLastLesson: boolean;
-	let lessonToAdd = activeChapter.lessons[activeLesson - 1].slug;
+	let lessonToAdd = activeChapter.lessons[activeLessonNumber - 1].slug;
 
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
 		addLessonFinishedSlug(lessonToAdd);
 	}
+
 	userFinishedAllCourses = $userFinishedLessons.length === totalAmountOfLessons;
 
 	userFinishedCourse =
@@ -40,27 +39,20 @@
 	finishedLastLesson =
 		!userFinishedCourse &&
 		activeChapterNumber === activeCourse.chapters.length &&
-		activeLesson === activeChapter.lessons.length;
-
-	async function handleButtonClick() {
-		if (activeLesson < activeChapter.lessons.length) {
-			newRoute = `/courses/${activeChapter.lessons[activeLesson].slug}`;
-		} else if (activeChapterNumber < activeCourse.chapters.length) {
-			newRoute = `/courses/${activeCourse.chapters[activeChapterNumber].slug}`;
-		} else {
-			newRoute = `/courses/${activeChapter.lessons[activeLesson - 1].slug}`;
-		}
-
-		goto(newRoute);
-	}
+		activeLessonNumber === activeChapter.lessons.length;
 </script>
 
 {#if userFinishedAllCourses}
-	<FinishedAllCourses />
+	<FinishedAllCoursesDialogContent />
 {:else if userFinishedCourse}
-	<FinishedCourse {activeCourse} {allCourses} />
+	<FinishedCourseDialogContent {activeCourse} {allCourses} />
 {:else if finishedLastLesson}
-	<FinishedLastLesson {activeCourse} />
+	<FinishedLastLessonDialogContent {activeCourse} />
 {:else}
-	<FinishedLesson courseImage={activeCourse.image} on:clickedButton={handleButtonClick} />
+	<FinishedLessonDialogContent
+		{activeChapter}
+		{activeCourse}
+		{activeChapterNumber}
+		{activeLessonNumber}
+	/>
 {/if}
