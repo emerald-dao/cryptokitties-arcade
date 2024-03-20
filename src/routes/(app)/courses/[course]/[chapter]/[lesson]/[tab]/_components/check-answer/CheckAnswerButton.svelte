@@ -46,13 +46,13 @@
 			const normalizedUserCode = normalizeCode(userCode);
 
 			if (normalizedUserCode !== normalizedSolutionCode) {
-				console.log('popoverOpen true');
 				popOverOpen = true;
 				unsubscribe();
 				return;
 			}
 			unsubscribe();
 		}
+
 		dialogOpen = true;
 
 		if ($user.addr) {
