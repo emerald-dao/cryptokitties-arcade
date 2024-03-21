@@ -7,6 +7,7 @@
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
 	export let tabOverview: LessonTabOverviewWithSlug;
+	export let courseImage: string;
 </script>
 
-<CodeDiffSheet {color} {tabContent} {tabOverview} />
+<CodeDiffSheet {color} {tabContent} {tabOverview} {courseImage} />
