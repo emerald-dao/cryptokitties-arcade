@@ -26,7 +26,8 @@
 	export let codeTabsContent: CodeTabContent[];
 
 	let userCode: string;
-	let correctAnswer = false;
+	let popOverOpen = false;
+	let dialogOpen = false;
 
 	async function handleCheckAnswer() {
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
@@ -45,12 +46,14 @@
 			const normalizedUserCode = normalizeCode(userCode);
 
 			if (normalizedUserCode !== normalizedSolutionCode) {
+				popOverOpen = true;
 				unsubscribe();
 				return;
 			}
 			unsubscribe();
 		}
-		correctAnswer = true;
+
+		dialogOpen = true;
 
 		if ($user.addr) {
 			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
@@ -63,7 +66,7 @@
 	}
 </script>
 
-<Dialog.Root open={correctAnswer}>
+<Dialog.Root bind:open={dialogOpen}>
 	<Dialog.Content class="border-4">
 		<CorrectAnswerDialogContent
 			{allCourses}
@@ -74,18 +77,16 @@
 	</Dialog.Content>
 </Dialog.Root>
 
-<Popover.Root>
-	<Popover.Trigger asChild let:builder
-		><Button
+<Popover.Root bind:open={popOverOpen}>
+	<Popover.Trigger let:builder class="flex">
+		<Button
 			builders={[builder]}
 			variant="secondary"
-			class={`${COURSES_COLORS[color].checkAnswer}`}
+			class={`${COURSES_COLORS[color].checkAnswer} flex-1`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>
-	{#if !correctAnswer}
-		<Popover.Content>
-			<WrongAnswer courseImage={activeCourse.image} />
-		</Popover.Content>
-	{/if}
+	<Popover.Content sideOffset={10}>
+		<WrongAnswer courseImage={activeCourse.image} />
+	</Popover.Content>
 </Popover.Root>
