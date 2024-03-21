@@ -22,7 +22,7 @@
 		monaco = (await import('../../code-editor/monaco')).default;
 		if (editorContainer && monaco && tabContent.type === 'code') {
 			let codeStore = persistentWritable<string>(tabOverview.slug, tabContent.content.startingCode);
-			console.log('handleAskForHelp');
+
 			const unsubscribe = codeStore.subscribe((value) => {
 				userCode = value;
 			});
@@ -64,7 +64,6 @@
 	});
 
 	beforeUpdate(async () => {
-		console.log('beforeUpdate');
 		handleAskForHelp();
 	});
 </script>
