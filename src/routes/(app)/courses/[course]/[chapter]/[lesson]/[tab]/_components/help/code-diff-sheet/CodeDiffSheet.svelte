@@ -5,12 +5,13 @@
 	import type { TabContentWithType } from '../../../_types/tab-content.type';
 	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
-	import { afterUpdate } from 'svelte';
+	import { beforeUpdate, afterUpdate } from 'svelte';
 	import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
 	export let tabOverview: LessonTabOverviewWithSlug;
+	export let courseImage: string;
 
 	let userCode: string;
 	let monaco: typeof Monaco;
@@ -61,21 +62,22 @@
 	afterUpdate(() => {
 		monacoDiffEditor?.dispose();
 	});
+
+	beforeUpdate(async () => {
+		handleAskForHelp();
+	});
 </script>
 
 <Sheet.Root>
 	<Sheet.Trigger asChild let:builder>
-		<Button
-			variant="secondary"
-			builders={[builder]}
-			class={COURSES_COLORS[color].askForHelp}
-			on:click={handleAskForHelp}>ASK FOR HELP</Button
+		<Button variant="secondary" builders={[builder]} class={COURSES_COLORS[color].askForHelp}
+			>ASK FOR HELP</Button
 		>
 	</Sheet.Trigger>
 	<Sheet.Content side="right" class="font-pixel">
 		<Sheet.Header class="flex flex-row items-center justify-between">
 			<Sheet.Title>Help!</Sheet.Title>
-			<img src="/Cat.png" alt="cat" class="w-18 h-12 pr-4" />
+			<img src="/{courseImage}.png" alt="cat" class="w-18 h-12 pr-4" />
 		</Sheet.Header>
 		<div bind:this={editorContainer} class="h-80"></div>
 		<Sheet.Footer class="pt-6">
