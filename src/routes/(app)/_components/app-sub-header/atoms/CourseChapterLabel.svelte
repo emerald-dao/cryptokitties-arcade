@@ -14,6 +14,9 @@
 	class="flex items-center border-b border-r py-1 text-base"
 >
 	<a href="/courses/{chapter.slug}" class="px-3 uppercase">
-		{chapterNumber}. {chapter.name}
+		<span class="opacity-60">
+			Chapter {chapterNumber}
+		</span>
+		{chapter.name}
 	</a>
 </div>
