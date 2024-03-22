@@ -74,7 +74,7 @@ const config = {
 			},
 			fontFamily: {
 				pixel: ['VT323', 'monospace'],
-				inter: ['inter', 'monospace']
+				sans: ['inter', 'sans-serif']
 			}
 		}
 	},
