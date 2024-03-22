@@ -67,7 +67,7 @@
 </script>
 
 <Dialog.Root bind:open={dialogOpen}>
-	<Dialog.Content class="border-4">
+	<Dialog.Content class="border-2">
 		<CorrectAnswerDialogContent
 			{allCourses}
 			{activeCourse}

@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
-	import { Check } from 'lucide-svelte';
+	import Icon from '@iconify/svelte';
 
 	export let lesson: LessonOverviewWithSlug;
 	export let chapter: ChapterOverviewWithLessons;
@@ -14,25 +14,27 @@
 	$: chapterNumber = chapter.slug.match(/\/(\d+)-/)?.[1] || '';
 </script>
 
-<li class:border={isSidebarOpen} class:border-y={!isSidebarOpen}>
+<div class:border-2={isSidebarOpen} class:border-y-2={!isSidebarOpen}>
 	<a class:flex={isSidebarOpen} class:flex-row={isSidebarOpen} href={`/courses/${lesson.slug}`}>
 		<div
 			class:bg-primary={isLessonActive}
 			class:text-primary-foreground={isLessonActive}
-			class:border-r={isSidebarOpen}
+			class:border-r-2={isSidebarOpen}
 			class="flex items-center justify-center px-2 py-1"
 		>
 			<p>{`${chapterNumber}.${i + 1}`}</p>
 		</div>
 		{#if isSidebarOpen}
-			<div class="flex flex-row items-center justify-center gap-5 px-3 py-1 uppercase">
-				<p>
+			<div class="flex w-full flex-row items-center justify-between gap-5 uppercase">
+				<p class="py-1 pl-2 pr-3 leading-4">
 					{lesson.name}
 				</p>
 				{#if completedLesson}
-					<Check class="h-4 w-4 bg-green-600 text-green-200" />
+					<div class="flex h-full items-center justify-center border-l-2 bg-green-200 px-1">
+						<Icon icon="pixelarticons:check" class="text-lg text-green-700" />
+					</div>
 				{/if}
 			</div>
 		{/if}
 	</a>
-</li>
+</div>

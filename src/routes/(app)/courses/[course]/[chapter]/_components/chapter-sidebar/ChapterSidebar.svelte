@@ -10,7 +10,7 @@
 
 <div
 	class:px-10={isSidebarOpen}
-	class="relative flex min-w-[2.55rem] flex-col gap-3 border-r py-6 transition-all duration-150 ease-linear"
+	class="relative flex min-w-[2.55rem] max-w-[400px] flex-col gap-3 border-r-2 py-6 transition-all duration-150 ease-linear"
 >
 	<LessonList bind:isSidebarOpen {chapter} />
 	<ToggleSidebarButton bind:isSidebarOpen />

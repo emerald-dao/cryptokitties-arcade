@@ -12,10 +12,10 @@
 	class:bg-primary={data.tabContent.type === 'code'}
 	class="flex h-full flex-col {data.tabContent.type === 'component'
 		? COURSES_COLORS[data.course.color].background
-		: ''} justify-between border-l"
+		: ''} justify-between border-l-2"
 >
 	{#if data.lessonOverview.tabs.length > 1}
-		<div class="flex flex-row flex-wrap items-start">
+		<div class="flex flex-row flex-wrap items-start bg-white">
 			{#each data.lessonOverview.tabs as tab}
 				<LessonTab {tab} />
 			{/each}

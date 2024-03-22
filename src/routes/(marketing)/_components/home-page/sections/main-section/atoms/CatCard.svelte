@@ -6,8 +6,7 @@
 </script>
 
 <div
-	class="{COURSES_COLORS[color]
-		.background} flex flex-1 items-center justify-center border-2 shadow-sm"
+	class="{COURSES_COLORS[color].background} flex flex-1 items-center justify-center border-[3px]"
 >
 	<img src="/{image}.png" alt="Crypto kitties cat" class="w-full" />
 </div>

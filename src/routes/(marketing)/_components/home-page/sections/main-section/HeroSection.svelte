@@ -15,7 +15,7 @@
 		{#each colors as color, i}
 			<CatCard image={images[i]} {color} />
 		{/each}
-		<div class="col-span-4 mt-3 sm:mt-0 md:col-start-2">
+		<div class="col-span-4 mt-4 sm:mt-6 md:col-start-2">
 			<FlowCatsCallToAction />
 		</div>
 	</div>
