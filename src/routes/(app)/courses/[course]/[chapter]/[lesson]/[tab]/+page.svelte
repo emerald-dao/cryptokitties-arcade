@@ -2,7 +2,7 @@
 	import TabContent from './_components/tab-content/TabContent.svelte';
 	import HelpButton from './_components/help/HelpButton.svelte';
 	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
-	import LessonTabs from './_components/lesson-tabs/LessonTabs.svelte';
+	import LessonTab from './_components/lesson-tabs/LessonTab.svelte';
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
 	export let data;
@@ -17,7 +17,7 @@
 	{#if data.lessonOverview.tabs.length > 1}
 		<div class="flex flex-row flex-wrap items-start">
 			{#each data.lessonOverview.tabs as tab}
-				<LessonTabs {tab} />
+				<LessonTab {tab} />
 			{/each}
 		</div>
 	{/if}
