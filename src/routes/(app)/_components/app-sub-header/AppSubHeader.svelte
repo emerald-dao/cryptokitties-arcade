@@ -7,6 +7,7 @@
 
 	export let course: CourseOverviewWithChapters;
 	export let userCourseFinishedLessons: string[] = [];
+
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 
 	$: unsubscribe = userFinishedLessons.subscribe((value) => {
