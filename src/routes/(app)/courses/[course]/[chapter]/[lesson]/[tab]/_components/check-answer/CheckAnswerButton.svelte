@@ -30,6 +30,8 @@
 	let dialogOpen = false;
 
 	async function handleCheckAnswer() {
+		popOverOpen = false;
+
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
 
 		for (let i = 0; i < codeTabs.length && i < codeTabsContent.length; i++) {
@@ -78,12 +80,14 @@
 </Dialog.Root>
 
 <Popover.Root bind:open={popOverOpen}>
-	<Popover.Trigger let:builder class="flex">
+	<Popover.Trigger let:builder class="flex" asChild>
 		<Button
 			builders={[builder]}
 			variant="secondary"
 			class={`${COURSES_COLORS[color].checkAnswer} flex-1 text-lg text-white`}
-			on:click={handleCheckAnswer}>CHECK ANSWER</Button
+			on:click={handleCheckAnswer}
+		>
+			CHECK ANSWER</Button
 		>
 	</Popover.Trigger>
 	<Popover.Content sideOffset={10}>
