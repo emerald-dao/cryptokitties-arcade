@@ -25,15 +25,16 @@
 	<Card.Root class="relative w-full">
 		<div class="md:grid md:grid-cols-[2fr_3fr]">
 			<div
-				class="{COURSES_COLORS[course.color]
-					.background} relative flex items-center justify-center border-r-2 p-6"
+				class="relative flex items-center justify-center border-r-2 p-6
+			{COURSES_COLORS[course.color].askForHelp}
+			"
 			>
 				<div class="absolute left-0 top-0">
 					<CourseCardLabel>{level}</CourseCardLabel>
 				</div>
 				<img src="/{course.image}.png" alt="course cat" class="h-60" />
 			</div>
-			<div class="space-y-3 px-8 py-6">
+			<div class="space-y-3 px-8 py-6 {COURSES_COLORS[course.color].background}">
 				<h2 class="text-4xl uppercase">
 					{course.name}
 				</h2>
