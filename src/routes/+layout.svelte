@@ -1,12 +1,37 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import '../app.pcss';
 	import '../prism.css';
 	import { activeLogo } from '$lib/config/logos';
+	import { browser } from '$app/environment';
+	import { isMusicActive } from '$lib/stores/sound/music-store';
 
 	export let data;
 
 	setContext('coursesAmountOfLessons', data.coursesAmountOfLessons);
+
+	let music: HTMLAudioElement;
+	onMount(() => {
+		if (browser) {
+			music = new Audio('/music/sharp-edges/sharp-edges.mp3');
+		}
+	});
+
+	const unsubscibre = isMusicActive.subscribe((value) => {
+		if (browser && music) {
+			if (value) {
+				music.volume = 0.3;
+				music.play();
+				music.loop = true;
+			} else {
+				music.pause();
+			}
+		}
+
+		return () => {
+			unsubscibre();
+		};
+	});
 </script>
 
 <svelte:head>
