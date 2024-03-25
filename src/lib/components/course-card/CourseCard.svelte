@@ -26,7 +26,7 @@
 </script>
 
 <a
-	class="block rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
+	class="group block rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
 	href="/courses/{course.slug}"
 	use:sound={[
 		{
@@ -49,10 +49,14 @@
 				<div class="absolute left-0 top-0">
 					<CourseCardLabel>{level}</CourseCardLabel>
 				</div>
-				<img src="/{course.image}.png" alt="course cat" class="h-60" />
+				<img
+					src="/{course.image}.png"
+					alt="course cat"
+					class="max-h-60 translate-y-[0.2rem] transition duration-300 ease-out group-hover:translate-y-[-0.8rem]"
+				/>
 			</div>
 			<div class="space-y-3 px-8 py-6 {COURSES_COLORS[course.color].background}">
-				<h2 class="text-4xl uppercase">
+				<h2 class="text-6xl uppercase">
 					{course.name}
 				</h2>
 				<CourseCardLabel>{course.subject}</CourseCardLabel>

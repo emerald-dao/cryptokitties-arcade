@@ -10,7 +10,7 @@
 	<div class="flex flex-col items-start gap-4 md:flex-row md:items-center">
 		<Button
 			href="/courses/1-save-ronald"
-			class="group peer w-fit px-8 py-2 text-xl transition ease-out hover:translate-y-[-0.2rem] hover:shadow-sm sm:px-16 sm:py-8 sm:text-2xl"
+			class="grouppx-8 py-2 text-xl transition sm:px-16 sm:py-8 sm:text-2xl"
 		>
 			<span
 				class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
@@ -23,7 +23,7 @@
 			</span>
 		</Button>
 		<div class="flex flex-row items-center gap-2">
-			<span class="peer-hover:rainbow-text-animated text-xl uppercase"
+			<span class="text-xl uppercase"
 				>An adventure built on
 				<img src="/flow-logo.svg" alt="Flow logo" class="mr-[-0.3rem] mt-[-0.2rem] inline size-6" />
 				Flow
