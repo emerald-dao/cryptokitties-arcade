@@ -19,30 +19,17 @@
 </script>
 
 <a
-	class="block border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
+	class="block w-full border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
 	href="/courses/{course.slug}"
 >
-	<Card.Root class="relative w-full">
-		<div class="md:grid md:grid-cols-[2fr_3fr]">
-			<div
-				class="{COURSES_COLORS[course.color]
-					.background} relative flex items-center justify-center border-r-2 p-6"
-			>
-				<div class="absolute left-0 top-0">
-					<CourseCardLabel>{level}</CourseCardLabel>
-				</div>
-				<img src="/{course.image}.png" alt="course cat" class="h-60" />
-			</div>
-			<div class="space-y-3 px-8 py-6">
-				<h2 class="text-4xl uppercase">
-					{course.name}
-				</h2>
-				<CourseCardLabel>{course.subject}</CourseCardLabel>
-				<p class="text-lg leading-5">{course.excerpt}</p>
-				<div class="absolute bottom-3 right-3">
-					<MissionCompletedLabel isCompleted={userFinishedCourse} />
-				</div>
-			</div>
+	<Card.Root class={`relative w-full space-y-4 p-4 ${COURSES_COLORS[course.color].background}`}>
+		<div class="flex flex-row gap-2">
+			<CourseCardLabel>{level}</CourseCardLabel>
+			<CourseCardLabel>{course.subject}</CourseCardLabel>
 		</div>
+		<h2 class="text-4xl uppercase leading-9">
+			{course.name}
+		</h2>
+		<MissionCompletedLabel isCompleted={userFinishedCourse} />
 	</Card.Root>
 </a>

@@ -5,7 +5,7 @@
 
 <div class="flex flex-col gap-2 sm:gap-5">
 	<h1 class="text-4xl leading-none sm:text-7xl">FLOW CATS NEED YOUR HELP!</h1>
-	<div class="flex flex-row items-center gap-4">
+	<div class="flex flex-col items-start gap-4 md:flex-row md:items-center">
 		<Button
 			href="/courses/1-save-ronald"
 			class="group w-fit px-8 py-2 text-xl transition ease-out hover:translate-y-[-0.2rem] hover:shadow-sm sm:px-16 sm:py-8 sm:text-2xl"

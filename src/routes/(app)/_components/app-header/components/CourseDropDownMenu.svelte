@@ -5,6 +5,7 @@
 	import CourseCard from '$lib/components/course-card/CourseCard.svelte';
 	import { COURSES_COLORS, type CourseColor } from '$courses/constants/colors';
 	import Icon from '@iconify/svelte';
+	import CourseSmallCard from '$lib/components/course-card/CourseSmallCard.svelte';
 
 	export let level: string;
 	export let courses: CourseOverviewWithSlug[];
@@ -22,12 +23,12 @@
 			{level}
 		</Button>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content sideOffset={0} class="max-w-[550px] border-2 font-pixel">
-		<DropdownMenu.Label class="text-lg font-normal">COURSES</DropdownMenu.Label>
-		<DropdownMenu.Group class="max-h-96 gap-4 overflow-auto px-4 scrollbar-hide">
+	<DropdownMenu.Content sideOffset={0} class="min-w-[500px] max-w-[550px] border-2 p-6 font-pixel">
+		<DropdownMenu.Label class="text-2xl font-normal uppercase">Missions</DropdownMenu.Label>
+		<DropdownMenu.Group class="max-h-96 space-y-3 overflow-auto">
 			{#each courses as course}
 				<DropdownMenu.Item>
-					<CourseCard {course} />
+					<CourseSmallCard {course} />
 				</DropdownMenu.Item>
 			{/each}
 		</DropdownMenu.Group>
