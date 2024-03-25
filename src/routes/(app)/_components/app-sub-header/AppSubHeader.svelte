@@ -32,7 +32,7 @@
 
 <div class="relative border-b-2">
 	<div class="flex items-center justify-between gap-x-3.5 px-10">
-		<div class="flex flex-wrap place-items-center border-l-2">
+		<div class="scrollbar-border-top flex w-full divide-x-2 overflow-x-auto border-x-2">
 			{#each course.chapters as chapter, i}
 				<CourseChapterLabel {chapter} chapterNumber={i + 1} />
 			{/each}
@@ -40,3 +40,12 @@
 		<ChapterProgressBar value={chapterProgress} />
 	</div>
 </div>
+
+<style lang="postcss">
+	::-webkit-scrollbar {
+		@apply h-2 border-0 border-t-2 border-solid;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply border-0 border-t-2 border-solid;
+	}
+</style>
