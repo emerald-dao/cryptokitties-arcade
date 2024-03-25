@@ -11,7 +11,7 @@
 <div
 	class:bg-primary={isChapterActive}
 	class:text-primary-foreground={isChapterActive}
-	class="flex items-center border-b border-r py-1 text-base"
+	class="mt-[-1px] flex items-center border-b border-r border-t py-1 text-base"
 >
 	<a href="/courses/{chapter.slug}" class="px-3 uppercase">
 		{chapterNumber}. {chapter.name}
