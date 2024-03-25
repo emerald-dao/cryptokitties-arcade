@@ -6,14 +6,8 @@
 	import { COURSES_COLORS } from '$courses/constants/colors';
 	import * as Card from '$lib/components/ui/card';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 	import MissionCompletedLabel from '../atoms/MissionCompletedLabel.svelte';
-
-	let audio: HTMLAudioElement;
-
-	onMount(() => {
-		audio = new Audio('/sounds/clank.mp3');
-	});
 
 	export let course: CourseOverviewWithSlug;
 
