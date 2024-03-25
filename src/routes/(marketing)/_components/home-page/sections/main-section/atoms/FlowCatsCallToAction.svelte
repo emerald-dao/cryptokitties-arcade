@@ -4,7 +4,9 @@
 </script>
 
 <div class="flex flex-col gap-2 sm:gap-5">
-	<h1 class="text-4xl leading-none sm:text-7xl">FLOW CATS NEED YOUR HELP!</h1>
+	<h1 class="text-4xl uppercase leading-8 tracking-tight sm:text-8xl">
+		Crypto kitties need your help!
+	</h1>
 	<div class="flex flex-col items-start gap-4 md:flex-row md:items-center">
 		<Button
 			href="/courses/1-save-ronald"

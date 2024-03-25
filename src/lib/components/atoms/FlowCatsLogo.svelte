@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { sound } from '$lib/utils/soundAction';
 	import { navigating } from '$app/stores';
 	import { activeLogo, getRandomLogo } from '$lib/config/logos';
 
@@ -20,6 +21,7 @@
 	class="group flex items-center gap-0 text-2xl"
 	on:mouseover={() => (isHovered = true)}
 	on:mouseout={() => (isHovered = false)}
+	use:sound
 >
 	<p>
 		{$activeLogo}

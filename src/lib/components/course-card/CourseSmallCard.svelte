@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { sound } from '$lib/utils/soundAction';
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 	import CourseCardLabel from './components/CourseCardLabel.svelte';
 	import { getCourseLevel } from '$lib/utils/getCourseLevel';
@@ -19,8 +20,18 @@
 </script>
 
 <a
-	class="block w-full border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
+	class="block w-full rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
 	href="/courses/{course.slug}"
+	use:sound={[
+		{
+			sound: '/sounds/sweepdown.wav',
+			event: 'mouseover'
+		},
+		{
+			sound: '/sounds/retro-click.mp3',
+			event: 'click'
+		}
+	]}
 >
 	<Card.Root class={`relative w-full space-y-4 p-4 ${COURSES_COLORS[course.color].background}`}>
 		<div class="flex flex-row gap-2">

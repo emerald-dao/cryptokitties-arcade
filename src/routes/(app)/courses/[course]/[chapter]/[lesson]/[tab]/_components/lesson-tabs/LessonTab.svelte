@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { sound } from '$lib/utils/soundAction';
 	import { page } from '$app/stores';
 	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 
@@ -11,5 +12,6 @@
 	class:bg-primary={isTabActive}
 	class:text-primary-foreground={isTabActive}
 	class="min-w-fit bg-background p-3"
-	href={`/courses/${tab.slug}`}>{tab.name}</a
+	href={`/courses/${tab.slug}`}
+	use:sound>{tab.name}</a
 >

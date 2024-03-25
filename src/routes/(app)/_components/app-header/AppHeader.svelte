@@ -14,8 +14,8 @@
 	import { checkUser } from '$lib/features/users/functions/checkUser';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { getContext } from 'svelte';
-	import { Check } from 'lucide-svelte';
 	import MissionCompletedLabel from '$lib/components/atoms/MissionCompletedLabel.svelte';
+	import SoundToggle from '$lib/components/atoms/SoundToggle.svelte';
 
 	export let activeCourse: CourseOverviewWithChapters;
 	export let allCourses: CourseOverviewWithSlug[];
@@ -48,5 +48,8 @@
 		{/if}
 	</div>
 	<FlowCatsLogo />
-	<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
+	<div class="flex flex-row items-center gap-4">
+		<SoundToggle />
+		<FlowConnect logIn={() => connect()} {unauthenticate} user={$user} />
+	</div>
 </div>

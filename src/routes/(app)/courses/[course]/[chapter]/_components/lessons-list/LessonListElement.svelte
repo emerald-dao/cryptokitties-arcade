@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { sound } from '$lib/utils/soundAction';
 	import { page } from '$app/stores';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import type { LessonOverviewWithSlug } from '$courses/types/lesson-overview.interface';
@@ -15,7 +16,12 @@
 </script>
 
 <div class:border-2={isSidebarOpen} class:border-y-2={!isSidebarOpen}>
-	<a class:flex={isSidebarOpen} class:flex-row={isSidebarOpen} href={`/courses/${lesson.slug}`}>
+	<a
+		class:flex={isSidebarOpen}
+		class:flex-row={isSidebarOpen}
+		href={`/courses/${lesson.slug}`}
+		use:sound
+	>
 		<div
 			class:bg-primary={isLessonActive}
 			class:text-primary-foreground={isLessonActive}
