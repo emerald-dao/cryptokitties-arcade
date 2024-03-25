@@ -15,7 +15,7 @@
 		: ''} justify-between border-l-2"
 >
 	{#if data.lessonOverview.tabs.length > 1}
-		<div class="flex flex-row flex-wrap items-start bg-white">
+		<div class="flex flex-row flex-wrap items-start border-b-2 bg-white">
 			{#each data.lessonOverview.tabs as tab}
 				<LessonTab {tab} />
 			{/each}
