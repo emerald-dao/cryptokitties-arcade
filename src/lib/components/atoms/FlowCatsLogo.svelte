@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { navigating } from '$app/stores';
 	import { activeLogo, getRandomLogo } from '$lib/config/logos';
 
 	let isHovered = false;
@@ -8,6 +9,8 @@
 	};
 
 	let intervalId: NodeJS.Timeout;
+
+	$: if ($navigating) clearInterval(intervalId);
 
 	$: isHovered ? (intervalId = setInterval(randomizeLogoStore, 100)) : clearInterval(intervalId);
 </script>
