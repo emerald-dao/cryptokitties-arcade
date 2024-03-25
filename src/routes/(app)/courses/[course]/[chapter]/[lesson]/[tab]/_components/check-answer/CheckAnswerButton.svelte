@@ -82,7 +82,7 @@
 		<Button
 			builders={[builder]}
 			variant="secondary"
-			class={`${COURSES_COLORS[color].checkAnswer} flex-1`}
+			class={`${COURSES_COLORS[color].checkAnswer} flex-1 text-lg text-white`}
 			on:click={handleCheckAnswer}>CHECK ANSWER</Button
 		>
 	</Popover.Trigger>

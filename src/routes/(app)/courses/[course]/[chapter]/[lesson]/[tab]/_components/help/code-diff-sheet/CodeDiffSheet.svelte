@@ -70,8 +70,10 @@
 
 <Sheet.Root>
 	<Sheet.Trigger asChild let:builder>
-		<Button variant="secondary" builders={[builder]} class={COURSES_COLORS[color].askForHelp}
-			>ASK FOR HELP</Button
+		<Button
+			variant="secondary"
+			builders={[builder]}
+			class={`text-lg ${COURSES_COLORS[color].askForHelp}`}>ASK FOR HELP</Button
 		>
 	</Sheet.Trigger>
 	<Sheet.Content side="right" class="font-pixel">
