@@ -94,24 +94,40 @@
 	}
 
 	.max-w-container {
-		@apply w-[90%] max-w-[66rem];
+		@apply w-[90%] max-w-[60rem];
 	}
 	::-webkit-scrollbar {
 		@apply w-3;
 	}
 
-	/* Track */
-	::-webkit-scrollbar-track {
-		@apply border-2 border-solid border-black bg-transparent;
-	}
-
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		@apply bg-black transition-all duration-700 ease-in-out;
+		@apply bg-gray-300 transition-colors ease-in-out;
 	}
 
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		@apply bg-gray-500;
+	.rainbow-text-animated {
+		background: linear-gradient(
+			to right,
+			theme('colors.purple.500'),
+			theme('colors.blue.500'),
+			theme('colors.green.500'),
+			theme('colors.red.500'),
+			theme('colors.pink.500')
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		animation: rainbow_animation 2s ease-in-out infinite;
+		background-size: 400% 100%;
+	}
+
+	@keyframes rainbow_animation {
+		0%,
+		100% {
+			background-position: 0 0;
+		}
+
+		50% {
+			background-position: 100% 0;
+		}
 	}
 }

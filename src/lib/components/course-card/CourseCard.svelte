@@ -1,80 +1,70 @@
 <script lang="ts">
+	import { sound } from '$lib/utils/soundAction';
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 	import CourseCardLabel from './components/CourseCardLabel.svelte';
 	import { getCourseLevel } from '$lib/utils/getCourseLevel';
 	import { COURSES_COLORS } from '$courses/constants/colors';
 	import * as Card from '$lib/components/ui/card';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
-	import { Check } from 'lucide-svelte';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
+	import MissionCompletedLabel from '../atoms/MissionCompletedLabel.svelte';
+
+	let audio: HTMLAudioElement;
+
+	onMount(() => {
+		audio = new Audio('/sounds/clank.mp3');
+	});
 
 	export let course: CourseOverviewWithSlug;
-	export let isCompleteCourseCard = false;
 
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
-	let level = `LEVEL ${getCourseLevel(course.slug)}`;
+	let level = `MISSION ${getCourseLevel(course.slug)}`;
 
 	$: userFinishedCourse =
 		$userFinishedLessons.filter((lesson) => lesson.includes(course.slug))?.length ===
 		coursesAmountOfLessons[course.slug];
 </script>
 
-<Card.Root class="relative w-full">
-	<a
-		class:min-w-96={!isCompleteCourseCard}
-		class="block border-2 border-solid border-border shadow-md"
-		href="/courses/{course.slug}"
-	>
-		<div
-			class="grid grid-cols-3 gap-2"
-			class:min-h-64={isCompleteCourseCard}
-			class:min-h-36={!isCompleteCourseCard}
-		>
-			<Card.Header
-				class="{COURSES_COLORS[course.color]
-					.background} relative hidden items-center justify-center p-[3%] sm:flex sm:flex-col"
+<a
+	class="group block rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:shadow-lg"
+	href="/courses/{course.slug}"
+	use:sound={[
+		{
+			sound: '/sounds/sweepdown.wav',
+			event: 'mouseover'
+		},
+		{
+			sound: '/sounds/retro-click.mp3',
+			event: 'click'
+		}
+	]}
+>
+	<Card.Root class="relative w-full">
+		<div class="md:grid md:grid-cols-[2fr_3fr]">
+			<div
+				class="relative flex items-center justify-center border-r-2 p-6
+			{COURSES_COLORS[course.color].askForHelp}
+			"
 			>
-				<div class="absolute left-1 top-1">
+				<div class="absolute left-0 top-0">
 					<CourseCardLabel>{level}</CourseCardLabel>
 				</div>
 				<img
 					src="/{course.image}.png"
 					alt="course cat"
-					class:max-w-50={isCompleteCourseCard}
-					class:md:max-w-56={isCompleteCourseCard}
-					class:lg:max-w-64={isCompleteCourseCard}
-					class:max-w-32={!isCompleteCourseCard}
-					class="px-2"
+					class="max-h-60 translate-y-[0.2rem] transition duration-300 ease-out group-hover:translate-y-[-0.8rem]"
 				/>
-			</Card.Header>
-			<Card.Content
-				class="col-span-3 flex flex-col justify-center gap-[5%] px-[5%] sm:col-span-2 sm:justify-normal"
-			>
-				<h2
-					class:pt-3={!isCompleteCourseCard}
-					class:text-3xl={isCompleteCourseCard}
-					class:sm:text-5xl={isCompleteCourseCard}
-					class:text-lg={!isCompleteCourseCard}
-					class="uppercase"
-				>
+			</div>
+			<div class="space-y-3 px-8 py-6 {COURSES_COLORS[course.color].background}">
+				<h2 class="text-6xl uppercase">
 					{course.name}
 				</h2>
-				<CourseCardLabel {isCompleteCourseCard}>{course.subject}</CourseCardLabel>
-				{#if isCompleteCourseCard}
-					<h3 class="text-xl">{course.subject}</h3>
-				{/if}
-				{#if userFinishedCourse}
-					<div
-						class:p-4={isCompleteCourseCard}
-						class:p-2={!isCompleteCourseCard}
-						class="absolute bottom-0 right-0"
-					>
-						<Check
-							class="{isCompleteCourseCard ? 'h-8 w-8' : 'h-4 w-4'} bg-green-600 text-green-200"
-						/>
-					</div>
-				{/if}
-			</Card.Content>
+				<CourseCardLabel>{course.subject}</CourseCardLabel>
+				<p class="text-lg leading-5">{course.excerpt}</p>
+				<div class="absolute bottom-3 right-3">
+					<MissionCompletedLabel isCompleted={userFinishedCourse} />
+				</div>
+			</div>
 		</div>
-	</a>
-</Card.Root>
+	</Card.Root>
+</a>

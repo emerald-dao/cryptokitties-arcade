@@ -4,6 +4,6 @@ export const overview: CourseOverview = {
 	name: 'Save Ronald',
 	excerpt: 'Ronald is in danger! Help him to survive!',
 	subject: 'Blockchain basics',
-	color: 'green',
+	color: 'purple',
 	image: 'magician-cat'
 };

@@ -19,6 +19,7 @@ const config = {
 			md: '8px 8px hsl(var(--primary))',
 			lg: '12px 12px hsl(var(--primary))'
 		},
+
 		extend: {
 			fontSize: {
 				xs: '0.8rem',

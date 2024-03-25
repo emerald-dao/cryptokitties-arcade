@@ -7,7 +7,7 @@
 
 <div
 	class="{COURSES_COLORS[color]
-		.background} flex flex-1 items-center justify-center border-2 shadow-sm"
+		.background} flex w-full flex-1 items-center justify-center rounded border-2 shadow-sm"
 >
 	<img src="/{image}.png" alt="Crypto kitties cat" class="w-full" />
 </div>

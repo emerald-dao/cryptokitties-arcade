@@ -3,9 +3,13 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { CourseOverviewWithSlug } from '$courses/types/course-overview.interface';
 	import CourseCard from '$lib/components/course-card/CourseCard.svelte';
+	import { COURSES_COLORS, type CourseColor } from '$courses/constants/colors';
+	import Icon from '@iconify/svelte';
+	import CourseSmallCard from '$lib/components/course-card/CourseSmallCard.svelte';
 
 	export let level: string;
 	export let courses: CourseOverviewWithSlug[];
+	export let color: CourseColor;
 </script>
 
 <DropdownMenu.Root>
@@ -13,21 +17,18 @@
 		<Button
 			builders={[builder]}
 			variant="outline"
-			class="h-full border-y-0 text-xl {builder['data-state'] === 'open'
-				? 'bg-foreground text-primary-foreground hover:bg-accent-foreground hover:text-primary-foreground'
-				: 'bg-background text-primary hover:bg-inherit'}"
-			>{level}
+			class={`h-full border-y-0 text-xl ${COURSES_COLORS[color].background} hover:${COURSES_COLORS[color].background}`}
+		>
+			<Icon icon="pixelarticons:arrows-vertical" class="pr-2"></Icon>
+			{level}
 		</Button>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content
-		sideOffset={0}
-		class="max-w-[550px] border-b-4 border-l-2 border-r-4 border-t-2 font-pixel"
-	>
-		<DropdownMenu.Label class="text-lg font-normal">COURSES</DropdownMenu.Label>
-		<DropdownMenu.Group class="max-h-96 gap-4 overflow-auto px-4 scrollbar-hide">
+	<DropdownMenu.Content sideOffset={0} class="min-w-[500px] max-w-[550px] border-2 p-6 font-pixel">
+		<DropdownMenu.Label class="text-2xl font-normal uppercase">Missions</DropdownMenu.Label>
+		<DropdownMenu.Group class="max-h-96 space-y-3 overflow-auto">
 			{#each courses as course}
 				<DropdownMenu.Item>
-					<CourseCard {course} />
+					<CourseSmallCard {course} />
 				</DropdownMenu.Item>
 			{/each}
 		</DropdownMenu.Group>

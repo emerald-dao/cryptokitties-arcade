@@ -7,6 +7,8 @@
 	import { checkUser } from '$lib/features/users/functions/checkUser';
 	import { addUser } from '$lib/features/users/functions/postUser';
 	import type { CurrentUserObject } from '@onflow/fcl';
+	import Icon from '@iconify/svelte';
+	import SoundToggle from '$lib/components/atoms/SoundToggle.svelte';
 
 	const connect = async () => {
 		logIn().then(async () => {
@@ -21,10 +23,13 @@
 	};
 </script>
 
-<header class="border-b-2 border-solid border-border py-4">
-	<div class="section flex items-center justify-between gap-1">
-		<FlowCatsLogo />
-		<MarketingHeaderNavigation />
+<header
+	class="max-w-container z-50 mx-auto mt-6 flex items-center justify-between gap-1 rounded border-2 border-solid border-border bg-white px-4 py-1 shadow-md"
+>
+	<FlowCatsLogo />
+	<MarketingHeaderNavigation />
+	<div class="flex flex-row items-center gap-4">
+		<SoundToggle />
 		<FlowConnect
 			logIn={() => connect()}
 			{unauthenticate}

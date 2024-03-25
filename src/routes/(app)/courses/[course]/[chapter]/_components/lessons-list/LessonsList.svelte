@@ -23,7 +23,7 @@
 	});
 </script>
 
-<ul class="flex flex-col gap-2">
+<div class="flex flex-col gap-2">
 	{#each chapter.lessons as lesson, i}
 		<LessonListElement
 			bind:completedLesson={completedLessons[i]}
@@ -33,4 +33,4 @@
 			{i}
 		/>
 	{/each}
-</ul>
+</div>

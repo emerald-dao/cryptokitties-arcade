@@ -23,14 +23,14 @@
 <svelte:window bind:innerWidth />
 
 {#if innerWidth < 1100}
-	<section class="flex min-h-screen flex-1 flex-col items-center justify-center gap-7">
+	<section class="flex flex-1 flex-col items-center justify-center gap-7">
 		<div class="text-2xl uppercase">😺 Flow cats</div>
 		<p class="max-w-[35ch] text-center">
 			For a better user experience please use a device with a larger screen.
 		</p>
 	</section>
 {:else}
-	<div class="flex h-screen flex-col">
+	<div class="flex h-full flex-1 flex-col overflow-hidden">
 		<AppHeader activeCourse={data.course} allCourses={data.courses} />
 		<AppSubHeader course={data.course} />
 		<section class="flex-1 overflow-hidden">
