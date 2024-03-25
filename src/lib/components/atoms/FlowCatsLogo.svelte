@@ -1,22 +1,15 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
-	const catsEmojis = ['😼', '😺', '😸', '😹', '😻', '😽', '🙀', '😿', '😾'];
-	let randomCatEmoji = '😼';
+	import { activeLogo, getRandomLogo } from '$lib/config/logos';
 
 	let isHovered = false;
 
-	const randomizeCat = () => {
-		randomCatEmoji = catsEmojis[Math.floor(Math.random() * catsEmojis.length)];
+	const randomizeLogoStore = () => {
+		$activeLogo = getRandomLogo();
 	};
 
 	let intervalId: NodeJS.Timeout;
 
-	$: isHovered ? (intervalId = setInterval(randomizeCat, 100)) : clearInterval(intervalId);
-
-	onMount(() => {
-		randomizeCat();
-	});
+	$: isHovered ? (intervalId = setInterval(randomizeLogoStore, 100)) : clearInterval(intervalId);
 </script>
 
 <a
@@ -26,7 +19,7 @@
 	on:mouseout={() => (isHovered = false)}
 >
 	<p>
-		{randomCatEmoji}
+		{$activeLogo}
 		<span class="group-hover:rainbow-text-animated group-hover:text-transparent"> FLOW CATS </span>
 	</p>
 </a>
