@@ -19,6 +19,11 @@
 <CorrectAnswerDialogContainer>
 	<CorrectAnswerDialogSubtitle />
 	<CorrectAnswerDialogTitle>You have finished {activeCourse.name} course</CorrectAnswerDialogTitle>
+	<p class="font-pixel text-center">
+		Head to the <a href="https://discord.gg/emerald-city-906264258189332541" class="text-blue-400"
+			>Emerald City discord</a
+		> and give us feedback on the course to claim your official certificate.
+	</p>
 	<div class="flex flex-row items-center gap-4">
 		<CorrectAnswerDialogButton>
 			<Icon icon="pixelarticons:home" class="mr-2 h-6 w-6" />
