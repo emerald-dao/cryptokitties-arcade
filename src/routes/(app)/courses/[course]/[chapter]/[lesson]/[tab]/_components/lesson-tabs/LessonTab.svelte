@@ -14,7 +14,7 @@
 <a
 	class:bg-primary={isTabActive}
 	class:text-primary-foreground={isTabActive}
-	class="flex min-w-fit items-center gap-1 border-r-2 bg-background px-2 py-3"
+	class="flex min-h-12 min-w-fit items-center gap-1 border-r-2 bg-background px-2 py-3"
 	href={`/courses/${tab.slug}`}
 	use:sound
 >

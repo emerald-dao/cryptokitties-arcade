@@ -18,7 +18,9 @@
 		: ''} justify-between border-l-2"
 >
 	{#if data.lessonOverview.tabs.length > 1}
-		<div class="flex flex-row flex-wrap items-start border-b-2 bg-white">
+		<div
+			class="scrollbar-border-top flex w-full overflow-x-auto overflow-y-hidden border-b-2 border-r-2 bg-white"
+		>
 			{#each data.lessonOverview.tabs as tab}
 				<LessonTab bind:correctAnswers bind:incorrectAnswers {tab} />
 			{/each}
@@ -47,3 +49,12 @@
 		</div>
 	{/if}
 </div>
+
+<style lang="postcss">
+	::-webkit-scrollbar {
+		@apply h-2 border-0 border-t-2 border-solid;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply border-0 border-t-2 border-solid;
+	}
+</style>
