@@ -6,6 +6,9 @@
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
 	export let data;
+
+	let incorrectAnswers: string[] = [];
+	let correctAnswers: string[] = [];
 </script>
 
 <div
@@ -17,7 +20,7 @@
 	{#if data.lessonOverview.tabs.length > 1}
 		<div class="flex flex-row flex-wrap items-start border-b-2 bg-white">
 			{#each data.lessonOverview.tabs as tab}
-				<LessonTab {tab} />
+				<LessonTab bind:correctAnswers bind:incorrectAnswers {tab} />
 			{/each}
 		</div>
 	{/if}
@@ -31,6 +34,8 @@
 				courseImage={data.course.image}
 			/>
 			<CheckAnswerButton
+				bind:correctAnswers
+				bind:incorrectAnswers
 				allCourses={data.courses}
 				color={data.course.color}
 				activeCourse={data.course}

@@ -24,6 +24,8 @@
 	export let activeLesson: LessonOverviewWithTabs;
 	export let totalAmountOfLessons: number;
 	export let codeTabsContent: CodeTabContent[];
+	export let incorrectAnswers: string[] = [];
+	export let correctAnswers: string[] = [];
 
 	let userCode: string;
 	let popOverOpen = false;
@@ -31,6 +33,7 @@
 
 	async function handleCheckAnswer() {
 		popOverOpen = false;
+		let allTabsCorrect = true;
 
 		const codeTabs = activeLesson.tabs.filter((tab) => tab.type === 'code');
 
@@ -48,17 +51,35 @@
 			const normalizedUserCode = normalizeCode(userCode);
 
 			if (normalizedUserCode !== normalizedSolutionCode) {
-				popOverOpen = true;
-				unsubscribe();
-				return;
+				incorrectAnswers =
+					incorrectAnswers.indexOf(tab.slug) === -1
+						? [...incorrectAnswers, tab.slug]
+						: [...incorrectAnswers];
+				if (correctAnswers.indexOf(tab.slug) !== -1) {
+					correctAnswers.splice(correctAnswers.indexOf(tab.slug), 1);
+					correctAnswers = [...correctAnswers];
+				}
+				allTabsCorrect = false;
+			} else {
+				correctAnswers =
+					correctAnswers.indexOf(tab.slug) === -1
+						? [...correctAnswers, tab.slug]
+						: [...correctAnswers];
+				if (incorrectAnswers.indexOf(tab.slug) !== -1) {
+					incorrectAnswers.splice(incorrectAnswers.indexOf(tab.slug), 1);
+					incorrectAnswers = [...incorrectAnswers];
+				}
 			}
 			unsubscribe();
 		}
 
-		dialogOpen = true;
-
-		if ($user.addr) {
-			addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
+		if (allTabsCorrect) {
+			dialogOpen = true;
+			if ($user.addr) {
+				addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
+			}
+		} else {
+			popOverOpen = true;
 		}
 	}
 
