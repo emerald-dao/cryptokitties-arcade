@@ -11,7 +11,7 @@
 <a
 	class:bg-primary={isTabActive}
 	class:text-primary-foreground={isTabActive}
-	class="min-w-fit border-r-2 bg-background p-3"
+	class="bg-background min-h-12 min-w-fit border-r-2 p-3"
 	href={`/courses/${tab.slug}`}
 	use:sound>{tab.name}</a
 >
