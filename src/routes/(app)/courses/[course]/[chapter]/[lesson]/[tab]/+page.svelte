@@ -12,7 +12,7 @@
 	class:bg-primary={data.tabContent.type === 'code'}
 	class="flex h-full flex-col {data.tabContent.type === 'component'
 		? COURSES_COLORS[data.course.color].background
-		: ''} justify-between border-l-2"
+		: ''} border-l-2"
 >
 	{#if data.lessonOverview.tabs.length > 1}
 		<div
@@ -25,7 +25,7 @@
 	{/if}
 	<TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
 	{#if data.tabContent.type === 'code'}
-		<div class="grid grid-cols-2">
+		<div class="sticky bottom-0 grid grid-cols-2">
 			<HelpButton
 				color={data.course.color}
 				tabContent={data.tabContent}
