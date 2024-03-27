@@ -11,7 +11,6 @@
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
 	export let tabOverview: LessonTabOverviewWithSlug;
-	export let courseImage: string;
 
 	let userCode: string;
 	let monaco: typeof Monaco;

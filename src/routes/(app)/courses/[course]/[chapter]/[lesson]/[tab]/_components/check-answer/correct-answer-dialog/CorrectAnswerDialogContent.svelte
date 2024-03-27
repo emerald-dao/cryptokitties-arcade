@@ -43,12 +43,16 @@
 </script>
 
 {#if userFinishedAllCourses}
+	<audio src="/sounds/success-trumpets.mp3" autoplay></audio>
 	<FinishedAllCoursesDialogContent />
 {:else if userFinishedCourse}
+	<audio src="/sounds/success-trumpets.mp3" autoplay></audio>
 	<FinishedCourseDialogContent {activeCourse} {allCourses} />
 {:else if finishedLastLesson}
+	<audio src="/sounds/success.mp3" autoplay></audio>
 	<FinishedLastLessonDialogContent {activeCourse} />
 {:else}
+	<audio src="/sounds/success.mp3" autoplay></audio>
 	<FinishedLessonDialogContent
 		{activeChapter}
 		{activeCourse}

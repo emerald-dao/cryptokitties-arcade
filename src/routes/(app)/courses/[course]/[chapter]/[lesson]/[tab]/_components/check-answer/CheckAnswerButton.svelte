@@ -16,7 +16,6 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { CodeTabContent } from '../../_types/tab-content.type';
 	import CorrectAnswerDialogContent from './correct-answer-dialog/CorrectAnswerDialogContent.svelte';
-	import { sound } from '$lib/utils/soundAction';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
@@ -76,9 +75,6 @@
 
 		if (allTabsCorrect) {
 			dialogOpen = true;
-
-			const audio = new Audio('/sounds/success.mp3');
-			audio.play();
 
 			if ($user.addr) {
 				addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);

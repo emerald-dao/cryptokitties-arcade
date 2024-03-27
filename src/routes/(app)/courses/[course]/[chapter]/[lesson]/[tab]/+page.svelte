@@ -33,7 +33,6 @@
 				color={data.course.color}
 				tabContent={data.tabContent}
 				tabOverview={data.tabOverview}
-				courseImage={data.course.image}
 			/>
 			<CheckAnswerButton
 				bind:correctAnswers
