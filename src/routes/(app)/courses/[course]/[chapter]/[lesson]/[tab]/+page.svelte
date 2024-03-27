@@ -12,15 +12,15 @@
 	class:bg-primary={data.tabContent.type === 'code'}
 	class="flex h-full flex-col {data.tabContent.type === 'component'
 		? COURSES_COLORS[data.course.color].background
-		: ''} border-l-2"
+		: ''} justify-between overflow-x-hidden border-l-2"
 >
 	{#if data.lessonOverview.tabs.length > 1}
-		<div
-			class="scrollbar-border-top flex w-full overflow-x-auto overflow-y-hidden border-b-2 border-r-2 bg-white"
-		>
-			{#each data.lessonOverview.tabs as tab}
-				<LessonTab {tab} />
-			{/each}
+		<div class="max-h-20">
+			<div class="scrollbar-border-top flex overflow-x-auto overflow-y-hidden border-b-2 bg-white">
+				{#each data.lessonOverview.tabs as tab}
+					<LessonTab {tab} />
+				{/each}
+			</div>
 		</div>
 	{/if}
 	<TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
