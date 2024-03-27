@@ -3,31 +3,24 @@
 	import Icon from '@iconify/svelte';
 </script>
 
-<div class="flex flex-col gap-2 sm:gap-5">
-	<h1 class="text-4xl uppercase leading-8 tracking-tight sm:text-8xl">
-		Crypto kitties need your help!
-	</h1>
-	<div class="flex flex-col items-start gap-4 md:flex-row md:items-center">
-		<Button
-			href="/courses/1-save-ronald"
-			class="grouppx-8 py-2 text-xl transition sm:px-16 sm:py-8 sm:text-2xl"
+<div class="mt-4 flex flex-col gap-3 sm:mt-0 sm:gap-3">
+	<h1 class="text-4xl uppercase leading-9 tracking-tight sm:text-7xl">Crypto kitties need help!</h1>
+	<p class="mb-2 text-lg uppercase leading-6 md:text-xl">
+		Learn everything you need to know about the Flow blockchain while saving Crypto Kitties from
+		evil hackers.
+	</p>
+	<Button
+		href="/courses/1-save-ronald"
+		class="group w-fit px-8 py-2 text-xl transition sm:px-16 sm:py-8 sm:text-2xl"
+	>
+		<span
+			class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
 		>
-			<span
-				class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
-			>
-				PLAY NOW
-				<Icon
-					icon="pixelarticons:play"
-					class="ml-3 inline size-8 transition duration-300 ease-in-out"
-				/>
-			</span>
-		</Button>
-		<div class="flex flex-row items-center gap-2">
-			<span class="text-xl uppercase"
-				>An adventure built on
-				<img src="/flow-logo.svg" alt="Flow logo" class="mr-[-0.3rem] mt-[-0.2rem] inline size-6" />
-				Flow
-			</span>
-		</div>
-	</div>
+			PLAY NOW
+			<Icon
+				icon="pixelarticons:play"
+				class="ml-3 inline size-8 transition duration-300 ease-in-out"
+			/>
+		</span>
+	</Button>
 </div>
