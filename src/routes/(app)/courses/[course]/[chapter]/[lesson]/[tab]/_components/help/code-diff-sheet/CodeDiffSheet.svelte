@@ -11,7 +11,6 @@
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
 	export let tabOverview: LessonTabOverviewWithSlug;
-	export let courseImage: string;
 
 	let userCode: string;
 	let monaco: typeof Monaco;
@@ -78,14 +77,8 @@
 	</Sheet.Trigger>
 	<Sheet.Content side="right" class="font-pixel">
 		<Sheet.Header class="flex flex-row items-center justify-between">
-			<Sheet.Title>Help!</Sheet.Title>
-			<img src="/{courseImage}.png" alt="cat" class="w-18 h-12 pr-4" />
+			<Sheet.Title class="text-2xl uppercase">Help!</Sheet.Title>
 		</Sheet.Header>
 		<div bind:this={editorContainer} class="h-80"></div>
-		<Sheet.Footer class="pt-6">
-			<Sheet.Close asChild let:builder>
-				<Button builders={[builder]} type="submit">Close</Button>
-			</Sheet.Close>
-		</Sheet.Footer>
 	</Sheet.Content>
 </Sheet.Root>

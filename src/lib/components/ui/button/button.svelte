@@ -14,6 +14,16 @@
 	export let builders: $$Props['builders'] = [];
 	export let href: $$Props['href'] = undefined;
 	export { className as class };
+
+	export let sounds: {
+		sound: string;
+		event: 'click' | 'hover';
+	}[] = [
+		{
+			sound: '/sounds/retro-click.mp3',
+			event: 'click' as const
+		}
+	];
 </script>
 
 <svelte:element
@@ -26,7 +36,7 @@
 	{...$$restProps}
 	on:click
 	on:keydown
-	use:sound
+	use:sound={sounds}
 >
 	<slot />
 </svelte:element>
