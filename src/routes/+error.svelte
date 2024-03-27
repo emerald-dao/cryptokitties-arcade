@@ -4,12 +4,12 @@
 	import Icon from '@iconify/svelte';
 
 	let errorIs404 = $page.status === 404;
-	let errorImage = errorIs404 ? 'error_404.jpeg' : 'error_500.jpg';
+	$: errorImage = errorIs404 ? 'error_404.jpeg' : 'error_500.jpg';
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
 	<h1 class="text-5xl uppercase">{errorIs404 ? 'Page not found' : 'An error occurred'}</h1>
-	<img src="./{errorImage}" alt="error" />
+	<img src={`${$page.url.origin}/${errorImage}`} alt="error" />
 	<p class="text-2xl">
 		{errorIs404
 			? 'Sorry, the page you requested could not be found.'
