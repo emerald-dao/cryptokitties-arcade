@@ -1,29 +1,30 @@
 <script lang="ts">
+	import MusicWidget from './../lib/components/music-widget/MusicWidget.svelte';
 	import { onMount, setContext } from 'svelte';
 	import '../app.pcss';
 	import '../prism.css';
 	import { activeLogo } from '$lib/config/logos';
 	import { browser } from '$app/environment';
-	import { isMusicActive } from '$lib/stores/sound/music-store';
+	import { MUSIC_SELECTION, musicStore } from '$lib/stores/sound/music-store';
 
 	export let data;
 
 	setContext('coursesAmountOfLessons', data.coursesAmountOfLessons);
 
-	let music: HTMLAudioElement;
-	onMount(() => {
-		if (browser) {
-			music = new Audio('/music/sharp-edges/sharp-edges.mp3');
-		}
-	});
+	let music = browser ? new Audio() : null;
 
-	const unsubscibre = isMusicActive.subscribe((value) => {
-		if (browser && music) {
-			if (value) {
+	const unsubscibre = musicStore.subscribe((value) => {
+		if (browser && music !== null) {
+			music.src = MUSIC_SELECTION[value.activeSong].src;
+
+			if (value.isPlaying) {
 				music.volume = 0.3;
 				music.play();
-				music.loop = true;
-			} else {
+
+				music.addEventListener('ended', () => {
+					$musicStore.activeSong++;
+				});
+			} else if (value.isPlaying === false) {
 				music.pause();
 			}
 		}
@@ -48,3 +49,5 @@
 		</div>
 	</div>
 </div>
+
+<MusicWidget />

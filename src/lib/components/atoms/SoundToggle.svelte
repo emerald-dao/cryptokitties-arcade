@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isMusicActive } from '$lib/stores/sound/music-store';
+	import { musicStore } from '$lib/stores/sound/music-store';
 	import { isSoundActive } from '$lib/stores/sound/sound-store';
 	import { sound } from '$lib/utils/soundAction';
 	import Icon from '@iconify/svelte';
@@ -18,8 +18,8 @@
 	<button
 		class="text-lg transition-colors duration-200 ease-in-out"
 		aria-label="Toggle music"
-		on:click={() => ($isMusicActive = !$isMusicActive)}
-		class:opacity-30={!$isMusicActive}
+		on:click={() => ($musicStore.isPlaying = !$musicStore.isPlaying)}
+		class:opacity-30={!$musicStore.isPlaying}
 		use:sound
 	>
 		<Icon icon="pixelarticons:music" />

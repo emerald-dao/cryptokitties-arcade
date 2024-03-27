@@ -24,7 +24,9 @@
 	use:sound
 >
 	<p>
-		{$activeLogo}
+		<span class="mr-[-4px] text-xl">
+			{$activeLogo}
+		</span>
 		<span class="group-hover:rainbow-text-animated group-hover:text-transparent"> FLOW CATS </span>
 	</p>
 </a>
