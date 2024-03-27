@@ -14,19 +14,23 @@
 <a
 	class:bg-primary={isTabActive}
 	class:text-primary-foreground={isTabActive}
-	class="flex min-h-12 min-w-fit items-center gap-1 border-r-2 bg-background px-2 py-3"
+	class="flex min-h-12 items-center gap-2 border-r-2 bg-background px-2 py-3"
 	href={`/courses/${tab.slug}`}
 	use:sound
 >
 	{tab.name}
 	{#if tab.type === 'code'}
 		{#if correctAnswers.indexOf(tab.slug) !== -1}
-			<div class="flex h-full items-center justify-center">
-				<Icon icon="pixelarticons:check" class="text-lg text-green-700" />
+			<div
+				class="flex aspect-square size-5 items-center justify-center rounded-sm border-2 border-solid border-green-600 bg-green-200"
+			>
+				<Icon icon="pixelarticons:check" class="text-xs text-green-700" />
 			</div>
 		{:else if incorrectAnswers.indexOf(tab.slug) !== -1}
-			<div class="flex h-full items-center justify-center">
-				<Icon icon="pixelarticons:close" class="text-lg text-red-700" />
+			<div
+				class="flex size-5 items-center justify-center rounded-sm border-2 border-solid border-red-600 bg-red-200"
+			>
+				<Icon icon="pixelarticons:close" class="text-xs text-red-700" />
 			</div>
 		{/if}
 	{/if}

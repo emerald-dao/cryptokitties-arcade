@@ -16,6 +16,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { CodeTabContent } from '../../_types/tab-content.type';
 	import CorrectAnswerDialogContent from './correct-answer-dialog/CorrectAnswerDialogContent.svelte';
+	import { sound } from '$lib/utils/soundAction';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
@@ -75,11 +76,18 @@
 
 		if (allTabsCorrect) {
 			dialogOpen = true;
+
+			const audio = new Audio('/sounds/success.mp3');
+			audio.play();
+
 			if ($user.addr) {
 				addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
 			}
 		} else {
 			popOverOpen = true;
+
+			const audio = new Audio('/sounds/failure.wav');
+			audio.play();
 		}
 	}
 
@@ -107,11 +115,12 @@
 			variant="secondary"
 			class={`${COURSES_COLORS[color].checkAnswer} flex-1 text-lg text-white`}
 			on:click={handleCheckAnswer}
+			sounds={[]}
 		>
-			CHECK ANSWER</Button
+			SUBMIT ANSWER</Button
 		>
 	</Popover.Trigger>
-	<Popover.Content sideOffset={10}>
-		<WrongAnswer courseImage={activeCourse.image} />
+	<Popover.Content sideOffset={20} alignOffset={-20} class="bg-red-200 shadow-red-900">
+		<WrongAnswer />
 	</Popover.Content>
 </Popover.Root>
