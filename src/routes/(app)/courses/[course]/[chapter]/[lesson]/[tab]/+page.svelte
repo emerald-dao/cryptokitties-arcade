@@ -4,12 +4,15 @@
 	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
 	import LessonTab from './_components/lesson-tabs/LessonTab.svelte';
 	import { COURSES_COLORS } from '$courses/constants/colors';
+	import OpenGraph from '$lib/components/OpenGraph.svelte';
 
 	export let data;
 
 	let incorrectAnswers: string[] = [];
 	let correctAnswers: string[] = [];
 </script>
+
+<OpenGraph title={`Crypto Cats • ${data.course.name}`} description={data.course.excerpt} />
 
 <div
 	class:bg-primary={data.tabContent.type === 'code'}
