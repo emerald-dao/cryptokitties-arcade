@@ -28,7 +28,7 @@
 			event: 'mouseover'
 		},
 		{
-			sound: '/sounds/retro-click.mp3',
+			sound: '/sounds/start-game.wav',
 			event: 'click'
 		}
 	]}

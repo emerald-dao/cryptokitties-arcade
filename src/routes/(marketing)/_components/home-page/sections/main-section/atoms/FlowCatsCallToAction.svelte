@@ -12,6 +12,12 @@
 	<Button
 		href="/courses/1-save-ronald"
 		class="group w-fit px-8 py-2 text-xl transition sm:px-16 sm:py-8 sm:text-2xl"
+		sounds={[
+			{
+				sound: '/sounds/start-game.wav',
+				event: 'click'
+			}
+		]}
 	>
 		<span
 			class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
