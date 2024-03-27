@@ -1,11 +1,6 @@
-<script lang="ts">
-	export let courseImage: string;
-</script>
-
-<div class="flex flex-row items-center justify-between gap-4 px-4 py-6 font-pixel">
-	<div class="text-lg">
-		<p>Wrong answer!</p>
-		<p>Keep trying!</p>
-	</div>
-	<img src="/{courseImage}.png" alt="cat" class="w-28" />
+<div
+	class="flex flex-col items-center justify-between gap-1 text-center font-pixel text-xl uppercase"
+>
+	<p>Ouch!</p>
+	<p>Your answer is wrong!</p>
 </div>

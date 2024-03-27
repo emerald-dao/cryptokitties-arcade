@@ -6,6 +6,9 @@
 	import { COURSES_COLORS } from '$courses/constants/colors';
 
 	export let data;
+
+	let incorrectAnswers: string[] = [];
+	let correctAnswers: string[] = [];
 </script>
 
 <div
@@ -18,7 +21,7 @@
 		<div class="max-h-20">
 			<div class="scrollbar-border-top flex overflow-x-auto overflow-y-hidden border-b-2 bg-white">
 				{#each data.lessonOverview.tabs as tab}
-					<LessonTab {tab} />
+					<LessonTab bind:correctAnswers bind:incorrectAnswers {tab} />
 				{/each}
 			</div>
 		</div>
@@ -30,9 +33,10 @@
 				color={data.course.color}
 				tabContent={data.tabContent}
 				tabOverview={data.tabOverview}
-				courseImage={data.course.image}
 			/>
 			<CheckAnswerButton
+				bind:correctAnswers
+				bind:incorrectAnswers
 				allCourses={data.courses}
 				color={data.course.color}
 				activeCourse={data.course}

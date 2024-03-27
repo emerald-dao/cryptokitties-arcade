@@ -33,10 +33,10 @@
 		}
 	]}
 >
-	<Card.Root class="relative w-full">
+	<Card.Root class="relative w-full overflow-hidden">
 		<div class="md:grid md:grid-cols-[2fr_3fr]">
 			<div
-				class="relative flex items-center justify-center border-r-2 p-6
+				class="relative flex items-center justify-center p-6 sm:border-r-2
 			{COURSES_COLORS[course.color].askForHelp}
 			"
 			>
@@ -55,7 +55,7 @@
 				</h2>
 				<CourseCardLabel>{course.subject}</CourseCardLabel>
 				<p class="text-lg leading-5">{course.excerpt}</p>
-				<div class="absolute bottom-3 right-3">
+				<div class="sm:absolute sm:bottom-2 sm:right-2">
 					<MissionCompletedLabel isCompleted={userFinishedCourse} />
 				</div>
 			</div>

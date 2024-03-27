@@ -31,6 +31,7 @@
 			editor = monaco.editor.create(editorContainer, {
 				theme: 'my-dark',
 				scrollBeyondLastLine: false,
+				fontFamily: 'Fira Code, Consolas, monospace',
 				minimap: {
 					enabled: false
 				},
