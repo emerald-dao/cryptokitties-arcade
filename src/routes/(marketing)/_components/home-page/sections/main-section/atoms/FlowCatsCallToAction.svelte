@@ -10,7 +10,7 @@
 		evil hackers.
 	</p>
 	<Button
-		href="/courses/1-save-ronald"
+		href="/courses/1-beginner-to-intermediate"
 		class="group w-fit px-8 py-2 text-xl transition sm:px-16 sm:py-8 sm:text-2xl"
 		sounds={[
 			{
