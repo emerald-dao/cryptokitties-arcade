@@ -1,50 +1,15 @@
-# Blockchain basics lesson
+# Lesson Overview
 
-I've been using Netlify recently to make a project that uses
-endpoints. Unlike with Vercel where you can use the endpoint to fetch
-the data dynamically Netlify needs to statically generate the data.
+In Chapter 1, you're going to build a "Kitty Creator" to bring a bunch of Kitties to life.
 
-## Subtitle
+- Our creator will maintain a database of all Kitties that are created.
+- Our creator will have a function for creating new Kitties
+- Each Kitty will have a name and a random appearence
 
-There's some SvelteKit `prerender` settings that need configuration
-here's what I set in the `svelte.config.js` file:
+In later lessons, we'll add more functionality, like giving Kitties the ability to attack each other! But before we get there, we have to add the basic functionality of creating new Kitties.
 
-```swift
-pub contract FungibleToken {
+# Put it to the test
 
-    pub resource interface Receiver {
+1. Add a name to the Kitty on the right and then input a bunch of random numbers for its DNA. You should see the Kitty changing based on the number you input!
 
-        pub balance: Int
-
-        pub fun deposit(from: @{Receiver}) {
-            pre {
-                from.balance > 0:
-                    "Deposit balance needs to be positive!"
-            }
-            post {
-                self.balance == before(self.balance) + before(from.balance):
-                    "Incorrect amount removed"
-            }
-        }
-    }
-
-    pub resource Vault: Receiver {
-
-        pub var balance: Int
-
-        init(balance: Int) {
-            self.balance = balance
-        }
-
-        pub fun withdraw(amount: Int): @Vault {
-            self.balance = self.balance - amount
-            return <-create Vault(balance: amount)
-        }
-
-        pub fun deposit(from: @{Receiver}) {
-            self.balance = self.balance + from.balance
-            destroy from
-        }
-    }
-}
-```
+Ok, enough playing around. When you're ready to continue, hit "1.2 Contracts" on the left, and let's dive into learning Cadence!
