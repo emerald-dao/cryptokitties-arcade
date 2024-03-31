@@ -4,7 +4,7 @@ Starting with the absolute basics:
 
 Cadence's code is encapsulated in contracts, transactions, and scripts. A contract is the fundamental building block of Flow applications — all variables and functions belong to a contract, and this will be the starting point of all your projects.
 
-We will cover transactions and scripts later.
+Contracts cannot be interactd with directly, you must use transactions and scripts to write and read data, respectively. We will cover this later.
 
 An empty contract named `HelloWorld` would look like this:
 
