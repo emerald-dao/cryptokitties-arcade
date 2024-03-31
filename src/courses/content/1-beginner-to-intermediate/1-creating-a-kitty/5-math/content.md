@@ -28,6 +28,8 @@ access(all) contract Example {
 }
 ```
 
+Note that we use the `self` keyword to indicate a variable that exists 1 layer outside of our function's scope.
+
 # Put it to the test
 
 Every time we create a Kitty, we're going to want to keep track of the total # of Kitties created.
