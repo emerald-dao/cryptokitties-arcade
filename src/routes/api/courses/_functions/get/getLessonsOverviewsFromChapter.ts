@@ -14,9 +14,11 @@ export const getLessonsOverviewsFromChapter = async (
 	const iterableRecords = Object.entries(lessonsOverviewsRecords);
 
 	const thisCourseRecords = iterableRecords.filter(([path]) => path.split('/')[4] === courseSlug);
-	const thisChapterRecords = thisCourseRecords.filter(
-		([path]) => path.split('/')[5] === chapterSlug
-	);
+	const thisChapterRecords = thisCourseRecords
+		.filter(([path]) => path.split('/')[5] === chapterSlug)
+		.sort(([path1], [path2]) => {
+			return Number(path1.split('/')[6].split('-')[0]) - Number(path2.split('/')[6].split('-')[0]);
+		});
 
 	const chaptersOverviews = await extractOverviewsFromRecords(thisChapterRecords);
 
