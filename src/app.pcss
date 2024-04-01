@@ -51,20 +51,28 @@
 
 	.all-prose {
 		@apply prose prose-lg m-4 max-w-none font-sans;
-		p {
+
+		p,
+		ol,
+		ul {
 			@apply mb-0 text-sm;
 		}
+
 		pre {
 			@apply leading-4;
 		}
+
 		code {
 			@apply m-0 rounded bg-gray-200 px-1 font-mono font-medium text-pink-500;
 		}
+
 		code.language-js,
+		code.language-javascript,
 		code.language-swift,
 		code.language-html {
 			@apply bg-inherit text-xs;
 		}
+
 		code::before,
 		code::after {
 			content: none;
@@ -75,7 +83,15 @@
 		}
 
 		h2 {
+			@apply mb-2 mt-6 font-pixel text-3xl uppercase;
+		}
+
+		h3 {
 			@apply mb-2 mt-6 font-pixel text-2xl uppercase;
+		}
+
+		h4 {
+			@apply mb-2 mt-6 font-pixel text-xl uppercase;
 		}
 	}
 }
