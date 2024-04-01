@@ -16,7 +16,7 @@ log(random) // 3
 
 Learn more <a href="https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom">here</a>.
 
-# Put it to the test
+## Put it to the test
 
 Let's fill in the body of our `generateRandomDna` function! Here's what it should do:
 

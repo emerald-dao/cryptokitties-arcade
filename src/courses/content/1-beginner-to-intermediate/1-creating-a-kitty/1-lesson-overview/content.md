@@ -8,7 +8,7 @@ In Chapter 1, you're going to build a "Kitty Creator" to bring a bunch of Kittie
 
 In later lessons, we'll add more functionality, like giving Kitties the ability to attack each other! But before we get there, we have to add the basic functionality of creating new Kitties.
 
-# Put it to the test
+### Put it to the test
 
 1. Add a name to the Kitty on the right and then input a bunch of random numbers for its DNA. You should see the Kitty changing based on the number you input!
 

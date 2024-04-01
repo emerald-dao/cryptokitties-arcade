@@ -23,6 +23,6 @@ access(all) fun main(peopleIndex: Int): Example.Person {
 }
 ```
 
-# Put it to the test
+## Put it to the test
 
 1. In the `read_kitty.cdc` file, create a script that accepts a `kittyIndex` (an `Int`) argument and returns the `Kitty` at that index from the `kitties` array.

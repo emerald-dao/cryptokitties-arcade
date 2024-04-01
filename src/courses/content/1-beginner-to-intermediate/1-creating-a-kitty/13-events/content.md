@@ -26,7 +26,7 @@ YourContract.IntegersAdded(function (error, result) {
 });
 ```
 
-# Put it to the test
+## Put it to the test
 
 We want an event to let our front-end know every time a new zombie was created, so the app can display it.
 

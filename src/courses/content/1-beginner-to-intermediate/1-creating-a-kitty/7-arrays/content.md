@@ -14,7 +14,7 @@ access(all) let people: [Person]
 
 Remember that state variables are stored permanently in the blockchain? So creating a dynamic array of structs like this can be useful for storing structured data in your contract, kind of like a database.
 
-## Note on Access
+### Note on Access
 
 We have been using `access(all)` a lot on our variables and functions. This simply means it is public, so anyone can get it.
 
@@ -38,7 +38,7 @@ let names: [String] = Example.names
 
 We will cover how to restrict this access later.
 
-# Put it to the test
+## Put it to the test
 
 We're going to want to store a bunch of Kitties in our app.
 

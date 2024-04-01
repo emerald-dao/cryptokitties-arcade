@@ -4,7 +4,7 @@ I've been using Netlify recently to make a project that uses
 endpoints. Unlike with Vercel where you can use the endpoint to fetch
 the data dynamically Netlify needs to statically generate the data.
 
-## Subtitle
+### Subtitle
 
 There's some SvelteKit `prerender` settings that need configuration
 here's what I set in the `svelte.config.js` file:

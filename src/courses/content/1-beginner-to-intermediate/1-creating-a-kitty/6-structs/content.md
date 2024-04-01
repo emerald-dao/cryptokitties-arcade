@@ -16,7 +16,7 @@ access(all) struct Person {
 
 Structs allow you to create more complicated data types that have multiple properties.
 
-# Put it to the test
+## Put it to the test
 
 In our app, we're going to want to create some Kitties! And Kitties will have multiple properties, so this is a perfect use case for a struct.
 

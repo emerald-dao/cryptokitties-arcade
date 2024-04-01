@@ -2,7 +2,7 @@
 
 Now we're going to learn about function return values, and function modifiers.
 
-## Return Values
+### Return Values
 
 To return a value from a function, the declaration looks like this:
 
@@ -14,7 +14,7 @@ access(all) fun sayHello(): String {
 
 In Cadence, the function declaration contains the type of the return value (in this case `String`).
 
-## View Functions
+### View Functions
 
 The above function doesn't actually change state in Cadence — e.g. it doesn't change any values or write anything.
 
@@ -26,7 +26,7 @@ access(all) view fun sayHello(): String {
 }
 ```
 
-# Put it to the test
+## Put it to the test
 
 We're going to want a helper function that generates a random DNA number from a string.
 

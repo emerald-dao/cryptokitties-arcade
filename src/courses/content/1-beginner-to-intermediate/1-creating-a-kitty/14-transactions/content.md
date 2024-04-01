@@ -42,7 +42,7 @@ Transactions have 2 stages:
 1. prepare - to access/manipulate data inside the signer’s account. _Note: We will cover this later._
 2. execute - calling contract functions
 
-# Put it to the test
+## Put it to the test
 
 1. In the `create_kitty.cdc` file, create a transaction that calls the `createRandomKitty` function in your `KittyCreator` contract.
 

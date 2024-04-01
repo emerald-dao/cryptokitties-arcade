@@ -28,7 +28,7 @@ Note that you can also declare functions inside of structs too. If a function in
 
 There are other, more complicated access modifiers that we will get to later.
 
-# Put it to the test
+## Put it to the test
 
 Our contract's `createKitty` function is currently public — this means anyone could call it and create a new `Kitty` in our contract! Let's make it private.
 

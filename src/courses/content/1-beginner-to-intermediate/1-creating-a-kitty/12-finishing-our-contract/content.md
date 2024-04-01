@@ -4,7 +4,7 @@ We're close to being done with our `KittyCreator` contract! Let's create a publi
 
 We're going to create a public function that takes an input, the Kitty's name, and uses the name to create a Kitty with random DNA.
 
-# Put it to the test
+## Put it to the test
 
 1. Create a public function named `createRandomKitty`. It will take one parameter named `name` (a `String`). _Note: Declare this function public._
 
