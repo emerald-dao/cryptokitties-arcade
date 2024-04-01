@@ -1,6 +1,6 @@
 # Working with Structs and Arrays
 
-## Creating New Structs
+### Creating New Structs
 
 Remember our Person struct in the previous example?
 
@@ -38,7 +38,7 @@ numbers.push(15);
 // numbers is now equal to [5, 10, 15]
 ```
 
-# Put it to the test
+## Put it to the test
 
 Let's make our `createKitty` function do something!
 

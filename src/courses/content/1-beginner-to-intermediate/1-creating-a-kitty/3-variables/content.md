@@ -18,13 +18,13 @@ access(all) contract Example {
 
 In this example contract, we created an `Int` called `myInteger` and set it equal to 100.
 
-## Unsigned Integers
+### Unsigned Integers
 
 While `Int` is meant for both negative and positive numbers, you can also use the more popular `UInt64`.
 
 The `UInt64` data type is an unsigned 64 bit integer, meaning its value must be 0 through 18446744073709551615.
 
-# Put it to the test
+## Put it to the test
 
 Our Kitty contract is going to want to track the total amount of Kitties created.
 

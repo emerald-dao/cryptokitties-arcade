@@ -19,7 +19,7 @@ access(all) contract HelloWorld {
 }
 ```
 
-# Put it to the test
+## Put it to the test
 
 To start creating our Kitty, let's create a base contract called `KittyCreator`.
 

@@ -16,7 +16,7 @@ You would call this function like so:
 eatHamburgers(name: "vitalik", amount: 100)
 ```
 
-# Put it to the test
+## Put it to the test
 
 In our app, we're going to need to be able to create some Kitties. Let's create a function for that.
 
