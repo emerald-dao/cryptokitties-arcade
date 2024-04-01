@@ -17,8 +17,8 @@
 
 <div class:border-2={isSidebarOpen} class:border-y-2={!isSidebarOpen}>
 	<a
-		class:flex={isSidebarOpen}
-		class:flex-row={isSidebarOpen}
+		class:grid={isSidebarOpen}
+		class:grid-cols-[1.1fr_4fr]={isSidebarOpen}
 		href={`/courses/${lesson.slug}`}
 		use:sound
 	>
