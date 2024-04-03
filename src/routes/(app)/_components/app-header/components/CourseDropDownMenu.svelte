@@ -25,15 +25,12 @@
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content
 		sideOffset={0}
-		class="min-w-[500px] max-w-[550px] rounded border-2 p-6 font-pixel"
+		class="max-h-[500px] min-w-[500px] max-w-[550px] space-y-3 overflow-y-auto rounded border-2 p-6 font-pixel "
 	>
-		<DropdownMenu.Label class="text-2xl font-normal uppercase">Missions</DropdownMenu.Label>
-		<DropdownMenu.Group class="max-h-96 space-y-3 overflow-auto">
-			{#each courses as course}
-				<DropdownMenu.Item>
-					<CourseSmallCard {course} />
-				</DropdownMenu.Item>
-			{/each}
-		</DropdownMenu.Group>
+		{#each courses as course}
+			<DropdownMenu.Item>
+				<CourseSmallCard {course} />
+			</DropdownMenu.Item>
+		{/each}
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
