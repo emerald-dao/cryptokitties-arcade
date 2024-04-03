@@ -15,7 +15,7 @@
 >
 	<div class="section space-y-6 md:space-y-12">
 		<h2 class="text-center text-4xl uppercase md:text-9xl">Missions</h2>
-		<div class="flex flex-row gap-10">
+		<div class="grid gap-10 md:grid-cols-2">
 			{#each allCourses as course}
 				<div on:mouseover={() => (hoveredColor = course.color)}>
 					<CourseCard {course} />

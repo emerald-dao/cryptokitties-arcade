@@ -20,7 +20,7 @@
 </script>
 
 <a
-	class="group block rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:scale-105 hover:shadow-lg"
+	class="group block h-full rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:scale-105 hover:shadow-lg"
 	href="/courses/{course.slug}"
 	use:sound={[
 		{
@@ -33,7 +33,7 @@
 		}
 	]}
 >
-	<Card.Root class="relative w-full overflow-visible">
+	<Card.Root class="relative flex h-full w-full flex-col overflow-visible">
 		<div
 			class="relative flex items-center justify-center border-b-2 p-6
 			{COURSES_COLORS[course.color].askForHelp}
@@ -48,12 +48,17 @@
 				class="max-h-60 translate-y-[0.4rem] transition duration-300 ease-out group-hover:translate-y-[-0.6rem] group-hover:scale-110"
 			/>
 		</div>
-		<div class="space-y-3 px-8 py-6 {COURSES_COLORS[course.color].background}">
-			<h2 class="text-6xl uppercase">
-				{course.name}
-			</h2>
-			<CourseCardLabel>{course.subject}</CourseCardLabel>
-			<p class="text-lg leading-5">{course.excerpt}</p>
+		<div
+			class="flex flex-1 flex-col justify-between space-y-3 px-8 py-6 {COURSES_COLORS[course.color]
+				.background}"
+		>
+			<div class="space-y-3">
+				<h2 class="text-4xl uppercase leading-none md:text-5xl">
+					{course.name}
+				</h2>
+				<CourseCardLabel>{course.subject}</CourseCardLabel>
+				<p class="text-lg leading-5">{course.excerpt}</p>
+			</div>
 			<MissionCompletedLabel isCompleted={userFinishedCourse} />
 		</div>
 	</Card.Root>
