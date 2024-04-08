@@ -22,7 +22,7 @@
 >
 	{#if data.lessonOverview.tabs.length > 1}
 		<div class="max-h-20">
-			<div class="scrollbar-border-top flex overflow-x-auto overflow-y-hidden border-b-2 bg-white">
+			<div class="scrollbar-border-top flex overflow-auto overflow-y-hidden border-b-2 bg-white">
 				{#each data.lessonOverview.tabs as tab}
 					<LessonTab bind:correctAnswers bind:incorrectAnswers {tab} />
 				{/each}
