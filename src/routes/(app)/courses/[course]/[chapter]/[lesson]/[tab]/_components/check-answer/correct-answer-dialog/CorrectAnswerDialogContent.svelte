@@ -12,6 +12,7 @@
 	import FinishedCourseDialogContent from './FinishedCourseDialogContent.svelte';
 	import FinishedLessonDialogContent from './FinishedLessonDialogContent.svelte';
 	import FinishedLastLessonDialogContent from './FinishedLastLessonDialogContent.svelte';
+	import { checkUserProgress } from '../../../_functions/checkUserProgress';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let activeCourse: CourseOverviewWithChapters;
@@ -21,34 +22,30 @@
 	let coursesAmountOfLessons = getContext<{ [key: string]: number }>('coursesAmountOfLessons');
 	let activeLessonNumber = parseInt($page.params.lesson.split('-')[0]);
 	let activeChapterNumber = parseInt($page.params.chapter.split('-')[0]);
-	let userFinishedAllCourses: boolean;
-	let userFinishedCourse: boolean;
-	let finishedLastLesson: boolean;
 	let lessonToAdd = activeChapter.lessons[activeLessonNumber - 1].slug;
 
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
 		addLessonFinishedSlug(lessonToAdd);
 	}
 
-	userFinishedAllCourses = $userFinishedLessons.length === totalAmountOfLessons;
-
-	userFinishedCourse =
-		$userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ===
-		coursesAmountOfLessons[activeCourse.slug];
-
-	finishedLastLesson =
-		!userFinishedCourse &&
-		activeChapterNumber === activeCourse.chapters.length &&
-		activeLessonNumber === activeChapter.lessons.length;
+	let progress = checkUserProgress(
+		$userFinishedLessons,
+		totalAmountOfLessons,
+		activeCourse,
+		activeChapter,
+		activeChapterNumber,
+		activeLessonNumber,
+		coursesAmountOfLessons[activeCourse.slug]
+	);
 </script>
 
-{#if userFinishedAllCourses}
+{#if progress.userFinishedAllCourses}
 	<audio src="/sounds/success-trumpets.mp3" autoplay></audio>
 	<FinishedAllCoursesDialogContent />
-{:else if userFinishedCourse}
+{:else if progress.userFinishedCourse}
 	<audio src="/sounds/success-trumpets.mp3" autoplay></audio>
 	<FinishedCourseDialogContent {activeCourse} {allCourses} />
-{:else if finishedLastLesson}
+{:else if progress.finishedLastLesson}
 	<audio src="/sounds/success.mp3" autoplay></audio>
 	<FinishedLastLessonDialogContent {activeCourse} />
 {:else}

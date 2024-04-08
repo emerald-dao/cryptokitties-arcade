@@ -5,11 +5,20 @@
 	import LessonTab from './_components/lesson-tabs/LessonTab.svelte';
 	import { COURSES_COLORS } from '$courses/constants/colors';
 	import OpenGraph from '$lib/components/OpenGraph.svelte';
+	import { afterUpdate } from 'svelte';
+	import NextButton from './_components/next/NextButton.svelte';
+	import { page } from '$app/stores';
 
 	export let data;
 
 	let incorrectAnswers: string[] = [];
 	let correctAnswers: string[] = [];
+	let uniqueTypes = new Set();
+
+	afterUpdate(() => {
+		uniqueTypes = new Set();
+		data.lessonOverview.tabs.forEach((item) => uniqueTypes.add(item.type));
+	});
 </script>
 
 <OpenGraph title={`Crypto Cats • ${data.course.name}`} description={data.course.excerpt} />
@@ -30,26 +39,44 @@
 		</div>
 	{/if}
 	<TabContent tabContent={data.tabContent} tabOverview={data.tabOverview} />
-	{#if data.tabContent.type === 'code'}
-		<div class="sticky bottom-0 grid grid-cols-2">
+	<div
+		class:grid-cols-2={data.tabContent.type === 'code'}
+		class:grid-cols-1={data.tabContent.type === 'component'}
+		class="sticky bottom-0 grid"
+	>
+		{#if data.tabContent.type === 'code'}
 			<HelpButton
 				color={data.course.color}
 				tabContent={data.tabContent}
 				tabOverview={data.tabOverview}
 			/>
-			<CheckAnswerButton
-				bind:correctAnswers
-				bind:incorrectAnswers
-				allCourses={data.courses}
-				color={data.course.color}
-				activeCourse={data.course}
-				activeChapter={data.chapter}
-				activeLesson={data.lessonOverview}
-				totalAmountOfLessons={data.totalAmountOfLessons}
-				codeTabsContent={data.codeTabsContent}
-			/>
-		</div>
-	{/if}
+		{/if}
+		{#if uniqueTypes.size === 1 && uniqueTypes.has('component')}
+			{#key $page.url.href}
+				<NextButton
+					allCourses={data.courses}
+					color={data.course.color}
+					activeCourse={data.course}
+					activeChapter={data.chapter}
+					totalAmountOfLessons={data.totalAmountOfLessons}
+				/>
+			{/key}
+		{:else}
+			{#key $page.url.href}
+				<CheckAnswerButton
+					bind:correctAnswers
+					bind:incorrectAnswers
+					allCourses={data.courses}
+					color={data.course.color}
+					activeCourse={data.course}
+					activeChapter={data.chapter}
+					activeLesson={data.lessonOverview}
+					totalAmountOfLessons={data.totalAmountOfLessons}
+					codeTabsContent={data.codeTabsContent}
+				/>
+			{/key}
+		{/if}
+	</div>
 </div>
 
 <style lang="postcss">
