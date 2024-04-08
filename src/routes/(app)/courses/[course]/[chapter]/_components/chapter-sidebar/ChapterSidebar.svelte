@@ -1,17 +1,23 @@
 <script lang="ts">
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import LessonList from '../lessons-list/LessonsList.svelte';
-	import ToggleSidebarButton from '../atoms/ToggleSidebarButton.svelte';
 
 	export let chapter: ChapterOverviewWithLessons;
-
-	let isSidebarOpen = true;
+	export let isSidebarOpen: boolean;
 </script>
 
 <div
 	class:px-10={isSidebarOpen}
-	class="relative flex min-w-[2.55rem] max-w-[400px] flex-col gap-3 border-r-2 py-6 transition-all duration-150 ease-linear"
+	class="h-full min-w-[2.55rem] max-w-[400px] overflow-y-auto border-r-2 py-6 transition-all duration-150 ease-linear"
 >
 	<LessonList bind:isSidebarOpen {chapter} />
-	<ToggleSidebarButton bind:isSidebarOpen />
 </div>
+
+<style lang="postcss">
+	::-webkit-scrollbar {
+		@apply w-2 border-0;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply border-0;
+	}
+</style>

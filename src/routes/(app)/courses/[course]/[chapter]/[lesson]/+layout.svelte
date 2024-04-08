@@ -10,3 +10,12 @@
 	</div>
 	<slot />
 </div>
+
+<style lang="postcss">
+	::-webkit-scrollbar {
+		@apply w-2 border-0;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply border-0;
+	}
+</style>
