@@ -8,7 +8,7 @@
 
 <div
 	class:px-10={isSidebarOpen}
-	class="h-full min-w-[2.55rem] max-w-[400px] overflow-y-auto border-r-2 py-6 transition-all duration-150 ease-linear"
+	class="h-full min-w-[calc(2px_+_2.5rem)] max-w-[350px] overflow-y-auto border-r-2 py-6 transition-all duration-150 ease-linear"
 >
 	<LessonList bind:isSidebarOpen {chapter} />
 </div>
