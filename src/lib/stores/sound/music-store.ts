@@ -2,7 +2,8 @@ import { writable } from 'svelte/store';
 
 export const musicStore = writable({
 	isPlaying: false,
-	activeSong: 0
+	activeSong: 0,
+	volume: [1]
 });
 
 export const MUSIC_SELECTION = [

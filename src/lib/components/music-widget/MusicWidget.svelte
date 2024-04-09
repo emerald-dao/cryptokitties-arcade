@@ -3,11 +3,7 @@
 	import { MUSIC_SELECTION, musicStore } from '$lib/stores/sound/music-store';
 	import Icon from '@iconify/svelte';
 	import { cubicOut } from 'svelte/easing';
-
-	export let songMetadata = {
-		name: 'Song name',
-		artist: 'Artist name'
-	};
+	import { Slider } from '$lib/components/ui/slider/index.js';
 
 	function dragMe(node: HTMLElement) {
 		let moving = false;
@@ -66,6 +62,9 @@
 			>
 				<Icon icon="pixelarticons:next" class="size-4" />
 			</button>
+		</div>
+		<div class="p-2">
+			<Slider bind:value={$musicStore.volume} max={1} step={0.1} />
 		</div>
 	</div>
 {/if}

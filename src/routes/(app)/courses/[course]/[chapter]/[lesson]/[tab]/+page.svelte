@@ -21,7 +21,10 @@
 	});
 </script>
 
-<OpenGraph title={`Crypto Cats • ${data.course.name}`} description={data.course.excerpt} />
+<OpenGraph
+	title={`CryptoKitties: Arcade! • ${data.course.name}`}
+	description={data.course.excerpt}
+/>
 
 <div
 	class:bg-primary={data.tabContent.type === 'code'}

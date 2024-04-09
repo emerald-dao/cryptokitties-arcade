@@ -17,8 +17,9 @@
 		if (browser && music !== null) {
 			music.src = MUSIC_SELECTION[value.activeSong].src;
 
-			if (value.isPlaying) {
-				music.volume = 0.3;
+			if (music.volume !== value.volume[0]) {
+				music.volume = value.volume[0];
+			} else if (value.isPlaying) {
 				music.play();
 
 				music.addEventListener('ended', () => {

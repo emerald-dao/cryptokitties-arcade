@@ -18,15 +18,15 @@
 
 <a
 	href="/"
-	class="group flex items-center gap-0 text-2xl"
+	class="group flex items-center gap-0 space-x-[6px] text-xl font-bold"
 	on:mouseover={() => (isHovered = true)}
 	on:mouseout={() => (isHovered = false)}
 	use:sound
 >
-	<p>
-		<span class="mr-[-4px] text-xl">
-			{$activeLogo}
-		</span>
-		<span class="group-hover:rainbow-text-animated group-hover:text-transparent"> FLOW CATS </span>
-	</p>
+	<span>
+		{$activeLogo}
+	</span>
+	<span class="uppercase"> Crypto </span>
+	<span class="uppercase"> Kitties: </span>
+	<span class="rainbow-text-animated uppercase text-transparent"> Arcade! </span>
 </a>
