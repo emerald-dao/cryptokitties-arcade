@@ -7,6 +7,7 @@
 	import { addUser } from '$lib/features/users/functions/postUser';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { CurrentUserObject } from '@onflow/fcl';
+	import FlowCatsLogo from '$lib/components/atoms/FlowCatsLogo.svelte';
 
 	const connect = async () => {
 		logIn().then(async () => {
@@ -21,13 +22,15 @@
 	};
 </script>
 
-<section class="flex h-full flex-col items-center justify-center gap-7 uppercase">
+<section class="flex h-full flex-1 flex-col items-center justify-center gap-7 uppercase">
 	<Button variant="ghost" href="/" class="none group flex w-fit items-center gap-x-1 p-1">
 		<Icon icon="pixelarticons:arrow-left" />
 		GO HOME
 	</Button>
-	<div class="text-3xl">😺 Flow cats</div>
-	<p class="max-w-[35ch] text-center text-xl">Please connect your Flow wallet to continue</p>
+	<FlowCatsLogo />
+	<p class="max-w-[40ch] text-center text-lg leading-tight">
+		Please connect your Flow wallet to continue
+	</p>
 	<FlowConnect
 		showProgressTrackingPrompt={false}
 		logIn={() => connect()}
