@@ -20,20 +20,22 @@
 </script>
 
 <a
-	class="group block h-full rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out hover:translate-y-[-0.3rem] hover:scale-105 hover:shadow-lg"
+	class={`block h-full rounded border-2 border-solid border-border shadow-md transition duration-300 ease-out ${course.launched ? `group hover:translate-y-[-0.3rem] hover:scale-105 hover:shadow-lg` : `pointer-events-none cursor-default opacity-60`}`}
 	href="/courses/{course.slug}"
-	use:sound={[
-		{
-			sound: '/sounds/sweepdown.wav',
-			event: 'mouseover'
-		},
-		{
-			sound: '/sounds/start-game.wav',
-			event: 'click'
-		}
-	]}
+	use:sound={course.launched
+		? [
+				{
+					sound: '/sounds/sweepdown.wav',
+					event: 'mouseover'
+				},
+				{
+					sound: '/sounds/start-game.wav',
+					event: 'click'
+				}
+			]
+		: []}
 >
-	<Card.Root class="relative flex h-full w-full flex-col overflow-visible">
+	<Card.Root class="relative flex h-full w-full flex-col overflow-hidden">
 		<div
 			class="relative flex items-center justify-center border-b-2 p-6
 			{COURSES_COLORS[course.color].askForHelp}
@@ -45,8 +47,20 @@
 			<img
 				src="/{course.image}.png"
 				alt="course cat"
-				class="max-h-60 translate-y-[0.4rem] transition duration-300 ease-out group-hover:translate-y-[-0.6rem] group-hover:scale-110"
+				class="max-h-60 translate-y-[0.4rem] transition duration-300 ease-out group-hover:translate-y-[-0.2rem] group-hover:scale-110"
+				class:opacity-20={!course.launched}
 			/>
+			{#if !course.launched}
+				<div class="absolute flex h-60 items-center justify-center">
+					<div
+						class="flex w-[1000px] -rotate-12 flex-row justify-center rounded-bl-lg border-y-2 border-solid border-black px-2 py-1 text-xs font-bold {COURSES_COLORS[
+							course.color
+						].background}"
+					>
+						<span class="text-xl uppercase"> Coming Soon </span>
+					</div>
+				</div>
+			{/if}
 		</div>
 		<div
 			class="flex flex-1 flex-col justify-between space-y-3 px-8 py-6 {COURSES_COLORS[course.color]
@@ -59,7 +73,9 @@
 				<CourseCardLabel>{course.subject}</CourseCardLabel>
 				<p class="text-lg leading-5">{course.excerpt}</p>
 			</div>
-			<MissionCompletedLabel isCompleted={userFinishedCourse} />
+			{#if course.launched}
+				<MissionCompletedLabel isCompleted={userFinishedCourse} />
+			{/if}
 		</div>
 	</Card.Root>
 </a>

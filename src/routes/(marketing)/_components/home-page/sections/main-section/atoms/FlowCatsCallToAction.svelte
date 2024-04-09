@@ -20,7 +20,7 @@
 		]}
 	>
 		<span
-			class="flex animate-pulse flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
+			class="animate-super-pulse flex flex-row items-center transition duration-300 ease-in-out group-hover:text-green-200"
 		>
 			PLAY NOW
 			<Icon

@@ -9,7 +9,7 @@
 	<span
 		class={`inline-flex items-center font-pixel text-xl uppercase ${
 			pulse
-				? 'animate-pulse text-green-100 transition duration-300 ease-in-out group-hover:text-green-300'
+				? 'animate-super-pulse text-green-100 transition duration-300 ease-in-out group-hover:text-green-300'
 				: ''
 		}`}
 	>

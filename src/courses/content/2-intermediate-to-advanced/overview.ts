@@ -1,9 +1,10 @@
 import type { CourseOverview } from '$courses/types/course-overview.interface';
 
 export const overview: CourseOverview = {
-	name: 'Save Wilson',
-	excerpt: 'Wilson is in danger! Help him to survive!',
-	subject: 'Flow blockchain',
+	name: 'Intermediate to advanced',
+	excerpt: 'Become a Cadence wizard!',
+	subject: 'Advanced Cadence',
 	color: 'yellow',
-	image: 'magician-cat'
+	image: 'magician-cat',
+	launched: false
 };
