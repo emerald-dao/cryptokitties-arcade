@@ -13,15 +13,10 @@
 	}
 </script>
 
-<button
-	class:right-0={isSidebarOpen}
-	class:-right-6={!isSidebarOpen}
-	class="absolute top-1/2 p-0"
-	on:click={handleClick}
->
+<button class="flex justify-center bg-black px-0 py-1" on:click={handleClick}>
 	{#if isSidebarOpen}
-		<ChevronLeft />
+		<ChevronLeft class="h-5 w-5 text-background" />
 	{:else}
-		<ChevronRight />
+		<ChevronRight class="h-5 w-5 text-background" />
 	{/if}
 </button>

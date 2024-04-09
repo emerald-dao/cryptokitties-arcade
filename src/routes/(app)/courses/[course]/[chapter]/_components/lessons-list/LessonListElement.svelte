@@ -26,13 +26,13 @@
 			class:bg-primary={isLessonActive}
 			class:text-primary-foreground={isLessonActive}
 			class:border-r-2={isSidebarOpen}
-			class="flex items-center justify-center px-2 py-1"
+			class="flex items-center justify-center px-2 py-[0.15rem]"
 		>
 			<p>{`${chapterNumber}.${i + 1}`}</p>
 		</div>
 		{#if isSidebarOpen}
 			<div class="flex w-full flex-row items-center justify-between gap-5 uppercase">
-				<p class="py-1 pl-2 pr-3 leading-4">
+				<p class="py-[0.15rem] pl-2 pr-3 leading-4">
 					{lesson.name}
 				</p>
 				{#if completedLesson}

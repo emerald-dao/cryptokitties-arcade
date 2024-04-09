@@ -7,7 +7,7 @@
 	export let tabContent: TabContentWithType;
 </script>
 
-<div class="flex h-full flex-col p-6">
+<div class="flex h-full flex-col overflow-y-auto p-6">
 	<h5 class:text-primary-foreground={tabContent.type === 'code'} class="text-lg font-medium">
 		{tabOverview.name}
 	</h5>
@@ -17,3 +17,12 @@
 		<svelte:component this={tabContent.content} />
 	{/if}
 </div>
+
+<style lang="postcss">
+	::-webkit-scrollbar {
+		@apply w-2 border-0;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply border-0;
+	}
+</style>
