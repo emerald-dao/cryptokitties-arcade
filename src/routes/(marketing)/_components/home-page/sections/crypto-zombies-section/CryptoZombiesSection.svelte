@@ -39,7 +39,9 @@
 					/>
 				</Card.Header>
 				<Card.Content>
-					<Card.Title class="pt-4 text-2xl uppercase">Crypto Zombies</Card.Title>
+					<Card.Title class="mb-2 pt-4 text-2xl uppercase leading-none"
+						>Solidity: Beginner to Intermediate Smart Contracts</Card.Title
+					>
 					<Card.Description class="text-lg"
 						>Get up to speed with the basics of Solidity.</Card.Description
 					>
