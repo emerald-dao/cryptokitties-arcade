@@ -5,23 +5,19 @@
 	import CorrectAnswerDialogTitle from './atoms/CorrectAnswerDialogTitle.svelte';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import type { CourseOverviewWithChapters } from '$courses/types/course-overview.interface';
+	import { getNextLessonRoute } from '../../../_functions/getNextLessonRoute';
 
 	export let activeChapter: ChapterOverviewWithLessons;
 	export let activeCourse: CourseOverviewWithChapters;
 	export let activeChapterNumber: number;
 	export let activeLessonNumber: number;
 
-	const getNextLessonRoute = () => {
-		if (activeLessonNumber < activeChapter.lessons.length) {
-			return `/courses/${activeChapter.lessons[activeLessonNumber].slug}`;
-		} else if (activeChapterNumber < activeCourse.chapters.length) {
-			return `/courses/${activeCourse.chapters[activeChapterNumber].slug}`;
-		} else {
-			return `/courses/${activeChapter.lessons[activeLessonNumber - 1].slug}`;
-		}
-	};
-
-	let nextLessonRoute = getNextLessonRoute();
+	let nextLessonRoute = getNextLessonRoute(
+		activeChapter,
+		activeCourse,
+		activeChapterNumber,
+		activeLessonNumber
+	);
 </script>
 
 <CorrectAnswerDialogContainer>
