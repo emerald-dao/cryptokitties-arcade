@@ -30,8 +30,6 @@ access(all) view fun sayHello(): String {
 
 We're going to want a helper function that generates a random DNA number from a string.
 
-1. Create a private function called `generateRandomDna`. It will take one parameter named `str` (a `String`), and return a `UInt64`.
+1. Create a private function called `generateRandomDna`. It will return a `UInt64`.
 
-2. This function will view some of our contract's variables but not modify them, so mark it as `view`.
-
-3. The function body should be empty at this point — we'll fill it in later.
+2. The function body should be empty at this point — we'll fill it in later.

@@ -18,7 +18,7 @@ access(all) contract KittyCreator {
         self.kitties.append(newKitty)
     }
 
-    access(self) view fun generateRandomDna(str: String): UInt64 {
+    access(self) fun generateRandomDna(): UInt64 {
         // insert your code below
     }
 

@@ -19,7 +19,7 @@ access(all) contract KittyCreator {
     }
 
     // insert your function here
-    access(self) view fun generateRandomDna(str: String): UInt64 {
+    access(self) fun generateRandomDna(): UInt64 {
         
     }
 

@@ -20,13 +20,13 @@ access(all) contract KittyCreator {
         self.kitties.append(newKitty)
     }
 
-    access(self) fun generateRandomDna(str: String): UInt64 {
+    access(self) fun generateRandomDna(): UInt64 {
         let randomNum: UInt64 = revertibleRandom<UInt64>()
         return randomNum
     }
 
     access(all) fun createRandomKitty(name: String) {
-        let randDna: UInt64 = self.generateRandomDna(str: name)
+        let randDna: UInt64 = self.generateRandomDna()
         self.createKitty(name: name, dna: randDna)
         emit NewKitty(kittyId: self.totalKitties, name: name, dna: randDna)
     }
