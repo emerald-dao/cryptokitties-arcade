@@ -4,6 +4,7 @@
 	import { getUserCompletedLessons } from '$lib/features/users/functions/getUserCompletedLessons';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import FlowCatsLogo from '$lib/components/atoms/FlowCatsLogo.svelte';
 
 	export let data;
 
@@ -23,9 +24,9 @@
 <svelte:window bind:innerWidth />
 
 {#if innerWidth < 1100}
-	<section class="flex flex-1 flex-col items-center justify-center gap-7">
-		<div class="text-2xl uppercase">😺 Flow cats</div>
-		<p class="max-w-[35ch] text-center">
+	<section class="flex h-full flex-1 flex-col items-center justify-center gap-7">
+		<FlowCatsLogo />
+		<p class="max-w-[40ch] text-center text-lg uppercase leading-tight">
 			For a better user experience please use a device with a larger screen.
 		</p>
 	</section>
