@@ -26,7 +26,9 @@
 	<span>
 		{$activeLogo}
 	</span>
-	<span class="uppercase"> Crypto </span>
-	<span class="uppercase"> Kitties: </span>
-	<span class="rainbow-text-animated uppercase text-transparent"> Arcade! </span>
+	<p class="flex flex-row gap-[4px]">
+		CryptoKitties<span class="rainbow-text-animated uppercase tracking-wide text-transparent">
+			Arcade</span
+		>
+	</p>
 </a>
