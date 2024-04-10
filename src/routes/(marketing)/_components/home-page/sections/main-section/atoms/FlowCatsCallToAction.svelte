@@ -5,9 +5,9 @@
 
 <div class="mt-4 flex flex-col gap-3 sm:mt-0 sm:gap-3">
 	<h1 class="text-4xl uppercase leading-9 tracking-tight sm:text-7xl">Crypto kitties need help!</h1>
-	<p class="mb-2 text-lg uppercase leading-7 md:text-xl">
-		Learn everything you need to know about the Flow blockchain while saving Crypto Kitties from
-		evil hackers.
+	<p class="mb-2 text-lg leading-7 md:text-xl">
+		Learn everything you need to know about the Flow blockchain while saving CryptoKitties from evil
+		hackers.
 	</p>
 	<Button
 		href="/courses/1-beginner-to-intermediate"
