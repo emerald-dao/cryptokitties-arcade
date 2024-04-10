@@ -2,10 +2,10 @@
 	let name: string;
 
 	let imageOptions = [
-		'vegetation-cat.png',
-		'sailor-cat.png',
-		'medieval-cat.png',
-		'magician-cat.png'
+		'/images/cats/vegetation-cat.png',
+		'/images/cats/sailor-cat.png',
+		'/images/cats/medieval-cat.png',
+		'/images/cats/magician-cat.png'
 	];
 	let chosenImageIndex = 0;
 

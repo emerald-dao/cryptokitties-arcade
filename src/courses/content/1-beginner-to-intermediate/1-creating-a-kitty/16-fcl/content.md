@@ -46,10 +46,10 @@ fcl.events(event).subscribe((eventData) => {
 // take the Kitty dna, and update our image
 function generateKitty(dna) {
     let imageOptions = [
-        'vegetation-cat.png',
-        'sailor-cat.png',
-        'medieval-cat.png',
-        'magician-cat.png'
+        '/images/cats/vegetation-cat.png',
+        '/images/cats/sailor-cat.png',
+        '/images/cats/medieval-cat.png',
+        '/images/cats/magician-cat.png'
 	];
     let chosenImageIndex = dna % 4;
     return imageOptions[chosenImageIndex]

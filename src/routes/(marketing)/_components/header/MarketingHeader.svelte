@@ -31,7 +31,11 @@
 	<div class="hidden h-full flex-row items-center gap-2 md:flex">
 		<span class="text-lg uppercase"
 			>An adventure built on
-			<img src="/flow-logo.svg" alt="Flow logo" class="mr-[-0.3rem] mt-[-0.2rem] inline size-6" />
+			<img
+				src="/images/logos/flow-logo.svg"
+				alt="Flow logo"
+				class="mr-[-0.3rem] mt-[-0.2rem] inline size-6"
+			/>
 			Flow
 		</span>
 	</div>
