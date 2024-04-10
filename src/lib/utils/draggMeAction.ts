@@ -5,6 +5,7 @@ function dragMe(node: HTMLElement) {
 
 	node.style.top = `${top}px`;
 	node.style.left = `${left}px`;
+	node.style.position = 'absolute';
 	node.style.cursor = 'move';
 	node.style.userSelect = 'none';
 
