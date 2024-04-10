@@ -4,6 +4,7 @@ export interface DappSticker {
 	position: {
 		left: string;
 		top: string;
+		rotation: number;
 	};
 }
 
@@ -13,7 +14,8 @@ export const DAPP_STICKERS: DappSticker[] = [
 		logo: '/ecdao-logo.svg',
 		position: {
 			left: '24%',
-			top: '5%'
+			top: '5%',
+			rotation: -10
 		}
 	}
 ];

@@ -5,17 +5,19 @@ export interface NftCollectionSticker {
 	position: {
 		left: string;
 		top: string;
+		rotation: number;
 	};
 }
 
 export const NFT_COLLECTIONS_STICKERS: NftCollectionSticker[] = [
 	{
-		name: 'Crypto Kitties',
+		name: 'CryptoKitties',
 		image: '/sailor-cat.png',
 		bg: 'bg-blue-200',
 		position: {
 			left: '10%',
-			top: '15%'
+			top: '15%',
+			rotation: 5
 		}
 	},
 	{
@@ -24,7 +26,8 @@ export const NFT_COLLECTIONS_STICKERS: NftCollectionSticker[] = [
 		bg: 'bg-green-200',
 		position: {
 			left: '70%',
-			top: '80%'
+			top: '80%',
+			rotation: 2
 		}
 	},
 	{
@@ -33,7 +36,8 @@ export const NFT_COLLECTIONS_STICKERS: NftCollectionSticker[] = [
 		bg: 'bg-pink-200',
 		position: {
 			left: '15%',
-			top: '74%'
+			top: '74%',
+			rotation: -4
 		}
 	}
 ];

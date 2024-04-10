@@ -29,16 +29,17 @@
 		<div class="absolute left-10 top-6">
 			<FlowCatsLogo />
 		</div>
-		<p class="max-w-[40ch] text-2xl leading-tight">Please connect your Flow wallet to continue</p>
+		<p class="max-w-[40ch] text-2xl leading-tight">Connect your Flow wallet to enter the mission</p>
 		<FlowConnect
 			showProgressTrackingPrompt={false}
 			logIn={() => connect()}
 			{unauthenticate}
 			user={$user}
+			size="lg"
 		/>
 	</div>
 	<div
-		class="relative flex flex-col items-center justify-center gap-2 overflow-hidden border-l-2 bg-green-300 p-[20%] text-4xl"
+		class="relative flex flex-col items-center justify-center overflow-hidden border-l-2 bg-green-300 p-[20%] text-4xl"
 	>
 		<Stickers />
 		<h3 class="block">

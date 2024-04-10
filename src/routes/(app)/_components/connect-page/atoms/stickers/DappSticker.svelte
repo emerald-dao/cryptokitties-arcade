@@ -17,7 +17,11 @@
 </script>
 
 <div
-	use:sticker={{ left: dapp.position.left, top: dapp.position.top }}
+	use:sticker={{
+		left: dapp.position.left,
+		top: dapp.position.top,
+		rotation: dapp.position.rotation
+	}}
 	use:dragMe
 	class="absolute flex items-center justify-center rounded-full border-2 bg-white p-1 shadow-sm"
 >
