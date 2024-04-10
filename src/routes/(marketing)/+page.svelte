@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CryptoZombiesSection from './_components/home-page/sections/crypto-zombies-section/CryptoZombiesSection.svelte';
 	import HeroSection from './_components/home-page/sections/main-section/HeroSection.svelte';
 	import CoursesSection from './_components/home-page/sections/courses-section/CoursesSection.svelte';
 	import { getUserCompletedLessons } from '$lib/features/users/functions/getUserCompletedLessons';
@@ -20,3 +21,4 @@
 
 <HeroSection />
 <CoursesSection allCourses={data.courses} />
+<CryptoZombiesSection />

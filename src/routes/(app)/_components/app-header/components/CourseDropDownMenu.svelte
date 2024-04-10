@@ -28,9 +28,11 @@
 		class="max-h-[500px] min-w-[500px] max-w-[550px] space-y-3 overflow-y-auto rounded border-2 p-6 font-pixel "
 	>
 		{#each courses as course}
-			<DropdownMenu.Item>
-				<CourseSmallCard {course} />
-			</DropdownMenu.Item>
+			{#if course.launched}
+				<DropdownMenu.Item>
+					<CourseSmallCard {course} />
+				</DropdownMenu.Item>
+			{/if}
 		{/each}
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
