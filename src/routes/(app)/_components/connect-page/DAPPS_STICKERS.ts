@@ -11,7 +11,7 @@ export interface DappSticker {
 export const DAPP_STICKERS: DappSticker[] = [
 	{
 		name: 'Emerald City DAO',
-		logo: '/ecdao-logo.svg',
+		logo: '/images/logos/ecdao-logo.svg',
 		position: {
 			left: '24%',
 			top: '5%',

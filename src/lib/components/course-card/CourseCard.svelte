@@ -43,7 +43,7 @@
 				<CourseCardLabel>{level}</CourseCardLabel>
 			</div>
 			<img
-				src="/{course.image}.png"
+				src={course.image}
 				alt="course cat"
 				class="max-h-60 translate-y-[0.4rem] transition duration-300 ease-out group-hover:translate-y-[-0.6rem] group-hover:scale-110"
 			/>

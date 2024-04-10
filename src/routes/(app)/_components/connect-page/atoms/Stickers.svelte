@@ -14,14 +14,14 @@
 {#each DAPP_STICKERS as dappSticker}
 	<DappSticker dapp={dappSticker} />
 {/each}
-<ImageSticker left="7%" top="84%" rotation={7} imageUrl="/flow-logo.svg" />
+<ImageSticker left="7%" top="84%" rotation={7} imageUrl="/images/logos/flow-logo.svg" />
 <img
 	use:sticker={{ left: '65%', top: '17%', rotation: 4 }}
 	use:dragMe
 	draggable="false"
-	src="/nba-top-shot-logo.png"
+	src="/images/logos/nba-top-shot-logo.png"
 	class="h-14 w-44 rounded border-2 bg-white object-cover"
 	role="presentation"
 	alt=""
 />
-<ImageSticker left="60%" top="8%" rotation={-12} imageUrl="/flow-logo.svg" />
+<ImageSticker left="60%" top="8%" rotation={-12} imageUrl="/images/logos/flow-logo.svg" />

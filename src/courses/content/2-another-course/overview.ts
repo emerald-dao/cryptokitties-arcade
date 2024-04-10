@@ -5,5 +5,5 @@ export const overview: CourseOverview = {
 	excerpt: 'Wilson is in danger! Help him to survive!',
 	subject: 'Flow blockchain',
 	color: 'yellow',
-	image: 'magician-cat'
+	image: '/images/cats/magician-cat.png'
 };
