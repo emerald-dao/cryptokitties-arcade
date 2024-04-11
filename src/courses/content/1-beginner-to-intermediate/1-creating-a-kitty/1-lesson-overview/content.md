@@ -12,4 +12,4 @@ In later lessons, we'll add more functionality, like giving Kitties the ability 
 
 1. Add a name to the Kitty on the right. You should see the Kitty changing based on the name you input!
 
-Ok, enough playing around. When you're ready to continue, hit "1.2 Contracts" on the left, and let's dive into learning Cadence!
+Ok, enough playing around. When you're ready to continue, hit "Next" and get ready to dive into learning Cadence!
