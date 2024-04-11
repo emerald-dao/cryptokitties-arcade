@@ -57,7 +57,7 @@
 					>Discord</a
 				>
 				<a
-					href="https://ecdao.org"
+					href="https://twitter.com/emerald_dao"
 					target="_blank"
 					class="underline decoration-gray-300 transition-all duration-300 ease-in-out hover:decoration-green-400"
 					>Twitter</a
