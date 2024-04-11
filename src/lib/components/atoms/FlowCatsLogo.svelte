@@ -23,12 +23,12 @@
 	on:mouseout={() => (isHovered = false)}
 	use:sound
 >
-	<span>
-		{$activeLogo}
-	</span>
-	<p class="flex flex-row gap-[4px]">
-		CryptoKitties<span class="rainbow-text-animated uppercase tracking-wide text-transparent">
-			Arcade</span
-		>
+	<div class="relative flex h-full w-[2.5ch] items-center justify-center">
+		<span class="absolute mt-1 inline-block">
+			{$activeLogo}
+		</span>
+	</div>
+	<p class="flex flex-row gap-[5px]">
+		CryptoKitties:<span class="rainbow-text-animated uppercase text-transparent"> Arcade!</span>
 	</p>
 </a>
