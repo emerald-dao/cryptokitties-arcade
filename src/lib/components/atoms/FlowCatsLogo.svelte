@@ -18,15 +18,17 @@
 
 <a
 	href="/"
-	class="group flex items-center gap-0 text-2xl"
+	class="group flex items-center gap-0 space-x-[6px] text-xl font-bold"
 	on:mouseover={() => (isHovered = true)}
 	on:mouseout={() => (isHovered = false)}
 	use:sound
 >
-	<p>
-		<span class="mr-[-4px] text-xl">
+	<div class="relative flex h-full w-[2.5ch] items-center justify-center">
+		<span class="absolute mt-1 inline-block">
 			{$activeLogo}
 		</span>
-		<span class="group-hover:rainbow-text-animated group-hover:text-transparent"> FLOW CATS </span>
+	</div>
+	<p class="flex flex-row gap-[5px]">
+		CryptoKitties:<span class="rainbow-text-animated uppercase text-transparent"> Arcade!</span>
 	</p>
 </a>

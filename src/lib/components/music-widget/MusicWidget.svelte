@@ -4,11 +4,6 @@
 	import Icon from '@iconify/svelte';
 	import { cubicOut } from 'svelte/easing';
 	import dragMe from '$lib/utils/draggMeAction';
-
-	export let songMetadata = {
-		name: 'Song name',
-		artist: 'Artist name'
-	};
 </script>
 
 {#if $musicStore.isPlaying}

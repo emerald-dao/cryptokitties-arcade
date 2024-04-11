@@ -18,8 +18,8 @@
 			music.src = MUSIC_SELECTION[value.activeSong].src;
 
 			if (value.isPlaying) {
-				music.volume = 0.3;
 				music.play();
+				music.volume = 0.3;
 
 				music.addEventListener('ended', () => {
 					$musicStore.activeSong++;

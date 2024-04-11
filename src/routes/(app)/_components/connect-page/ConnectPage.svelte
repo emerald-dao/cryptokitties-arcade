@@ -24,7 +24,7 @@
 	};
 </script>
 
-<section class="grid h-full grid-cols-[2fr_3fr] gap-7 uppercase">
+<section class="grid h-full grid-cols-[2fr_3fr] gap-7">
 	<div class="flex flex-col justify-center gap-6 p-[20%]">
 		<div class="absolute left-10 top-6">
 			<FlowCatsLogo />
@@ -42,7 +42,7 @@
 		class="relative flex flex-col items-center justify-center overflow-hidden border-l-2 bg-green-300 p-[20%] text-4xl"
 	>
 		<Stickers />
-		<h3 class="block">
+		<h3 class="block uppercase">
 			why build <span class="rainbow-text-animated text-transparent">#onflow</span>
 		</h3>
 		<Carousel.Root>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	export let title = 'Crypto Cats';
+	export let title = 'CryptoKitties: Arcade!';
 	export let description =
 		'Learn everything you need to know about the Flow blockchain while saving Crypto Kitties from evil hackers.';
 	export let image = '/og-image.jpg';
