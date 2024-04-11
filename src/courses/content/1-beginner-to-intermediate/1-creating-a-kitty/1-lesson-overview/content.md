@@ -10,6 +10,6 @@ In later lessons, we'll add more functionality, like giving Kitties the ability 
 
 ### Put it to the test
 
-1. Add a name to the Kitty on the right and then input a bunch of random numbers for its DNA. You should see the Kitty changing based on the number you input!
+1. Add a name to the Kitty on the right. You should see the Kitty changing based on the name you input!
 
 Ok, enough playing around. When you're ready to continue, hit "1.2 Contracts" on the left, and let's dive into learning Cadence!
