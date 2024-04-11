@@ -5,5 +5,6 @@ export const overview: CourseOverview = {
 	excerpt: 'Get up to speed with the basics of Cadence.',
 	subject: 'cadence basics',
 	color: 'purple',
-	image: 'magician-cat'
+	image: '/images/cats/medieval-cat.png',
+	launched: true
 };

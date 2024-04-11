@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { User } from '$lib/types/user/user.interface';
-	import { Button } from '$lib/components/ui/button';
+	import { Button, type Props } from '$lib/components/ui/button';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import Icon from '@iconify/svelte';
 
@@ -8,6 +8,7 @@
 	export let unauthenticate: () => void;
 	export let user: User | null;
 	export let showProgressTrackingPrompt = true;
+	export let size: Props['size'] = 'default';
 
 	function logOut() {
 		userFinishedLessons.set([]);
@@ -32,7 +33,7 @@
 		{#if showProgressTrackingPrompt}
 			<h4 class="text-sm">Connect to track progress</h4>
 		{/if}
-		<Button class="gap-1 px-4 py-2" on:click={logIn}>
+		<Button class="gap-1 px-4 py-2" on:click={logIn} {size}>
 			Connect
 			<Icon icon="pixelarticons:wallet" class="size-4" />
 		</Button>

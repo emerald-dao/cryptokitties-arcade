@@ -18,7 +18,7 @@
 <div class:border-2={isSidebarOpen} class:border-y-2={!isSidebarOpen}>
 	<a
 		class:grid={isSidebarOpen}
-		class:grid-cols-[1.1fr_4fr]={isSidebarOpen}
+		class:grid-cols-[3rem_auto]={isSidebarOpen}
 		href={`/courses/${lesson.slug}`}
 		use:sound
 	>
@@ -26,7 +26,7 @@
 			class:bg-primary={isLessonActive}
 			class:text-primary-foreground={isLessonActive}
 			class:border-r-2={isSidebarOpen}
-			class="flex items-center justify-center px-2 py-[0.15rem]"
+			class="flex items-center justify-center px-1 py-[0.18rem] tracking-tighter"
 		>
 			<p>{`${chapterNumber}.${i + 1}`}</p>
 		</div>

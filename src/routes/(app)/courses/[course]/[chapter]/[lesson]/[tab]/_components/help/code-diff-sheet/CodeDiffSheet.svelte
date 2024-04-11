@@ -76,9 +76,9 @@
 		>
 	</Sheet.Trigger>
 	<Sheet.Content side="right" class="font-pixel">
-		<Sheet.Header class="flex flex-row items-center justify-between">
+		<Sheet.Header class="flex flex-row items-center justify-between pb-2 pt-4">
 			<Sheet.Title class="text-2xl uppercase">Help!</Sheet.Title>
 		</Sheet.Header>
-		<div bind:this={editorContainer} class="h-80"></div>
+		<div bind:this={editorContainer} class="h-96 overflow-hidden rounded-[8px]"></div>
 	</Sheet.Content>
 </Sheet.Root>

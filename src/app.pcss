@@ -50,20 +50,14 @@
 	}
 
 	.all-prose {
-		@apply prose prose-lg m-4 max-w-none font-sans;
-
-		p,
-		ol,
-		ul {
-			@apply mb-0 text-sm;
-		}
+		@apply prose my-6 ml-[calc(2.2%_-_0.7rem)] mr-[2.2%] font-sans leading-relaxed;
 
 		pre {
 			@apply leading-4;
 		}
 
 		code {
-			@apply m-0 rounded bg-gray-200 px-1 font-mono font-medium text-pink-500;
+			@apply m-0 rounded bg-gray-100 px-1 font-mono font-medium text-pink-500;
 		}
 
 		code.language-js,
@@ -78,20 +72,27 @@
 			content: none;
 		}
 
+		h1,
+		h2,
+		h3,
+		h4 {
+			@apply font-pixel uppercase;
+		}
+
 		h1 {
-			@apply mb-4 font-pixel text-4xl uppercase;
+			@apply mb-6 text-3xl;
 		}
 
 		h2 {
-			@apply mb-2 mt-6 font-pixel text-3xl uppercase;
+			@apply text-2xl;
 		}
 
 		h3 {
-			@apply mb-2 mt-6 font-pixel text-2xl uppercase;
+			@apply text-xl;
 		}
 
 		h4 {
-			@apply mb-2 mt-6 font-pixel text-xl uppercase;
+			@apply text-lg;
 		}
 	}
 }
@@ -144,6 +145,20 @@
 
 		50% {
 			background-position: 100% 0;
+		}
+	}
+
+	.animate-super-pulse {
+		animation: super_pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+
+	@keyframes super_pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.8;
 		}
 	}
 }

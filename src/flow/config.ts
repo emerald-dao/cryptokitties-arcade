@@ -5,7 +5,7 @@ import { env } from '$env/dynamic/public';
 const resolver = async () => {
 	const nonce = '7f190deedcd3b0538b7cd0ebc1994ed40d9db16cc1a6fcc3e7a994240c14d86d';
 	return {
-		appIdentifier: 'Toucans',
+		appIdentifier: 'CryptoKitties: Arcade!',
 		nonce
 	};
 };
@@ -24,12 +24,12 @@ const fclConfigInfo = {
 	testnet: {
 		accessNode: 'https://rest-testnet.onflow.org',
 		discoveryWallet: 'https://fcl-discovery.onflow.org/testnet/authn',
-		discoveryAuthnInclude: ['0x9d2e44203cb13051']
+		discoveryAuthnInclude: ['0x9d2e44203cb13051', '0x82ec283f88a62e65']
 	},
 	mainnet: {
 		accessNode: 'https://rest-mainnet.onflow.org',
 		discoveryWallet: 'https://fcl-discovery.onflow.org/authn',
-		discoveryAuthnInclude: ['0xe5cd26afebe62781']
+		discoveryAuthnInclude: ['0xe5cd26afebe62781', '0xead892083b3e2c6c']
 	}
 };
 

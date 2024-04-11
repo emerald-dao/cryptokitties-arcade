@@ -3,36 +3,7 @@
 	import { MUSIC_SELECTION, musicStore } from '$lib/stores/sound/music-store';
 	import Icon from '@iconify/svelte';
 	import { cubicOut } from 'svelte/easing';
-	import { Slider } from '$lib/components/ui/slider/index.js';
-
-	function dragMe(node: HTMLElement) {
-		let moving = false;
-		let left = 300;
-		let top = 100;
-
-		node.style.position = 'fixed';
-		node.style.top = `${top}px`;
-		node.style.left = `${left}px`;
-		node.style.cursor = 'move';
-		node.style.userSelect = 'none';
-
-		node.addEventListener('mousedown', () => {
-			moving = true;
-		});
-
-		window.addEventListener('mousemove', (e) => {
-			if (moving) {
-				left += e.movementX;
-				top += e.movementY;
-				node.style.top = `${top}px`;
-				node.style.left = `${left}px`;
-			}
-		});
-
-		window.addEventListener('mouseup', () => {
-			moving = false;
-		});
-	}
+	import dragMe from '$lib/utils/draggMeAction';
 </script>
 
 {#if $musicStore.isPlaying}

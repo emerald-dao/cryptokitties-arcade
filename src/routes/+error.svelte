@@ -18,11 +18,11 @@
 	<div class="py-10">
 		<Button href="/" class="group w-fit px-8 py-8 text-xl">
 			<span
-				class="flex animate-pulse flex-row items-center gap-x-3 transition duration-300 ease-in-out group-hover:text-green-200"
+				class="animate-super-pulse flex flex-row items-center gap-x-3 transition duration-300 ease-in-out group-hover:text-green-200"
 			>
 				<Icon
 					icon="pixelarticons:arrow-left"
-					class="size-8 inline transition duration-300 ease-in-out"
+					class="inline size-8 transition duration-300 ease-in-out"
 				/>
 				GO HOME
 			</span>
