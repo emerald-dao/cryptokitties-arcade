@@ -34,8 +34,5 @@
 				<Icon icon="pixelarticons:next" class="size-4" />
 			</button>
 		</div>
-		<div class="p-2">
-			<Slider bind:value={$musicStore.volume} max={1} step={0.1} />
-		</div>
 	</div>
 {/if}
