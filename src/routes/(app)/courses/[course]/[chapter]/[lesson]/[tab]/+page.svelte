@@ -4,7 +4,6 @@
 	import CheckAnswerButton from './_components/check-answer/CheckAnswerButton.svelte';
 	import LessonTab from './_components/lesson-tabs/LessonTab.svelte';
 	import { COURSES_COLORS } from '$courses/constants/colors';
-	import OpenGraph from '$lib/components/OpenGraph.svelte';
 	import { afterUpdate } from 'svelte';
 	import NextButton from './_components/next/NextButton.svelte';
 	import { page } from '$app/stores';
@@ -20,11 +19,6 @@
 		data.lessonOverview.tabs.forEach((item) => uniqueTypes.add(item.type));
 	});
 </script>
-
-<OpenGraph
-	title={`CryptoKitties: Arcade! • ${data.course.name}`}
-	description={data.course.excerpt}
-/>
 
 <div
 	class:bg-primary={data.tabContent.type === 'code'}

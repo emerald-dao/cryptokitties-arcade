@@ -6,6 +6,7 @@
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import ConnectPage from '../../_components/connect-page/ConnectPage.svelte';
 	import DesktopOnlyPage from '../../_components/desktop-page/DesktopOnlyPage.svelte';
+	import OpenGraph from '$lib/components/OpenGraph.svelte';
 
 	export let data;
 
@@ -23,6 +24,12 @@
 </script>
 
 <svelte:window bind:innerWidth />
+
+<OpenGraph
+	title={`CryptoKitties: Arcade! • ${data.course.name}`}
+	description={data.course.excerpt}
+	courseName={data.course.name}
+/>
 
 {#if innerWidth < 1100}
 	<DesktopOnlyPage />

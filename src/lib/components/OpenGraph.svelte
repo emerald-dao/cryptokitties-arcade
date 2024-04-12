@@ -2,8 +2,11 @@
 	import { page } from '$app/stores';
 
 	export let title = 'CryptoKitties: Arcade!';
-	export let description = 'Learn to code Cadence 1.0 by playing simple games with CrypotKitties!';
-	export let image = '/og-image.jpg';
+	export let description =
+		'Learn to code Cadence 1.0 by playing simple games with CrypotKitties!';
+	export let courseName = '';
+
+	export let image = `/og?course=${courseName}`;
 </script>
 
 <svelte:head>
