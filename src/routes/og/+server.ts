@@ -40,7 +40,7 @@ export const GET = (async ({ fetch, url }) => {
 					props: {
 						style: {
 							display: 'flex',
-							padding: '20px',
+							padding: '40px',
 							width: '100%',
 							height: '100%'
 						},
@@ -77,7 +77,7 @@ export const GET = (async ({ fetch, url }) => {
 												display: 'flex',
 												gap: '16px',
 												'flex-shrink': 0,
-												'font-size': courseName ? '78px' : '90px'
+												'font-size': courseName ? '68px' : '86px'
 											}
 										}
 									},
@@ -85,7 +85,7 @@ export const GET = (async ({ fetch, url }) => {
 										type: 'div',
 										props: {
 											children: courseName,
-											style: { 'flex-shrink': 0, fontSize: '90px', 'text-transform': 'uppercase' }
+											style: { 'flex-shrink': 0, fontSize: '86px', 'text-transform': 'uppercase' }
 										}
 									}
 								],
@@ -97,8 +97,8 @@ export const GET = (async ({ fetch, url }) => {
 									height: '100%',
 									fontSize: '64px',
 									gap: '62px',
-									padding: '40px',
-									'border-radius': '20px',
+									padding: '60px',
+									'border-radius': '40px',
 									'flex-direction': 'column',
 									'align-items': 'center',
 									'justify-content': 'center',
