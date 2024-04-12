@@ -4,7 +4,9 @@
 	export let title = 'CryptoKitties: Arcade!';
 	export let description =
 		'Learn everything you need to know about the Flow blockchain while saving Crypto Kitties from evil hackers.';
-	export let image = '/og-image.jpg';
+	export let courseName = '';
+
+	export let image = `/og?course=${courseName}`;
 </script>
 
 <svelte:head>
