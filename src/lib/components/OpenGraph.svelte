@@ -3,7 +3,7 @@
 
 	export let title = 'CryptoKitties: Arcade!';
 	export let description =
-		'Learn everything you need to know about the Flow blockchain while saving Crypto Kitties from evil hackers.';
+		'Learn to code Cadence 1.0 by playing simple games with CrypotKitties!';
 	export let courseName = '';
 
 	export let image = `/og?course=${courseName}`;

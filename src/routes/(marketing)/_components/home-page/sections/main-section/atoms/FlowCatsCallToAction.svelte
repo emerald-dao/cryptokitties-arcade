@@ -4,9 +4,10 @@
 </script>
 
 <div class="mt-4 flex flex-col gap-3 sm:mt-0 sm:gap-3">
-	<h1 class="text-4xl uppercase leading-9 tracking-tight sm:text-7xl">Crypto kitties need help!</h1>
+	<h1 class="text-4xl uppercase leading-9 tracking-tight sm:text-7xl">Learn to code Cadence 1.0</h1>
 	<p class="mb-2 text-lg leading-7 md:text-xl">
-		Learn everything about the Flow blockchain while saving CryptoKitties from evil hackers.
+		CryptoKitties: Arcade! is a fun play-to-learn platform to help you learn the most developer
+		friendly & composable smart contract language.
 	</p>
 	<Button
 		href="/courses/1-beginner-to-intermediate"
