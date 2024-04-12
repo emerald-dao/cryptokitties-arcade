@@ -11,12 +11,15 @@
 	import CorrectAnswerDialogContent from '../check-answer/correct-answer-dialog/CorrectAnswerDialogContent.svelte';
 	import { page } from '$app/stores';
 	import {
-		addLessonFinishedSlug,
+		addLessonFinishedSlugToStore,
 		userFinishedLessons
 	} from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { getNextLessonRoute } from '../../_functions/getNextLessonRoute';
 	import { goto } from '$app/navigation';
 	import { checkUserProgress } from '../../_functions/checkUserProgress';
+	import { user } from '$lib/stores/flow/FlowStore';
+	import { addUserLessonFinishedToDB } from '$lib/features/users/functions/postUserLessonFinished';
+	import type { CurrentUserObject } from '@onflow/fcl';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let color: keyof typeof COURSES_COLORS;
@@ -31,7 +34,10 @@
 
 	const nextLesson = () => {
 		if (!$userFinishedLessons.includes(lessonToAdd)) {
-			addLessonFinishedSlug(lessonToAdd);
+			addLessonFinishedSlugToStore(lessonToAdd);
+		}
+		if ($user.addr) {
+			addUserLessonFinishedToDB($user as CurrentUserObject, lessonToAdd);
 		}
 		goto(getNextLessonRoute(activeChapter, activeCourse, activeChapterNumber, activeLessonNumber));
 	};

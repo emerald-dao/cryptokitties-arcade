@@ -5,7 +5,7 @@
 		CourseOverviewWithSlug
 	} from '$courses/types/course-overview.interface';
 	import { page } from '$app/stores';
-	import { addLessonFinishedSlug } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
+	import { addLessonFinishedSlugToStore } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import { getContext } from 'svelte';
 	import { userFinishedLessons } from '$lib/stores/user-finished-lessons/userFinishedLessonsStore';
 	import FinishedAllCoursesDialogContent from './FinishedAllCoursesDialogContent.svelte';
@@ -25,7 +25,7 @@
 	let lessonToAdd = activeChapter.lessons[activeLessonNumber - 1].slug;
 
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
-		addLessonFinishedSlug(lessonToAdd);
+		addLessonFinishedSlugToStore(lessonToAdd);
 	}
 
 	let progress = checkUserProgress(
