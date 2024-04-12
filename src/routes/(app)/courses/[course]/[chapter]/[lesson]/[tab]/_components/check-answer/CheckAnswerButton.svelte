@@ -9,7 +9,7 @@
 	} from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
-	import { addUserLessonFinished } from '$lib/features/users/functions/postUserLessonFinished';
+	import { addUserLessonFinishedToDB } from '$lib/features/users/functions/postUserLessonFinished';
 	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithTabs } from '$courses/types/lesson-overview.interface';
 	import type { CurrentUserObject } from '@onflow/fcl';
@@ -77,7 +77,7 @@
 			dialogOpen = true;
 
 			if ($user.addr) {
-				addUserLessonFinished($user as CurrentUserObject, activeLesson.slug);
+				addUserLessonFinishedToDB($user as CurrentUserObject, activeLesson.slug);
 			}
 		} else {
 			popOverOpen = true;
