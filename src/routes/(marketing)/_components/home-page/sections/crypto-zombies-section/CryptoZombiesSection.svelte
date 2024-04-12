@@ -6,7 +6,7 @@
 <section class="border-t-2 border-solid py-16">
 	<div class="section flex flex-col items-center space-y-8">
 		<div>
-			<h2 class="mb-2 text-center text-3xl uppercase md:text-6xl">Help zombies too</h2>
+			<h2 class="mb-2 text-center text-3xl uppercase md:text-6xl">Try zombies too</h2>
 			<p class="max-w-[90ch] text-center text-lg">
 				Following the Crescendo update, the Flow Blockchain will be 100%
 				<a href="https://flow.com/upgrade/crescendo/evm" target="_blank" class="underline"
