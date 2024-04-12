@@ -14,8 +14,8 @@
 				>.
 			</p>
 			<p class="max-w-[90ch] text-center text-lg">
-				<a href="https://cryptozombies.io/" target="_blank" class="underline">Crypto Zombies</a>,
-				the platform that inspired us to create this game, is an awesome place to start learning
+				<a href="https://cryptozombies.io/" target="_blank" class="underline">CryptoZombies</a>, the
+				platform that inspired us to create this game, is an awesome place to start learning
 				Solidity.
 			</p>
 		</div>
