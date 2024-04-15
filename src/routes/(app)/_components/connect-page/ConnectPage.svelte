@@ -45,11 +45,11 @@
 		<h3 class="block uppercase">
 			why build <span class="rainbow-text-animated text-transparent">#onflow</span>
 		</h3>
-		<Carousel.Root>
+		<Carousel.Root class="w-[110%]">
 			<Carousel.Content>
 				{#each TWEETS as tweet}
 					<Carousel.Item>
-						<div class="p-4">
+						<div>
 							<TweetCard {tweet} />
 						</div>
 					</Carousel.Item>
