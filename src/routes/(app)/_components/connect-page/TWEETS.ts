@@ -52,7 +52,7 @@ const TWEETS: Tweet[] = [
 	},
 	{
 		id: '5',
-		text: 'The first step to understand @flow_blockchain is to understand Cadence, the contract programming language of Flow. Is powerful and will be interoperable with Solidity soon',
+		text: 'Cadence is powerful and will be interoperable with Solidity soon. CryptoKitties: Arcade! is a fun and exciting way to experiment and learn.',
 		user: {
 			name: 'Navid TehraniFar',
 			username: 'navid_te',
