@@ -12,22 +12,22 @@ export interface Tweet {
 const TWEETS: Tweet[] = [
 	{
 		id: '1',
-		text: 'I am a tweet',
+		text: 'Cadence is the most composable & developer friendly smart contract language.',
 		user: {
 			name: 'Jacob Tucker',
 			username: 'jacobmtucker',
 			avatar: '/images/avatars/jacob-avatar.jpg',
-			description: 'Emerald City DAO founder'
+			description: 'Founder of Emerald City'
 		}
 	},
 	{
 		id: '2',
-		text: 'I am another',
+		text: 'Go with the Flow',
 		user: {
-			name: 'Jane Doe',
-			username: 'janedoe',
-			avatar: 'https://i.pravatar.cc/100',
-			description: 'I am a description'
+			name: 'Roham',
+			username: 'roham',
+			avatar: '/images/avatars/roham-avatar.jpeg',
+			description: 'CEO of Dapper Labs'
 		}
 	}
 ];
