@@ -39,16 +39,21 @@
 		/>
 	</div>
 	<div
-		class="relative flex flex-col items-center justify-center overflow-hidden border-l-2 bg-green-300 p-[20%] text-4xl"
+		class="relative flex flex-col items-center justify-center overflow-hidden border-l-2 bg-green-300 p-[12%] text-4xl"
 	>
 		<Stickers />
 		<h3 class="block uppercase">
 			why build <span class="rainbow-text-animated text-transparent">#onflow</span>
 		</h3>
-		<Carousel.Root class="w-[110%]">
+		<Carousel.Root
+			class="w-full"
+			opts={{
+				loop: true
+			}}
+		>
 			<Carousel.Content>
 				{#each TWEETS as tweet}
-					<Carousel.Item>
+					<Carousel.Item class="flex w-full flex-col justify-center">
 						<div>
 							<TweetCard {tweet} />
 						</div>
