@@ -32,7 +32,7 @@ We want an event to let our front-end know every time a new zombie was created, 
 
 1. Declare an event called `NewKitty`. It should pass `kittyId` (a `UInt64`), `name` (a `String`), and `dna` (a `UInt64`).
 
-2. Modify the `createKitty` function to fire the `NewKitty` event after adding the new `Kitty` to our `kitties` array.
+2. Modify the `createRandomKitty` function to fire the `NewKitty` event after adding the new `Kitty` to our `kitties` array.
 
 3. You're going to need the Kitty's id. For this scenario, we can use `totalKitties` as the `id`, since it will increment upon the creation of every new Kitty.
 
