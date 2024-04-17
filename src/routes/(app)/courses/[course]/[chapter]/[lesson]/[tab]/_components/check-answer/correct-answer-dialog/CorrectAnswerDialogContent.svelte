@@ -13,6 +13,9 @@
 	import FinishedLessonDialogContent from './FinishedLessonDialogContent.svelte';
 	import FinishedLastLessonDialogContent from './FinishedLastLessonDialogContent.svelte';
 	import { checkUserProgress } from '../../../_functions/checkUserProgress';
+	import { user } from '$lib/stores/flow/FlowStore';
+	import { addUserLessonFinishedToDB } from '$lib/features/users/functions/postUserLessonFinished';
+	import type { CurrentUserObject } from '@onflow/fcl';
 
 	export let allCourses: CourseOverviewWithSlug[];
 	export let activeCourse: CourseOverviewWithChapters;
@@ -26,6 +29,9 @@
 
 	if (!$userFinishedLessons.includes(lessonToAdd)) {
 		addLessonFinishedSlugToStore(lessonToAdd);
+		if ($user.addr) {
+			addUserLessonFinishedToDB($user as CurrentUserObject, lessonToAdd);
+		}
 	}
 
 	let progress = checkUserProgress(
