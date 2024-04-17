@@ -49,7 +49,7 @@ function generateKitty(dna) {
         '/images/cats/vegetation-cat.png',
         '/images/cats/sailor-cat.png',
         '/images/cats/medieval-cat.png',
-        '/images/cats/magician-cat.png'
+        '/images/cats/fire-cat.png'
 	];
     let chosenImageIndex = dna % 4;
     return imageOptions[chosenImageIndex]

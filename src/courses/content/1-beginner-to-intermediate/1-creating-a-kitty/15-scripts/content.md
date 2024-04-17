@@ -12,7 +12,7 @@ access(all) fun main() {
 
 Let's say we have a contract named `Example` that has a public variable named `people` that has type `[Person]`, where `Person` is a struct defined in that contract.
 
-We can read one of the `People` like so:
+We can a `Person` like so:
 
 ```swift
 import "Example"
