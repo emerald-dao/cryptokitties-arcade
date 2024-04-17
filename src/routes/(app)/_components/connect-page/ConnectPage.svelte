@@ -46,14 +46,14 @@
 			why build <span class="rainbow-text-animated text-transparent">#onflow</span>
 		</h3>
 		<Carousel.Root
-			class="w-full"
+			class="w-full max-w-[700px]"
 			opts={{
 				loop: true
 			}}
 		>
 			<Carousel.Content>
 				{#each TWEETS as tweet}
-					<Carousel.Item class="flex w-full flex-col justify-center">
+					<Carousel.Item class="flex w-full flex-col justify-center p-4">
 						<div>
 							<TweetCard {tweet} />
 						</div>
