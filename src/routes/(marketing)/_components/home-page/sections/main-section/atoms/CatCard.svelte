@@ -10,7 +10,7 @@
 <div
 	use:sound={[{ event: 'mouseover', sound: '/sounds/woosh.wav' }]}
 	class="group {COURSES_COLORS[cat.color]
-		.background} relative flex h-full w-full flex-1 items-center justify-center overflow-hidden rounded border-2"
+		.background} relative flex h-full w-full items-center justify-center overflow-hidden rounded border-2"
 >
 	<div
 		class="absolute bottom-[-40px] left-0 hidden w-full border-t-2 bg-primary px-4 py-2 text-center leading-7 text-white transition-transform duration-300 ease-out group-hover:translate-y-[-39px] md:block"
