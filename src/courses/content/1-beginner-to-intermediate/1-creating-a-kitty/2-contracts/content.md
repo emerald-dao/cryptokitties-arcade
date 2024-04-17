@@ -25,4 +25,4 @@ To start creating our Kitty, let's create a base contract called `KittyCreator`.
 
 1. Create an empty contract called `KittyCreator`.
 
-When you're finished, click "Check Answer" below. If you get stuck, you can click "Ask for Help".
+When you're finished, click "Submit Answer" below. If you get stuck, you can click "Ask for Help".

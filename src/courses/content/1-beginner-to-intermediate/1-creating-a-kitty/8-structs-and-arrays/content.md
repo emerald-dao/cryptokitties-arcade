@@ -32,9 +32,9 @@ Note that `array.append()` adds something to the end of the array, so the elemen
 
 ```swift
 let numbers: [UInt64]
-numbers.push(5);
-numbers.push(10);
-numbers.push(15);
+numbers.append(5);
+numbers.append(10);
+numbers.append(15);
 // numbers is now equal to [5, 10, 15]
 ```
 
