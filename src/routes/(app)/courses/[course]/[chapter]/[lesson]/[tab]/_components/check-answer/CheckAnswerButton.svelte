@@ -9,10 +9,7 @@
 	} from '$courses/types/course-overview.interface';
 	import type { ChapterOverviewWithLessons } from '$courses/types/chapter-overview.interface';
 	import WrongAnswer from './atoms/WrongAnswer.svelte';
-	import { addUserLessonFinishedToDB } from '$lib/features/users/functions/postUserLessonFinished';
-	import { user } from '$lib/stores/flow/FlowStore';
 	import type { LessonOverviewWithTabs } from '$courses/types/lesson-overview.interface';
-	import type { CurrentUserObject } from '@onflow/fcl';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { CodeTabContent } from '../../_types/tab-content.type';
 	import CorrectAnswerDialogContent from './correct-answer-dialog/CorrectAnswerDialogContent.svelte';
@@ -75,10 +72,6 @@
 
 		if (allTabsCorrect) {
 			dialogOpen = true;
-
-			if ($user.addr) {
-				addUserLessonFinishedToDB($user as CurrentUserObject, activeLesson.slug);
-			}
 		} else {
 			popOverOpen = true;
 
