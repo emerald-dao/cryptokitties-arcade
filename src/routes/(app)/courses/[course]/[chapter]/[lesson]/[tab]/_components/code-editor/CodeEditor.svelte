@@ -88,7 +88,7 @@
 	});
 </script>
 
-<div class="flex-grow">
+<div class="flex-grow overflow-hidden">
 	<div bind:this={editorContainer} class="h-full w-full" />
 </div>
 <svelte:window on:resize={handleResize} />
