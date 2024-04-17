@@ -8,6 +8,6 @@
 	});
 </script>
 
-<article class="all-prose px-6 pb-6 dark:prose-invert">
+<article class="all-prose mx-auto px-10 py-6 dark:prose-invert">
 	<svelte:component this={lessonContent} />
 </article>

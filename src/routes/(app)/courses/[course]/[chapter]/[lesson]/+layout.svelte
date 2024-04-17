@@ -5,7 +5,7 @@
 </script>
 
 <div class="grid h-full grid-cols-[1fr_1fr]">
-	<div class="article-wrapper overflow-auto">
+	<div class="article-wrapper overflow-y-auto overflow-x-hidden">
 		<LessonArticle lessonContent={data.lessonContent} />
 	</div>
 	<slot />

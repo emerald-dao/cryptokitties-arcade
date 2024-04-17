@@ -65,7 +65,7 @@
 	}
 
 	.all-prose {
-		@apply prose my-6 ml-[calc(2.2%_-_0.7rem)] mr-[2.2%] font-sans leading-relaxed;
+		@apply prose ml-[calc(2.2%_-_0.7rem)] text-pretty font-sans text-[0.94rem] leading-relaxed text-gray-800;
 
 		pre {
 			@apply leading-4;
@@ -134,7 +134,7 @@
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		@apply bg-gray-300 transition-colors ease-in-out;
+		@apply bg-gray-200 transition-colors ease-in-out hover:bg-gray-300;
 	}
 
 	.rainbow-text-animated {

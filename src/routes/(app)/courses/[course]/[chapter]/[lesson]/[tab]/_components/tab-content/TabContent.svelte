@@ -7,7 +7,7 @@
 	export let tabContent: TabContentWithType;
 </script>
 
-<div class="flex h-full flex-col overflow-y-auto p-6">
+<div class="flex h-full flex-col overflow-y-auto px-10 py-6">
 	<h5 class:text-primary-foreground={tabContent.type === 'code'} class="text-lg font-medium">
 		{tabOverview.name}
 	</h5>

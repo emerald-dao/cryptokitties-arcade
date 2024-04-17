@@ -8,6 +8,7 @@
 
 <div
 	class:px-10={isSidebarOpen}
+	class:sidebar-border={!isSidebarOpen}
 	class="h-full min-w-[calc(2px_+_2.5rem)] max-w-[350px] overflow-y-auto border-r-2 py-6 transition-all duration-150 ease-linear"
 >
 	<LessonList bind:isSidebarOpen {chapter} />
@@ -19,5 +20,12 @@
 	}
 	::-webkit-scrollbar-thumb {
 		@apply border-0;
+	}
+
+	::-webkit-scrollbar.sidebar-border {
+		@apply hidden;
+	}
+	::-webkit-scrollbar-thumb.sidebar-border {
+		@apply hidden;
 	}
 </style>
