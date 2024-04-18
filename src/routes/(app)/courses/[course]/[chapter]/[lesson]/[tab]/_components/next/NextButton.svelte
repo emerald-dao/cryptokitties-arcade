@@ -53,7 +53,7 @@
 	);
 </script>
 
-{#if progress.userFinishedAllCourses || progress.userFinishedCourse || progress.finishedLastLesson}
+{#if progress.userFinishedAllCourses || progress.userFinishedCourse || progress.finishedLastLesson || progress.oneLessonLeftToFinishCourse}
 	<Dialog.Root>
 		<Dialog.Trigger
 			><Button
