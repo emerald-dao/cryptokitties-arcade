@@ -21,9 +21,14 @@ export const checkUserProgress = (
 		activeChapterNumber === activeCourse.chapters.length &&
 		activeLessonNumber === activeChapter.lessons.length;
 
+	let oneLessonLeftToFinishCourse =
+		userFinishedLessons.filter((l) => l.includes(activeCourse.slug))?.length ===
+		coursesAmountOfLessons - 1;
+
 	return {
 		userFinishedAllCourses,
 		userFinishedCourse,
-		finishedLastLesson
+		finishedLastLesson,
+		oneLessonLeftToFinishCourse
 	};
 };
