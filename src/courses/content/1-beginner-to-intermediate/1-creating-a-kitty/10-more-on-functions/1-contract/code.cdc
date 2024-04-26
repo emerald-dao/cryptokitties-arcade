@@ -18,6 +18,8 @@ access(all) contract KittyCreator {
         self.kitties.append(newKitty)
     }
 
+    // add your code below
+
     init() {
         self.totalKitties = 0
         self.kitties = []
