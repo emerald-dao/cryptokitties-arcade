@@ -7,6 +7,7 @@
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
 	import { beforeUpdate, afterUpdate } from 'svelte';
 	import type * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
+	import configureCadence, { CADENCE_LANGUAGE_ID } from '../../../cadence/cadenceLang';
 
 	export let color: keyof typeof COURSES_COLORS;
 	export let tabContent: TabContentWithType;
@@ -20,6 +21,8 @@
 	async function handleAskForHelp() {
 		monaco = (await import('../../code-editor/monaco')).default;
 		if (editorContainer && monaco && tabContent.type === 'code') {
+			configureCadence(monaco);
+
 			let codeStore = persistentWritable<string>(tabOverview.slug, tabContent.content.startingCode);
 
 			const unsubscribe = codeStore.subscribe((value) => {
@@ -50,8 +53,8 @@
 			});
 
 			monacoDiffEditor.setModel({
-				original: monaco.editor.createModel(userCode, 'cadence'),
-				modified: monaco.editor.createModel(tabContent.content.solutionCode, 'cadence')
+				original: monaco.editor.createModel(userCode, CADENCE_LANGUAGE_ID),
+				modified: monaco.editor.createModel(tabContent.content.solutionCode, CADENCE_LANGUAGE_ID)
 			});
 
 			unsubscribe();
