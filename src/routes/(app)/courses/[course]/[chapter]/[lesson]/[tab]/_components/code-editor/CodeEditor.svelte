@@ -4,6 +4,7 @@
 	import persistentWritable from '$lib/stores/custom/persistentWritable';
 	import type { LessonTabOverviewWithSlug } from '$courses/types/lesson-tab-overview.interface';
 	import { resizeEvent } from '$lib/stores/resize-event/resizeEventStore';
+	import configureCadence, { CADENCE_LANGUAGE_ID } from '../../cadence/cadenceLang';
 
 	export let defaultCode: string;
 	export let tabOverview: LessonTabOverviewWithSlug;
@@ -17,6 +18,8 @@
 	async function initializeMonaco() {
 		monaco = (await import('./monaco')).default;
 		if (editorContainer && monaco) {
+			configureCadence(monaco);
+
 			monaco.editor.defineTheme('my-dark', {
 				base: 'vs-dark',
 				inherit: true,
@@ -40,7 +43,7 @@
 				renderValidationDecorations: 'off'
 			});
 
-			const model = monaco.editor.createModel($codeStore, 'javascript');
+			const model = monaco.editor.createModel($codeStore, CADENCE_LANGUAGE_ID);
 			editor.setModel(model);
 
 			editor.onDidChangeModelContent(() => {
@@ -61,7 +64,7 @@
 				code = value;
 			});
 
-			const model = monaco.editor.createModel(code, 'javascript');
+			const model = monaco.editor.createModel(code, CADENCE_LANGUAGE_ID);
 			editor.setModel(model);
 
 			unsubscribe();
