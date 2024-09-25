@@ -23,6 +23,6 @@
 	<img
 		src={cat.image}
 		alt="Crypto kitties cat"
-		class="z-10 w-full transition-transform duration-300 ease-out group-hover:translate-y-[-25px] group-hover:scale-75"
+		class="w-full transition-transform duration-300 ease-out group-hover:translate-y-[-25px] group-hover:scale-75"
 	/>
 </div>
