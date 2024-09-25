@@ -13,7 +13,7 @@
 		.background} relative flex h-full w-full items-center justify-center overflow-hidden rounded border-2"
 >
 	<div
-		class="absolute bottom-[-40px] left-0 hidden w-full border-t-2 bg-primary px-4 py-2 text-center leading-7 text-white transition-transform duration-300 ease-out group-hover:translate-y-[-39px] md:block"
+		class="absolute bottom-[-37px] left-0 hidden w-full border-t-2 bg-primary px-4 py-2 text-center leading-7 text-white transition-transform duration-300 ease-out group-hover:translate-y-[-37px] md:block"
 	>
 		<span class="text-xl uppercase">{name ?? cat.name}</span>
 		<p class="line-clamp-2 h-8 leading-4">
