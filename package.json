@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@iconify/svelte": "^3.1.6",
-		"@onflow/fcl": "1.8.1",
+		"@onflow/fcl": "1.12.1",
 		"@resvg/resvg-js": "^2.6.2",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
